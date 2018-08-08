@@ -1,0 +1,3 @@
+===============rescuearea.core
+===============
+User documentation

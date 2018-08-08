@@ -1,0 +1,6 @@
+[report]
+include =
+    src/rescuearea/*
+omit =
+    */test*
+    */upgrades/*
