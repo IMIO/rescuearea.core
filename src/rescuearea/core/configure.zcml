@@ -15,6 +15,8 @@
 
   <include package=".browser" />
 
+  <include package=".content" />
+
   <include file="permissions.zcml" />
 
   <include file="upgrades.zcml" />
@@ -42,6 +44,10 @@
       name="rescuearea.core-hiddenprofiles"
       />
 
-  <!-- -*- extra stuff goes here -*- -->
+  <utility
+      component=".vocabularies.SEVESOVocabulary"
+      name="rescuearea.core.vocabularies.seveso"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      />
 
 </configure>
