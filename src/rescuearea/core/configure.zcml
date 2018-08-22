@@ -50,4 +50,10 @@
       provides="zope.schema.interfaces.IVocabularyFactory"
       />
 
+  <utility
+      component=".vocabularies.ClassificationVocabulary"
+      name="rescuearea.core.vocabularies.classification"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      />
+
 </configure>

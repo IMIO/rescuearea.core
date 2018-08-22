@@ -29,3 +29,15 @@ class SEVESOVocabularyFactory(object):
 
 
 SEVESOVocabulary = SEVESOVocabularyFactory()
+
+
+class ClassificationVocabularyFactory(object):
+
+    def __call__(self, context):
+        values = [{'LOW': _('LOW', u'Low risk')},
+                  {'MED': _('MED', u'Medium Risk')},
+                  {'HIG': _('HIG', u'High risk')}]
+        return dict_list_2_vocabulary(values)
+
+
+ClassificationVocabulary = ClassificationVocabularyFactory()
