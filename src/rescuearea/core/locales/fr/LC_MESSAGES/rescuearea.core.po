@@ -24,7 +24,7 @@ msgstr "2 Avant le départ"
 
 #: ../content/ppi.py:278
 msgid "3 During the ride"
-msgstr "Pendant le trajet"
+msgstr "3 Pendant le trajet"
 
 #: ../content/ppi.py:298
 msgid "4 On site "
@@ -88,7 +88,7 @@ msgstr "<p>Préciser ici si un point de rencontre est prévu avec les responsabl
 
 #: ../content/ppi.py:272
 msgid "<p>Specify here if specific actions are to be taken by the operator.</p><p>For example, if the call comes from a private individual, it is imperative to contact the lodge on duty to inform those in charge of the site of our arrival, and thus be welcomed.</p>"
-msgstr "<p>Décrire en quelques mots pourquoi ce site est particulier et a fait l'objet d'un PPI.</p><p>Exemple : Accès peu évident, architecture complexe, risque(s) exceptionnel(s) présent(s), moyens de lutte disponibles sur le site à destination des pompiers, endroit pour lequel une intervention sera ardue du fait de l'absence de compartimentage...</p>"
+msgstr "<p>Préciser ici si des actions particulières doivent être faites par le téléphoniste.</p><p>Exemple, si l'appel provient d'un particulier, il faut impérativement contacter la loge de garde pour avertir les responsables du site de notre arrivée, et ainsi être accueilli.</p>"
 
 #: ../content/ppi.py:313
 msgid "<p>Specify here the means that must be taken in addition to firefighting, or the personal protective equipment imposed on an industrial site for example</p>"
