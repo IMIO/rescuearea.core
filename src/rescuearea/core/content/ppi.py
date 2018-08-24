@@ -10,6 +10,110 @@ from plone.app.textfield import RichText
 from plone.supermodel.directives import fieldset
 from plone.namedfile.field import NamedBlobFile
 
+default_value = u"""<table border="1">
+<tbody>
+<tr>
+<td>
+<h6>00h00</h6>
+</td>
+<td>
+<h6>01h00</h6>
+</td>
+<td>
+<h6>02h00</h6>
+</td>
+<td>
+<h6>03h00</h6>
+</td>
+<td>
+<h6>04h00</h6>
+</td>
+<td>
+<h6>05h00</h6>
+</td>
+<td>
+<h6>06h00</h6>
+</td>
+<td>
+<h6>07h00</h6>
+</td>
+<td>
+<h6>08h00</h6>
+</td>
+<td>
+<h6>09h00</h6>
+</td>
+<td>
+<h6>10h00</h6>
+</td>
+<td>
+<h6>11h00</h6>
+</td>
+<td>
+<h6>12h00</h6>
+</td>
+<td>
+<h6>13h00</h6>
+</td>
+<td>
+<h6>14h00</h6>
+</td>
+<td>
+<h6>15h00</h6>
+</td>
+<td>
+<h6>16h00</h6>
+</td>
+<td>
+<h6>17h00</h6>
+</td>
+<td>
+<h6>18h00</h6>
+</td>
+<td>
+<h6>19h00</h6>
+</td>
+<td>
+<h6>20h00</h6>
+</td>
+<td>
+<h6>21h00</h6>
+</td>
+<td>
+<h6>22h00</h6>
+</td>
+<td>
+<h6>23h00</h6>
+</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>"""
 
 class IContactRowSchema(model.Schema):
     priority = schema.TextLine(
@@ -71,8 +175,10 @@ class IOccupancyScheduleRowSchema(model.Schema):
         required=False,
     )
 
-    description = schema.Text(
+    description = RichText(
         title=_(u"Description"),
+        default_mime_type='text/x-web-textile',
+        default=default_value,
         required=False,
     )
 
