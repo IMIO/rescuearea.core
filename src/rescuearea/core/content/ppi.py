@@ -10,6 +10,7 @@ from zope import schema
 from zope.interface import implements
 
 from rescuearea.core import _
+from rescuearea.core.content.object_factory import register_object_factories
 
 
 class IContactRowSchema(model.Schema):
@@ -458,3 +459,6 @@ class IPpi(model.Schema):
 
 class Ppi(Container):
     implements(IPpi)
+
+
+register_object_factories(IPpi)
