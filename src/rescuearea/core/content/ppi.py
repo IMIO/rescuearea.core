@@ -72,7 +72,7 @@ class IOccupancyScheduleRowSchema(model.Schema):
         required=False,
     )
 
-    description = schema.Text(
+    description = RichText(
         title=_(u'Description'),
         required=False,
     )
