@@ -20,7 +20,9 @@
  <property name="add_permission">cmf.AddPortalContent</property>
  <property name="klass">rescuearea.core.content.ppi.Ppi</property>
  <property name="behaviors">
-  <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
  <property name="schema">rescuearea.core.content.ppi.IPpi</property>

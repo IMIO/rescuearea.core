@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
-from rescuearea.core import _
 
-from plone.dexterity.content import Container
-from plone.supermodel import model
-from zope.interface import implements
-from zope import schema
 from plone.app.textfield import RichText
-from plone.supermodel.directives import fieldset
+from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
+from plone.supermodel import model
+from plone.supermodel.directives import fieldset
+from zope import schema
+from zope.interface import implements
+
+from rescuearea.core import _
 
 
 class IContactRowSchema(model.Schema):
@@ -134,7 +135,7 @@ class IPpi(model.Schema):
     fieldset(
         'description sheet',
         label=_(u'1 Description sheet'),
-        fields=['site_name',
+        fields=['title',
                 'other_names',
                 'address',
                 'occupancy_schedule',
@@ -151,7 +152,7 @@ class IPpi(model.Schema):
                 ]
     )
 
-    site_name = schema.TextLine(
+    title = schema.TextLine(
         title=_(u'Site name'),
         required=True,
     )
@@ -397,7 +398,7 @@ class IPpi(model.Schema):
     fieldset(
         'Administration of PPI',
         label=_(u'7 Administration of PPI'),
-        fields=['ppi_reference',
+        fields=['description',
                 'date_of_last_modification',
                 'deadline_for_searching_for_additional_information',
                 'modification_history',
@@ -408,7 +409,7 @@ class IPpi(model.Schema):
                 ]
     )
 
-    ppi_reference = schema.TextLine(
+    description = schema.TextLine(
         title=_(u'PPI reference'),
         required=True,
     )
