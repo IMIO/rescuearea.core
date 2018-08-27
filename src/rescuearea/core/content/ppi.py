@@ -12,6 +12,121 @@ from zope.interface import implements
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import register_object_factories
 
+default_value = u"""<table border="1">
+<tbody>
+<tr>
+<td>
+<h6>00h00</h6>
+</td>
+<td>
+<h6>01h00</h6>
+</td>
+<td>
+<h6>02h00</h6>
+</td>
+<td>
+<h6>03h00</h6>
+</td>
+<td>
+<h6>04h00</h6>
+</td>
+<td>
+<h6>05h00</h6>
+</td>
+<td>
+<h6>06h00</h6>
+</td>
+<td>
+<h6>07h00</h6>
+</td>
+<td>
+<h6>08h00</h6>
+</td>
+<td>
+<h6>09h00</h6>
+</td>
+<td>
+<h6>10h00</h6>
+</td>
+<td>
+<h6>11h00</h6>
+</td>
+<td>
+<h6>12h00</h6>
+</td>
+<td>
+<h6>13h00</h6>
+</td>
+<td>
+<h6>14h00</h6>
+</td>
+<td>
+<h6>15h00</h6>
+</td>
+<td>
+<h6>16h00</h6>
+</td>
+<td>
+<h6>17h00</h6>
+</td>
+<td>
+<h6>18h00</h6>
+</td>
+<td>
+<h6>19h00</h6>
+</td>
+<td>
+<h6>20h00</h6>
+</td>
+<td>
+<h6>21h00</h6>
+</td>
+<td>
+<h6>22h00</h6>
+</td>
+<td>
+<h6>23h00</h6>
+</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<div class="page" title="Page 1">
+<p></p>
+</div>
+<div>
+<div class="column">
+<p><span>0 pas d'occupation</span></p>
+<p><span>1 Travailleurs présents </span></p>
+<p><span>2 Ouverture au public </span></p>
+</div>
+</div>"""
+
 
 class IContactRowSchema(model.Schema):
     priority = schema.TextLine(
@@ -75,6 +190,8 @@ class IOccupancyScheduleRowSchema(model.Schema):
 
     description = RichText(
         title=_(u'Description'),
+        default_mime_type='text/html',
+        default=default_value,
         required=False,
     )
 

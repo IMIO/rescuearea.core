@@ -4,4 +4,10 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="rescuearea.core">
 
+  <subscriber
+    for=".ppi.IPpi
+         zope.lifecycleevent.IObjectAddedEvent"
+    handler=".event.create_history"
+    />
+
 </configure>
