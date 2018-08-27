@@ -10,6 +10,7 @@ from zope import schema
 from zope.interface import implements
 
 from rescuearea.core import _
+from rescuearea.core.content.object_factory import ObjectField
 from rescuearea.core.content.object_factory import register_object_factories
 
 default_value = u"""<table border="1">
@@ -280,13 +281,13 @@ class IPpi(model.Schema):
         required=False,
     )
 
-    address = schema.Object(
+    address = ObjectField(
         title=_(u'Address'),
         schema=IAddressRowSchema,
         required=True,
     )
 
-    occupancy_schedule = schema.Object(
+    occupancy_schedule = ObjectField(
         title=_(u'Occupancy schedule'),
         description=_(u'<p>Specify night occupancy or not. Specify public occupation</p>'),
         schema=IOccupancyScheduleRowSchema,
@@ -307,7 +308,7 @@ class IPpi(model.Schema):
     contacts = schema.List(
         title=_(u'Contacts'),
         required=False,
-        value_type=schema.Object(
+        value_type=ObjectField(
             title=_(u'Contacts'),
             schema=IContactRowSchema
         ),
@@ -341,7 +342,7 @@ class IPpi(model.Schema):
         required=False,
     )
 
-    keys_code_access_badge_fields = schema.Object(
+    keys_code_access_badge_fields = ObjectField(
         schema=IKeysCodeAccessBadgeFieldsRowSchema,
         required=False,
     )
@@ -464,7 +465,7 @@ class IPpi(model.Schema):
         required=False,
     )
 
-    appendix_map_of_the_location = schema.Object(
+    appendix_map_of_the_location = ObjectField(
         title=_(u'Appendix : Map of the location'),
         description=_(u'<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>'),
         schema=ILinkFileRowSchema,
@@ -477,7 +478,7 @@ class IPpi(model.Schema):
         required=True,
     )
 
-    appendix_water_resources = schema.Object(
+    appendix_water_resources = ObjectField(
         title=_(u'Appendix : Water resources'),
         description=_(u'<p>mandatory to be printed from the PPI carto application</p>'),
         schema=ILinkFileRowSchema,
@@ -545,7 +546,7 @@ class IPpi(model.Schema):
     modification_history = schema.List(
         title=_(u'Modification history'),
         required=False,
-        value_type=schema.Object(
+        value_type=ObjectField(
             title=_(u'History'),
             schema=IHistoryRowSchema
         ),
