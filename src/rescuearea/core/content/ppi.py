@@ -128,6 +128,10 @@ default_value = u"""<table border="1">
 </div>
 </div>"""
 
+key_default_value = _(u"""<p>Description and usefulness of the keys :</p>
+<p>Where the key is stored:</p>
+<p>Number of copies :</p>""")
+
 
 class IContactRowSchema(model.Schema):
     priority = schema.TextLine(
@@ -198,20 +202,14 @@ class IOccupancyScheduleRowSchema(model.Schema):
 
 
 class IKeysCodeAccessBadgeFieldsRowSchema(model.Schema):
-    description_and_usefulness_of_keys = RichText(
-        title=_(u'Description and Usefulness of Keys'),
+
+    keys_code_access_badge = RichText(
+        title=_(u'Information'),
         required=False,
+        default_mime_type='text/html',
+        default=key_default_value,
     )
 
-    key_storage_location = RichText(
-        title=_(u'Key Storage Location'),
-        required=False,
-    )
-
-    number_of_copies = schema.Int(
-        title=_(u'Number of Copies'),
-        required=False,
-    )
 
     last_key_check_date = schema.Datetime(
         title=_(u'Last Key Check Date'),
@@ -447,8 +445,20 @@ class IPpi(model.Schema):
     )
 
     fieldset(
+        'Return to normal',
+        label=_(u'5 Return to normal'),
+        fields=['attention_points_for_the_return_to_normal',
+                ]
+    )
+
+    attention_points_for_the_return_to_normal = RichText(
+        title=_(u'Attention points for the return to normal'),
+        required=False,
+    )
+
+    fieldset(
         'additional_information',
-        label=_(u'5 Additional information'),
+        label=_(u'6 Additional information'),
         fields=['appendix_itinerary',
                 'appendix_map_of_the_location',
                 'appendix_implementation_plan',
@@ -461,26 +471,30 @@ class IPpi(model.Schema):
 
     appendix_itinerary = NamedBlobFile(
         title=_(u'Appendix : Itinerary'),
-        description=_(u'<p>mandatory if wind has an influence (toxic risk)</p>'),
+        description=_(
+            u'<p>mandatory if wind has an influence (toxic risk)</p>'),
         required=False,
     )
 
     appendix_map_of_the_location = ObjectField(
         title=_(u'Appendix : Map of the location'),
-        description=_(u'<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>'),
+        description=_(
+            u'<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>'),
         schema=ILinkFileRowSchema,
         required=False,
     )
 
     appendix_implementation_plan = NamedBlobFile(
         title=_(u'Appendix : Implementation Plan'),
-        description=_(u'<p>mandatory : do in A3 on the basis of the zonal canvas</p><ul><li>Wind dose</li><li>Access</li><li>(Sub-funds)</li><li>Scale</li><li>Legend of layout </li><li>Pictogram<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection station (or firefighter control station)</li><li>Sprinkler installation</li></ul></li><li>Localization of the crisis room of the ets</li></ul>'),
+        description=_(
+            u'<p>mandatory : do in A3 on the basis of the zonal canvas</p><ul><li>Wind dose</li><li>Access</li><li>(Sub-funds)</li><li>Scale</li><li>Legend of layout </li><li>Pictogram<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection station (or firefighter control station)</li><li>Sprinkler installation</li></ul></li><li>Localization of the crisis room of the ets</li></ul>'),
         required=True,
     )
 
     appendix_water_resources = ObjectField(
         title=_(u'Appendix : Water resources'),
-        description=_(u'<p>mandatory to be printed from the PPI carto application</p>'),
+        description=_(
+            u'<p>mandatory to be printed from the PPI carto application</p>'),
         schema=ILinkFileRowSchema,
         required=True,
     )
@@ -492,25 +506,15 @@ class IPpi(model.Schema):
 
     appendix_carroyer_plan = NamedBlobFile(
         title=_(u'Appendix : Carroyer plan'),
-        description=_(u"<p>Mandatory if the size of the site does not fit within a 250m x 250m square. To do by the Carto team to put online on the PPI carto app.</p><p>If there is no 'not shown', indicate 'not shown'.</p>"),
+        description=_(
+            u"<p>Mandatory if the size of the site does not fit within a 250m x 250m square. To do by the Carto team to put online on the PPI carto app.</p><p>If there is no 'not shown', indicate 'not shown'.</p>"),
         required=True,
     )
 
     appendix_description = NamedBlobFile(
         title=_(u'Appendix : Description'),
-        description=_(u'<p>Free annex examples</p><ul><li>Facade photos</li><li>Level plan<ul><li>Scale</li><li>Wind dose</li><li>Compartments</li><li>Access</li><li>Pictogra<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection center</li><li>Sprinkler installation</li><li>Localization of the crisis room of the ets</li></ul></li><li>Construction<ul><li>Wall structure</li><li>Roof structure</li></ul></li></ul></li><li>Fire panel operation mode</li></ul>'),
-        required=False,
-    )
-
-    fieldset(
-        'Return to normal',
-        label=_(u'6 Return to normal'),
-        fields=['attention_points_for_the_return_to_normal',
-                ]
-    )
-
-    attention_points_for_the_return_to_normal = RichText(
-        title=_(u'Attention points for the return to normal'),
+        description=_(
+            u'<p>Free annex examples</p><ul><li>Facade photos</li><li>Level plan<ul><li>Scale</li><li>Wind dose</li><li>Compartments</li><li>Access</li><li>Pictogra<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection center</li><li>Sprinkler installation</li><li>Localization of the crisis room of the ets</li></ul></li><li>Construction<ul><li>Wall structure</li><li>Roof structure</li></ul></li></ul></li><li>Fire panel operation mode</li></ul>'),
         required=False,
     )
 
