@@ -8,6 +8,7 @@ from zope import schema
 from zope.interface import implements
 
 from rescuearea.core import _
+from rescuearea.core.content.object_factory import ObjectField
 from rescuearea.core.content.object_factory import register_object_factories
 
 nature_and_risk_involved_default = _(u"""<p><span>Nature</span> :</p>
@@ -74,7 +75,7 @@ class IZHCExtraMeansAtTheFirstAidPostRowSchema(model.Schema):
 
 class IDiscipline1RowSchema(model.Schema):
 
-    zhc_means_on_site = schema.Object(
+    zhc_means_on_site = ObjectField(
         title=_(u'Z.H.C. means on site'),
         schema=IZHCMeansOnSiteRowSchema,
         required=False,
@@ -85,7 +86,7 @@ class IDiscipline1RowSchema(model.Schema):
         required=False,
     )
 
-    zhc_extra_means_at_the_first_aid_post = schema.Object(
+    zhc_extra_means_at_the_first_aid_post = ObjectField(
         title=_(u'Z.H.C. extra means at the first aid post'),
         schema=IZHCExtraMeansAtTheFirstAidPostRowSchema,
         required=False,
@@ -178,19 +179,19 @@ class IPpie(model.Schema):
                 ]
     )
 
-    multidiciplinary = schema.Object(
+    multidiciplinary = ObjectField(
         title=_(u'Multidiciplinary'),
         schema=IMultidiciplinaryRowSchema,
         required=False,
     )
 
-    discipline1 = schema.Object(
+    discipline1 = ObjectField(
         title=_(u'Discipline 1'),
         schema=IDiscipline1RowSchema,
         required=False,
     )
 
-    discipline2 = schema.Object(
+    discipline2 = ObjectField(
         title=_(u'Discipline é'),
         schema=IDiscipline2RowSchema,
         required=False,
