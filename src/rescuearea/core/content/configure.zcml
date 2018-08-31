@@ -10,4 +10,10 @@
     handler=".event.create_history"
     />
 
+  <subscriber
+    for=".ppie.IPpie
+         zope.lifecycleevent.IObjectAddedEvent"
+    handler=".event.create_history"
+    />
+
 </configure>
