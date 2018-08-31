@@ -5,7 +5,14 @@ Changelog
 1.0a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Upgrade PPI content type
+  [vpiret]
+
+- Fix translation
+  [vpiret]
+
+- Add ppie content type
+  [vpiret]
 
 
 1.0a2 (2018-08-29)
