@@ -128,7 +128,7 @@ msgstr "<p>Préciser l’occupation de nuit ou pas. Préciser l’occupation par
 
 #: ../content/ppi.py:571
 msgid "<p>Specify the places where it is necessary to have paper copies available </p><ul><li>DZHC</li><li>Fastest first aid station (several if the means must come from several stations)</li></ul>"
-msgstr ""
+msgstr "<p>Préciser les endroits où il est nécessaire d’avoir des exemplaires papiers à disposition :</p><ul><li>DZHC</li><li>Poste de secours le plus rapide (plusieurs si les moyens doivent provenir de plusieurs poste)</li></ul>"
 
 #: ../content/ppi.py:481
 msgid "<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>"
