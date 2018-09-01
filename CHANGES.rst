@@ -5,7 +5,11 @@ Changelog
 1.0a6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update french translations
+  [mpeeters]
+
+- Fix translations for default values
+  [mpeeters]
 
 
 1.0a5 (2018-08-31)
