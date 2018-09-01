@@ -12,125 +12,63 @@ from zope.interface import implements
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
 from rescuearea.core.content.object_factory import register_object_factories
+from rescuearea.core.utils import default_translator
 
-default_value = u"""<table border="1">
-<tbody>
-<tr>
-<td>
-<h6>00h00</h6>
-</td>
-<td>
-<h6>01h00</h6>
-</td>
-<td>
-<h6>02h00</h6>
-</td>
-<td>
-<h6>03h00</h6>
-</td>
-<td>
-<h6>04h00</h6>
-</td>
-<td>
-<h6>05h00</h6>
-</td>
-<td>
-<h6>06h00</h6>
-</td>
-<td>
-<h6>07h00</h6>
-</td>
-<td>
-<h6>08h00</h6>
-</td>
-<td>
-<h6>09h00</h6>
-</td>
-<td>
-<h6>10h00</h6>
-</td>
-<td>
-<h6>11h00</h6>
-</td>
-<td>
-<h6>12h00</h6>
-</td>
-<td>
-<h6>13h00</h6>
-</td>
-<td>
-<h6>14h00</h6>
-</td>
-<td>
-<h6>15h00</h6>
-</td>
-<td>
-<h6>16h00</h6>
-</td>
-<td>
-<h6>17h00</h6>
-</td>
-<td>
-<h6>18h00</h6>
-</td>
-<td>
-<h6>19h00</h6>
-</td>
-<td>
-<h6>20h00</h6>
-</td>
-<td>
-<h6>21h00</h6>
-</td>
-<td>
-<h6>22h00</h6>
-</td>
-<td>
-<h6>23h00</h6>
-</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<div class="page" title="Page 1">
-<p></p>
-</div>
-<div>
-<div class="column">
-<p><span>0 pas d'occupation</span></p>
-<p><span>1 Travailleurs présents </span></p>
-<p><span>2 Ouverture au public </span></p>
-</div>
-</div>"""
 
-key_default_value = _(u"""<p>Description and usefulness of the keys :</p>
-<p>Where the key is stored:</p>
-<p>Number of copies :</p>""")
+occupation_table_value = (
+    u'<table border="1"><tbody><tr>'
+    u'<td><h6>00h00</h6></td>'
+    u'<td><h6>01h00</h6></td>'
+    u'<td><h6>02h00</h6></td>'
+    u'<td><h6>03h00</h6></td>'
+    u'<td><h6>04h00</h6></td>'
+    u'<td><h6>05h00</h6></td>'
+    u'<td><h6>06h00</h6></td>'
+    u'<td><h6>07h00</h6></td>'
+    u'<td><h6>08h00</h6></td>'
+    u'<td><h6>09h00</h6></td>'
+    u'<td><h6>10h00</h6></td>'
+    u'<td><h6>11h00</h6></td>'
+    u'<td><h6>12h00</h6></td>'
+    u'<td><h6>13h00</h6></td>'
+    u'<td><h6>14h00</h6></td>'
+    u'<td><h6>15h00</h6></td>'
+    u'<td><h6>16h00</h6></td>'
+    u'<td><h6>17h00</h6></td>'
+    u'<td><h6>18h00</h6></td>'
+    u'<td><h6>19h00</h6></td>'
+    u'<td><h6>20h00</h6></td>'
+    u'<td><h6>21h00</h6></td>'
+    u'<td><h6>22h00</h6></td>'
+    u'<td><h6>23h00</h6></td>'
+    u'</tr><tr>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'<td>0</td>'
+    u'</tr></tbody></table>'
+    u'<div class="page" title="Page 1"><p></p></div>'
+)
 
 
 class IContactRowSchema(model.Schema):
@@ -196,7 +134,16 @@ class IOccupancyScheduleRowSchema(model.Schema):
     description = RichText(
         title=_(u'Description'),
         default_mime_type='text/html',
-        default=default_value,
+        defaultFactory=default_translator(
+            _(
+                u'{table}<div><div class="column">'
+                u'<p><span>0 No activity</span></p>'
+                u'<p><span>1 Workers present</span></p>'
+                u'<p><span>2 Open to public</span></p>'
+                u'</div></div>'
+            ),
+            table=occupation_table_value,
+        ),
         required=False,
     )
 
@@ -207,9 +154,12 @@ class IKeysCodeAccessBadgeFieldsRowSchema(model.Schema):
         title=_(u'Information'),
         required=False,
         default_mime_type='text/html',
-        default=key_default_value,
+        defaultFactory=default_translator(_(
+            u'<p>Description and usefulness of the keys :</p>'
+            u'<p>Where the key is stored :</p>'
+            u'<p>Number of copies :</p>'
+        )),
     )
-
 
     last_key_check_date = schema.Datetime(
         title=_(u'Last Key Check Date'),

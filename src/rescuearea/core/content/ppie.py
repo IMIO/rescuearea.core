@@ -10,20 +10,7 @@ from zope.interface import implements
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
 from rescuearea.core.content.object_factory import register_object_factories
-
-nature_and_risk_involved_default = _(u"""<p><span>Nature</span> :</p>
-<p></p>
-<p><span>Risks</span> :</p>""")
-
-
-cce_event_coordination_cell_default = _(u"""<p><span>Presence</span> :</p>
-<p></p>
-<p><span>Location</span> :</p>""")
-
-
-zhc_default = _(u"""<p><span>Human</span> :</p>
-<p></p>
-<p><span>Equipment</span> :</p>""")
+from rescuearea.core.utils import default_translator
 
 
 class IMultidiciplinaryRowSchema(model.Schema):
@@ -31,7 +18,10 @@ class IMultidiciplinaryRowSchema(model.Schema):
     cce_event_coordination_cell = RichText(
         title=_(u'CCE Event Coordination Cell'),
         required=False,
-        default=cce_event_coordination_cell_default,
+        defaultFactory=default_translator(_(
+            u'<p><span>Presence</span> :</p><p></p>'
+            u'<p><span>Location</span> :</p>'
+        )),
         default_mime_type='text/html',
     )
 
@@ -63,7 +53,10 @@ class IZHCExtraMeansAtTheFirstAidPostRowSchema(model.Schema):
 
     richtext_fields = RichText(
         required=False,
-        default=zhc_default,
+        defaultFactory=default_translator(_(
+            u'<p><span>Human</span> :</p><p></p>'
+            u'<p><span>Equipment</span> :</p>'
+        )),
         default_mime_type='text/html',
     )
 
@@ -137,7 +130,10 @@ class IPpie(model.Schema):
     nature_and_risk_involved = RichText(
         title=_(u'Nature and risk involved'),
         required=False,
-        default=nature_and_risk_involved_default,
+        defaultFactory=default_translator(_(
+            u'<p><span>Nature</span> :</p><p></p>'
+            u'<p><span>Risks</span> :</p>'
+        )),
         default_mime_type='text/html',
     )
 
