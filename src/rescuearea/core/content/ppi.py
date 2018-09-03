@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser import BrowserView
+from Products.Five.browser.metaconfigure import ViewMixinForTemplates
 
 from plone.app.textfield import RichText
+from plone.dexterity.browser import edit
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
@@ -532,5 +536,12 @@ class IPpi(model.Schema):
 class Ppi(Container):
     implements(IPpi)
 
+
+class EditForm(edit.DefaultEditForm):
+    template = ViewPageTemplateFile('templates/ppi_form_edit.pt')
+
+
+class RenderWidget(ViewMixinForTemplates, BrowserView):
+    index = ViewPageTemplateFile('templates/ppi_widget_edit.pt')
 
 register_object_factories(IPpi)

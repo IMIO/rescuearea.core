@@ -16,4 +16,27 @@
     handler=".event.create_history"
     />
 
+  <browser:page
+      name="ppi-macros"
+      for=".ppi.IPpi"
+      class="plone.app.z3cform.templates.Macros"
+      template="templates/ppi_macro_edit.pt"
+      allowed_interface="zope.interface.common.mapping.IItemMapping"
+      permission="zope.Public"
+      />
+
+  <browser:page
+    for=".ppi.IPpi"
+    name="edit"
+    class=".ppi.EditForm"
+    permission="cmf.ModifyPortalContent"
+    />
+
+  <browser:page
+      name="ppi-widget"
+      for="z3c.form.interfaces.IWidget"
+      class=".ppi.RenderWidget"
+      permission="zope.Public"
+      />
+
 </configure>
