@@ -18,7 +18,7 @@
 
   <browser:page
       name="ppi-macros"
-      for=".ppi.IPpi"
+      for="*"
       class="plone.app.z3cform.templates.Macros"
       template="templates/ppi_macro_edit.pt"
       allowed_interface="zope.interface.common.mapping.IItemMapping"
@@ -38,5 +38,20 @@
       class=".ppi.RenderWidget"
       permission="zope.Public"
       />
+
+  <adapter
+    for="Products.CMFCore.interfaces.IFolderish
+         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+         plone.dexterity.interfaces.IDexterityFTI"
+    provides="zope.publisher.interfaces.browser.IBrowserPage"
+    factory=".ppi.AddView"
+    name="ppi"
+    />
+  <class class=".ppi.AddView">
+      <require
+          permission="cmf.AddPortalContent"
+          interface="zope.publisher.interfaces.browser.IBrowserPage"
+          />
+  </class>
 
 </configure>

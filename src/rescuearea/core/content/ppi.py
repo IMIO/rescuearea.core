@@ -4,14 +4,16 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from Products.Five.browser.metaconfigure import ViewMixinForTemplates
 
+from plone.app.z3cform.templates import Macros
 from plone.app.textfield import RichText
-from plone.dexterity.browser import edit
+from plone.dexterity.browser import add, edit
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import implements
+from zope.interface.common.mapping import IItemMapping
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
@@ -543,5 +545,15 @@ class EditForm(edit.DefaultEditForm):
 
 class RenderWidget(ViewMixinForTemplates, BrowserView):
     index = ViewPageTemplateFile('templates/ppi_widget_edit.pt')
+
+
+class AddForm(add.DefaultAddForm, BrowserView):
+    portal_type = 'ppi'
+    template = ViewPageTemplateFile('templates/ppi_form_add.pt')
+
+
+class AddView(add.DefaultAddView):
+    form = AddForm
+
 
 register_object_factories(IPpi)
