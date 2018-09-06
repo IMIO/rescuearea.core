@@ -18,4 +18,11 @@
       directory="static"
       />
 
+  <browser:page
+    name="anomalies_reporting"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    class=".controlpanel.AnomaliesReportingSettingsControlPanel"
+    permission="cmf.ManagePortal"
+  />
+
 </configure>
