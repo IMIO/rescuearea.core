@@ -4,16 +4,14 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from Products.Five.browser.metaconfigure import ViewMixinForTemplates
 
-from plone.app.z3cform.templates import Macros
 from plone.app.textfield import RichText
-from plone.dexterity.browser import add, edit
+from plone.dexterity.browser import add, edit, view
 from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import implements
-from zope.interface.common.mapping import IItemMapping
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
@@ -207,7 +205,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'description sheet',
-        label=_(u'1 Description sheet'),
+        label=_(u'Description sheet'),
         fields=['title',
                 'other_names',
                 'address',
@@ -308,7 +306,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'before departure',
-        label=_(u'2 Before departure'),
+        label=_(u'Before departure'),
         fields=['adaptation_of_the_emergency_services_in_relation_to_the_response_plan',
                 'specific_equipment_to_take_with_you',
                 'route_to_follow',
@@ -349,7 +347,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'during the ride',
-        label=_(u'3 During the ride'),
+        label=_(u'During the ride'),
         fields=['vehicle_stop_emergency_reception_point',
                 'point_of_first_destination',
                 ]
@@ -369,7 +367,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'on_site',
-        label=_(u'4 On site'),
+        label=_(u'On site'),
         fields=['reflex_measurements_on_arrival_on_site',
                 'special_means_of_protection_to_wear',
                 'risks_present',
@@ -402,7 +400,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'Return to normal',
-        label=_(u'5 Return to normal'),
+        label=_(u'Return to normal'),
         fields=['attention_points_for_the_return_to_normal',
                 ]
     )
@@ -414,7 +412,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'additional_information',
-        label=_(u'6 Additional information'),
+        label=_(u'Additional information'),
         fields=['appendix_itinerary',
                 'appendix_map_of_the_location',
                 'appendix_implementation_plan',
@@ -476,7 +474,7 @@ class IPpi(model.Schema):
 
     fieldset(
         'Administration of PPI',
-        label=_(u'7 Administration of PPI'),
+        label=_(u'Administration of PPI'),
         fields=['description',
                 'date_of_last_modification',
                 'deadline_for_searching_for_additional_information',
@@ -554,6 +552,69 @@ class AddForm(add.DefaultAddForm, BrowserView):
 
 class AddView(add.DefaultAddView):
     form = AddForm
+
+
+class PpiView(view.DefaultView):
+
+    def check_value(self, obj):
+        fields = []
+        for widget in obj.subform.widgets.values():
+            if type(widget).klass == 'object-widget':
+                if self.check_value(widget):
+                    fields.append(widget)
+            else:
+                if widget.value:
+                    fields.append(widget)
+        if fields:
+            return True
+        return False
+
+    def check_group(self, group):
+
+        fields = []
+
+        for widget in group.widgets.values():
+            if type(widget).klass == 'object-widget':
+                if self.check_value(widget):
+                    fields.append(widget)
+            else:
+                if widget.value:
+                    fields.append(widget)
+        if fields:
+            return True
+        return False
+
+    def get_values(self, group):
+
+        fields = []
+
+        for widget in group.widgets.values():
+            if type(widget).klass == 'object-widget':
+                if self.check_value(widget):
+                    fields.append(widget)
+            else:
+                if widget.value:
+                    fields.append(widget)
+
+        return fields
+
+    def get_groups(self):
+        groups = []
+
+        for group in self.groups:
+            fields = []
+
+            for widget in group.widgets.values():
+                if type(widget).klass == 'object-widget':
+                    if self.check_value(widget):
+                        fields.append(widget)
+                else:
+                    if widget.value:
+                        fields.append(widget)
+            if fields:
+                groups.append(group)
+
+        return groups
 
 
 register_object_factories(IPpi)

@@ -47,11 +47,28 @@
     factory=".ppi.AddView"
     name="ppi"
     />
+
   <class class=".ppi.AddView">
       <require
           permission="cmf.AddPortalContent"
           interface="zope.publisher.interfaces.browser.IBrowserPage"
           />
   </class>
+
+  <browser:page
+    for=".ppi.IPpi"
+    name="view"
+    class=".ppi.PpiView"
+    template="templates/ppi_ppie.pt"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    for=".ppie.IPpie"
+    name="view"
+    class=".ppi.PpiView"
+    template="templates/ppi_ppie.pt"
+    permission="zope2.View"
+    />
 
 </configure>

@@ -109,7 +109,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Description of the event',
-        label=_(u'1 Description of the event'),
+        label=_(u'Description of the event'),
         fields=['dates_and_times',
                 'location',
                 'nature_and_risk_involved',
@@ -144,7 +144,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Impact on emergency stations',
-        label=_(u'2 Impact on emergency stations'),
+        label=_(u'Impact on emergency stations'),
         fields=['modified_itinerary',
                 'access_to_the_site_for_firefighters',
                 'access_for_ambulances',
@@ -168,7 +168,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Preventive devices',
-        label=_(u'3 Preventive devices'),
+        label=_(u'Preventive devices'),
         fields=['multidiciplinary',
                 'discipline1',
                 'discipline2',
@@ -195,7 +195,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Alert chain and communications',
-        label=_(u"4 Alert chain and communications"),
+        label=_(u"Alert chain and communications"),
         fields=['on_site_intervention_request_management',
                 'communication_radio',
                 'directory_and_telephone_directory',
@@ -219,7 +219,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Rising power',
-        label=_(u'5 Rising power'),
+        label=_(u'Rising power'),
         fields=['access_to_the_site',
                 'means',
                 'location_ppd',
@@ -255,7 +255,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Miscellaneous remarks',
-        label=_(u'6 Miscellaneous remarks'),
+        label=_(u'Miscellaneous remarks'),
         fields=['preliminary_actions_to_be_undertaken',
                 'contact_person_for_information_on_this_document',
                 ]
@@ -273,7 +273,7 @@ class IPpie(model.Schema):
 
     fieldset(
         'Appendices',
-        label=_(u'7 Appendices'),
+        label=_(u'Appendices'),
         fields=['appendices',
                 ]
     )
