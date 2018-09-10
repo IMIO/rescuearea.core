@@ -6,6 +6,8 @@ from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from zope import schema
 from zope.interface import implements
+from zope.interface import Invalid
+from zope.interface import invariant
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
@@ -13,16 +15,41 @@ from rescuearea.core.content.object_factory import register_object_factories
 from rescuearea.core.utils import default_translator
 
 
-class IMultidiciplinaryRowSchema(model.Schema):
+class ICCEEventCoordinationCellRowSchema(model.Schema):
 
-    cce_event_coordination_cell = RichText(
-        title=_(u'CCE Event Coordination Cell'),
+    present_location = RichText(
+        title=_(u'Present and location'),
         required=False,
         defaultFactory=default_translator(_(
             u'<p><span>Presence</span> :</p><p></p>'
             u'<p><span>Location</span> :</p>'
         )),
         default_mime_type='text/html',
+    )
+
+    start = schema.Datetime(
+        title=_(u'Schedule start'),
+        required=False,
+    )
+
+    end = schema.Datetime(
+        title=_(u'Schedule end'),
+        required=False,
+    )
+
+    @invariant
+    def validate_start_end(data):
+        if data.start is not None and data.end is not None:
+            if data.start > data.end:
+                raise Invalid(_(u"The start date must be before the end date."))
+
+
+class IMultidiciplinaryRowSchema(model.Schema):
+
+    cce_event_coordination_cell = ObjectField(
+        title=_(u'CCE Event Coordination Cell'),
+        required=False,
+        schema=ICCEEventCoordinationCellRowSchema
     )
 
     centre_100 = RichText(
@@ -33,8 +60,13 @@ class IMultidiciplinaryRowSchema(model.Schema):
 
 class IZHCMeansOnSiteRowSchema(model.Schema):
 
-    schedule = schema.Datetime(
-        title=_(u'Schedule'),
+    start = schema.Datetime(
+        title=_(u'Schedule start'),
+        required=False,
+    )
+
+    end = schema.Datetime(
+        title=_(u'Schedule end'),
         required=False,
     )
 
@@ -48,6 +80,12 @@ class IZHCMeansOnSiteRowSchema(model.Schema):
         required=False,
     )
 
+    @invariant
+    def validate_start_end(data):
+        if data.start is not None and data.end is not None:
+            if data.start > data.end:
+                raise Invalid(_(u"The start date must be before the end date."))
+
 
 class IZHCExtraMeansAtTheFirstAidPostRowSchema(model.Schema):
 
@@ -60,10 +98,21 @@ class IZHCExtraMeansAtTheFirstAidPostRowSchema(model.Schema):
         default_mime_type='text/html',
     )
 
-    schedule = schema.Datetime(
-        title=_(u'Schedule'),
+    start = schema.Datetime(
+        title=_(u'Schedule start'),
         required=False,
     )
+
+    end = schema.Datetime(
+        title=_(u'Schedule end'),
+        required=False,
+    )
+
+    @invariant
+    def validate_start_end(data):
+        if data.start is not None and data.end is not None:
+            if data.start > data.end:
+                raise Invalid(_(u"The start date must be before the end date."))
 
 
 class IDiscipline1RowSchema(model.Schema):
@@ -110,15 +159,21 @@ class IPpie(model.Schema):
     fieldset(
         'Description of the event',
         label=_(u'Description of the event'),
-        fields=['dates_and_times',
+        fields=['start',
+                'end',
                 'location',
                 'nature_and_risk_involved',
                 'impacted_items',
                 ]
     )
 
-    dates_and_times = schema.Datetime(
-        title=_(u'Dates and times'),
+    start = schema.Datetime(
+        title=_(u'Dates and times start'),
+        required=False,
+    )
+
+    end = schema.Datetime(
+        title=_(u'Dates and times stop'),
         required=False,
     )
 
@@ -283,6 +338,12 @@ class IPpie(model.Schema):
         required=False,
         value_type=RichText(title=_(u'Appendix')),
     )
+
+    @invariant
+    def validate_start_end(data):
+        if data.start is not None and data.end is not None:
+            if data.start > data.end:
+                raise Invalid(_(u"The start date must be before the end date."))
 
 
 class Ppie(Container):
