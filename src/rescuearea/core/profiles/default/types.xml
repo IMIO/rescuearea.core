@@ -3,4 +3,5 @@
  <property name="title">Controls the available content types in your portal</property>
  <object name="ppi" meta_type="Dexterity FTI"/>
  <object name="ppi_e" meta_type="Dexterity FTI"/>
+ <object name="pop_up" meta_type="Dexterity FTI"/>
 </object>

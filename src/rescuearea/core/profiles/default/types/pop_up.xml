@@ -1,18 +1,16 @@
 <?xml version="1.0"?>
-<object name="ppi" meta_type="Dexterity FTI" i18n:domain="plone"
+<object name="pop_up" meta_type="Dexterity FTI" i18n:domain="plone"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
- <property name="title" i18n:translate="">ppi</property>
+ <property name="title" i18n:translate="">pop-up</property>
  <property name="description" i18n:translate=""/>
  <property name="icon_expr">string:${portal_url}/document_icon.png</property>
- <property name="factory">ppi</property>
- <property name="add_view_expr">string:${folder_url}/++add++ppi</property>
+ <property name="factory">pop_up</property>
+ <property name="add_view_expr">string:${folder_url}/++add++pop_up</property>
  <property name="link_target"/>
  <property name="immediate_view">view</property>
- <property name="global_allow">True</property>
+ <property name="global_allow">False</property>
  <property name="filter_content_types">True</property>
- <property name="allowed_content_types">
-   <element value="pop_up"/>
- </property>
+ <property name="allowed_content_types"/>
  <property name="allow_discussion">False</property>
  <property name="default_view">view</property>
  <property name="view_methods">
@@ -20,14 +18,12 @@
  </property>
  <property name="default_view_fallback">False</property>
  <property name="add_permission">cmf.AddPortalContent</property>
- <property name="klass">rescuearea.core.content.ppi.Ppi</property>
+ <property name="klass">rescuearea.core.content.popup.PopUp</property>
  <property name="behaviors">
-  <element value="plone.app.dexterity.behaviors.metadata.ICategorization"/>
-  <element value="plone.app.dexterity.behaviors.metadata.IPublication"/>
-  <element value="plone.app.dexterity.behaviors.metadata.IOwnership"/>
+  <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
  </property>
- <property name="schema">rescuearea.core.content.ppi.IPpi</property>
+ <property name="schema">rescuearea.core.content.popup.IPopUp</property>
  <property name="model_source"/>
  <property name="model_file"/>
  <property name="schema_policy">dexterity</property>
