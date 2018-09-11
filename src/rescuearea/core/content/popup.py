@@ -15,23 +15,23 @@ class IPopUp(model.Schema):
 
     titre = schema.TextLine(
         title=_(u'Titre'),
-        required=False,
+        required=True,
     )
 
-    description = RichText(
+    richtext_desc = RichText(
         title=_(u'Description'),
         default_mime_type='text/html',
-        required=False,
+        required=True,
     )
 
     start = schema.Date(
         title=_(u'Date start'),
-        required=False,
+        required=True,
     )
 
     end = schema.Date(
         title=_(u'Date end'),
-        required=False,
+        required=True,
     )
 
     @invariant

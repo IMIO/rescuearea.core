@@ -1,0 +1,5 @@
+<div
+  tal:define="popup view/exist_popup"
+  tal:condition="popup">
+  <p tal:replace="structure popup"></p>
+</div>

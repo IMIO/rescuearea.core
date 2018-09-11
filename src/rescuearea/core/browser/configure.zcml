@@ -25,4 +25,13 @@
     permission="cmf.ManagePortal"
   />
 
+  <browser:viewlet
+      for="..content.ppi.IPpi"
+      name="viewlet.popup"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentBody"
+      class=".viewlet.PopUpViewlet"
+      permission="zope.Public"
+      layer="..interfaces.IRescueareaCoreLayer"
+      />
+
 </configure>
