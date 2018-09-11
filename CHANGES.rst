@@ -5,8 +5,17 @@ Changelog
 1.0a7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Update french translations
+  [vpiret]
 
+- Add viewlet for showing a popup on ppi
+  [vpiret]
+
+- Add popup content type
+  [vpiret]
+
+- Fix ppie range date
+  [vpiret]
 
 1.0a6 (2018-09-01)
 ------------------
