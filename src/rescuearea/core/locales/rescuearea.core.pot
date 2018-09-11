@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-06 07:58+0000\n"
+"POT-Creation-Date: 2018-09-11 13:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: rescuearea.core\n"
 
-#: ../content/ppie.py:56
+#: ../browser/controlpanel.py:21
+msgid ""
+msgstr ""
+
+#: ../content/ppie.py:94
 msgid "<p><span>Human</span> :</p><p></p><p><span>Equipment</span> :</p>"
 msgstr ""
 
-#: ../content/ppie.py:133
+#: ../content/ppie.py:188
 msgid "<p><span>Nature</span> :</p><p></p><p><span>Risks</span> :</p>"
 msgstr ""
 
-#: ../content/ppie.py:21
+#: ../content/ppie.py:23
 msgid "<p><span>Presence</span> :</p><p></p><p><span>Location</span> :</p>"
 msgstr ""
 
@@ -113,15 +117,15 @@ msgstr ""
 msgid "<p>we need to know what's available to assist us in intervention. It is not necessary to mention the presence of fire extinguishers or even reels intended for the PPE of the site. On the other hand, hydrants, dry or wet columns... must be mentioned.</p>"
 msgstr ""
 
-#: ../content/ppie.py:165
+#: ../content/ppie.py:220
 msgid "Access for ambulances"
 msgstr ""
 
-#: ../content/ppie.py:232
+#: ../content/ppie.py:287
 msgid "Access to the site"
 msgstr ""
 
-#: ../content/ppie.py:160
+#: ../content/ppie.py:215
 msgid "Access to the site for firefighters"
 msgstr ""
 
@@ -141,15 +145,27 @@ msgstr ""
 msgid "Administration of PPI"
 msgstr ""
 
-#: ../content/ppie.py:198
+#: ../content/ppie.py:253
 msgid "Alert chain and communications"
 msgstr ""
 
-#: ../content/ppie.py:276
+#: ../browser/controlpanel.py:13
+msgid "Anomalies reporting"
+msgstr ""
+
+#: ../profiles/default/controlpanel.xml
+msgid "Anomalies reporting Settings"
+msgstr ""
+
+#: ../browser/controlpanel.py:20
+msgid "Anomalies reporting settings"
+msgstr ""
+
+#: ../content/ppie.py:331
 msgid "Appendices"
 msgstr ""
 
-#: ../content/ppie.py:284
+#: ../content/ppie.py:339
 msgid "Appendix"
 msgstr ""
 
@@ -181,7 +197,7 @@ msgstr ""
 msgid "Appendix : Water resources"
 msgstr ""
 
-#: ../content/ppie.py:42
+#: ../content/ppie.py:74
 msgid "At the events coordination centre (representative D1)"
 msgstr ""
 
@@ -202,11 +218,11 @@ msgstr ""
 msgid "Before departure"
 msgstr ""
 
-#: ../content/ppie.py:19
+#: ../content/ppie.py:50
 msgid "CCE Event Coordination Cell"
 msgstr ""
 
-#: ../content/ppie.py:29
+#: ../content/ppie.py:56
 msgid "Centre 100"
 msgstr ""
 
@@ -218,7 +234,7 @@ msgstr ""
 msgid "Commune"
 msgstr ""
 
-#: ../content/ppie.py:211
+#: ../content/ppie.py:266
 msgid "Communication radio"
 msgstr ""
 
@@ -226,7 +242,7 @@ msgstr ""
 msgid "Concierge Service?"
 msgstr ""
 
-#: ../content/ppie.py:270
+#: ../content/ppie.py:325
 msgid "Contact person for information on this document"
 msgstr ""
 
@@ -242,6 +258,10 @@ msgstr ""
 msgid "Date"
 msgstr ""
 
+#: ../content/popup.py:33
+msgid "Date end"
+msgstr ""
+
 #: ../content/ppi.py:495
 msgid "Date of last modification"
 msgstr ""
@@ -250,19 +270,28 @@ msgstr ""
 msgid "Date of update of the description sheet"
 msgstr ""
 
-#: ../content/ppie.py:121
-msgid "Dates and times"
+#: ../content/popup.py:28
+msgid "Date start"
+msgstr ""
+
+#: ../content/ppie.py:171
+msgid "Dates and times start"
+msgstr ""
+
+#: ../content/ppie.py:176
+msgid "Dates and times stop"
 msgstr ""
 
 #: ../content/ppi.py:500
 msgid "Deadline for searching for additional information"
 msgstr ""
 
+#: ../content/popup.py:22
 #: ../content/ppi.py:139
 msgid "Description"
 msgstr ""
 
-#: ../content/ppie.py:112
+#: ../content/ppie.py:161
 msgid "Description of the event"
 msgstr ""
 
@@ -270,15 +299,15 @@ msgstr ""
 msgid "Description sheet"
 msgstr ""
 
-#: ../content/ppie.py:216
+#: ../content/ppie.py:271
 msgid "Directory and telephone directory"
 msgstr ""
 
-#: ../content/ppie.py:185
+#: ../content/ppie.py:240
 msgid "Discipline 1"
 msgstr ""
 
-#: ../content/ppie.py:191
+#: ../content/ppie.py:246
 msgid "Discipline Ã©"
 msgstr ""
 
@@ -311,15 +340,15 @@ msgstr ""
 msgid "If yes, describe utility"
 msgstr ""
 
-#: ../content/ppie.py:147
+#: ../content/ppie.py:202
 msgid "Impact on emergency stations"
 msgstr ""
 
-#: ../content/ppie.py:141
+#: ../content/ppie.py:196
 msgid "Impacted items"
 msgstr ""
 
-#: ../content/ppie.py:47
+#: ../content/ppie.py:79
 msgid "In the field (field PC)"
 msgstr ""
 
@@ -327,7 +356,7 @@ msgstr ""
 msgid "Information"
 msgstr ""
 
-#: ../configure.zcml:25
+#: ../configure.zcml:26
 msgid "Installs the rescuearea.core add-on."
 msgstr ""
 
@@ -356,23 +385,23 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-#: ../content/ppie.py:126
+#: ../content/ppie.py:181
 msgid "Location"
 msgstr ""
 
-#: ../content/ppie.py:247
+#: ../content/ppie.py:302
 msgid "Location P.C. OPS"
 msgstr ""
 
-#: ../content/ppie.py:242
+#: ../content/ppie.py:297
 msgid "Location P.P.D."
 msgstr ""
 
-#: ../content/ppie.py:92
+#: ../content/ppie.py:141
 msgid "Location P.S.,P.M.A."
 msgstr ""
 
-#: ../content/ppie.py:252
+#: ../content/ppie.py:307
 msgid "Location municipal crisis centre"
 msgstr ""
 
@@ -389,11 +418,11 @@ msgstr ""
 msgid "Materials/Equipment available"
 msgstr ""
 
-#: ../content/ppie.py:237
+#: ../content/ppie.py:292
 msgid "Means"
 msgstr ""
 
-#: ../content/ppie.py:258
+#: ../content/ppie.py:313
 msgid "Miscellaneous remarks"
 msgstr ""
 
@@ -405,15 +434,15 @@ msgstr ""
 msgid "Modified field"
 msgstr ""
 
-#: ../content/ppie.py:155
+#: ../content/ppie.py:210
 msgid "Modified itinerary"
 msgstr ""
 
-#: ../content/ppie.py:179
+#: ../content/ppie.py:234
 msgid "Multidiciplinary"
 msgstr ""
 
-#: ../content/ppie.py:131
+#: ../content/ppie.py:186
 msgid "Nature and risk involved"
 msgstr ""
 
@@ -429,11 +458,11 @@ msgstr ""
 msgid "On site"
 msgstr ""
 
-#: ../content/ppie.py:206
+#: ../content/ppie.py:261
 msgid "On-site intervention request management"
 msgstr ""
 
-#: ../content/ppie.py:78
+#: ../content/ppie.py:127
 msgid "Organizing means on site (for info)"
 msgstr ""
 
@@ -453,7 +482,7 @@ msgstr ""
 msgid "Point of First Destination (PFD)"
 msgstr ""
 
-#: ../content/ppie.py:265
+#: ../content/ppie.py:320
 msgid "Preliminary actions to be undertaken"
 msgstr ""
 
@@ -461,11 +490,15 @@ msgstr ""
 msgid "Premises"
 msgstr ""
 
+#: ../content/ppie.py:21
+msgid "Present and location"
+msgstr ""
+
 #: ../content/ppi.py:519
 msgid "Preventionist"
 msgstr ""
 
-#: ../content/ppie.py:171
+#: ../content/ppie.py:226
 msgid "Preventive devices"
 msgstr ""
 
@@ -485,7 +518,7 @@ msgstr ""
 msgid "Return to normal"
 msgstr ""
 
-#: ../content/ppie.py:222
+#: ../content/ppie.py:277
 msgid "Rising power"
 msgstr ""
 
@@ -503,8 +536,15 @@ msgid "SMA"
 msgstr ""
 
 #: ../content/ppi.py:134
-#: ../content/ppie.py:37
 msgid "Schedule"
+msgstr ""
+
+#: ../content/ppie.py:36
+msgid "Schedule end"
+msgstr ""
+
+#: ../content/ppie.py:31
+msgid "Schedule start"
 msgstr ""
 
 #: ../content/ppi.py:337
@@ -531,6 +571,15 @@ msgstr ""
 msgid "Street"
 msgstr ""
 
+#: ../content/popup.py:41
+#: ../content/ppie.py:44
+msgid "The start date must be before the end date."
+msgstr ""
+
+#: ../content/popup.py:17
+msgid "Titre"
+msgstr ""
+
 #: ../content/ppi.py:250
 msgid "Type of activity"
 msgstr ""
@@ -540,7 +589,7 @@ msgstr ""
 msgid "UNC"
 msgstr ""
 
-#: ../configure.zcml:34
+#: ../configure.zcml:35
 msgid "Uninstalls the rescuearea.core add-on."
 msgstr ""
 
@@ -552,11 +601,11 @@ msgstr ""
 msgid "Vehicle stop/emergency reception point"
 msgstr ""
 
-#: ../content/ppie.py:83
+#: ../content/ppie.py:132
 msgid "Z.H.C. extra means at the first aid post"
 msgstr ""
 
-#: ../content/ppie.py:72
+#: ../content/ppie.py:121
 msgid "Z.H.C. means on site"
 msgstr ""
 
@@ -568,11 +617,11 @@ msgstr ""
 msgid "case_officer"
 msgstr ""
 
-#: ../configure.zcml:25
+#: ../configure.zcml:26
 msgid "rescuearea.core"
 msgstr ""
 
-#: ../configure.zcml:34
+#: ../configure.zcml:35
 msgid "rescuearea.core (uninstall)"
 msgstr ""
 
