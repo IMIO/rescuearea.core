@@ -5,6 +5,9 @@ Changelog
 1.0a7 (unreleased)
 ------------------
 
+- Add the view anomalies_reporting and creates the link with its setting.
+  [vpiret]
+
 - Update french translations
   [vpiret]
 
