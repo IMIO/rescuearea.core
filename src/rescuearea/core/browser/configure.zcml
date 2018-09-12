@@ -19,7 +19,7 @@
       />
 
   <browser:page
-    name="anomalies_reporting"
+    name="anomalies_reporting_settings"
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     class=".controlpanel.AnomaliesReportingSettingsControlPanel"
     permission="cmf.ManagePortal"
@@ -32,6 +32,13 @@
       class=".viewlet.PopUpViewlet"
       permission="zope.Public"
       layer="..interfaces.IRescueareaCoreLayer"
+      />
+  <browser:page
+      for="*"
+      name="anomalies_reporting"
+      permission="zope2.View"
+      class=".anomalies_reporting.AnomaliesReportingView"
+      template="templates/anomalies_reporting.pt"
       />
 
 </configure>

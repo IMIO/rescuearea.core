@@ -6,11 +6,11 @@
 
   <configlet
         title="Anomalies reporting Settings"
-        action_id="anomalies_reporting"
-        appId="anomalies_reporting"
+        action_id="anomalies_reporting_settings"
+        appId="anomalies_reporting_settings"
         category="Products"
         condition_expr=""
-        url_expr="string:${portal_url}/@@anomalies_reporting"
+        url_expr="string:${portal_url}/@@anomalies_reporting_settings"
         icon_expr=""
         visible="True"
         i18n:attributes="title">

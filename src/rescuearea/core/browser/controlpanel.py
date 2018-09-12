@@ -10,7 +10,7 @@ class IAnomaliesReportingSettingsSchema(Interface):
 
     form.widget('anomalies_reporting', klass='pat-tinymce')
     anomalies_reporting = schema.Text(
-        title=_(u'Anomalies reporting')
+        title=_(u'Anomalies reporting settings')
     )
 
 
@@ -27,5 +27,5 @@ class AnomaliesReportingSettingsEditForm(controlpanel.RegistryEditForm):
         super(AnomaliesReportingSettingsEditForm, self).updateWidgets()
 
 
-class AnomaliesReportingSettingsControlPanel(controlpanel.ControlPanelFormWrapper):
+class AnomaliesReportingSettingsControlPanel(controlpanel.ControlPanelFormWrapper):  # noqa: E501
     form = AnomaliesReportingSettingsEditForm
