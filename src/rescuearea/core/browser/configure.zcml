@@ -41,4 +41,20 @@
       template="templates/anomalies_reporting.pt"
       />
 
+  <browser:page
+      for="..content.ppi.IPpi"
+      name="print"
+      permission="zope2.View"
+      class=".print.PrintView"
+      template="templates/print.pt"
+      />
+
+  <browser:page
+      for="..content.ppie.IPpie"
+      name="print"
+      permission="zope2.View"
+      class=".print.PrintView"
+      template="templates/print.pt"
+      />
+
 </configure>
