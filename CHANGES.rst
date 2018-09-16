@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a7 (unreleased)
+1.0a7 (2018-09-16)
 ------------------
 
 - Add the view anomalies_reporting and creates the link with its setting.
