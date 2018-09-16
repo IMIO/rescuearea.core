@@ -5,7 +5,11 @@ Changelog
 1.0a8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix render of tooltips for boolean widgets
+  [mpeeters]
+
+- Improve render of widget tooltips
+  [mpeeters]
 
 
 1.0a7 (2018-09-16)
