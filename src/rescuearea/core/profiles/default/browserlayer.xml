@@ -4,4 +4,8 @@
       name="rescuearea.core"
       interface="rescuearea.core.interfaces.IRescueareaCoreLayer"
       />
+  <layer
+      name="rescuearea.core.form"
+      interface="rescuearea.core.interfaces.IRescueAreaFormLayer"
+      />
 </layers>

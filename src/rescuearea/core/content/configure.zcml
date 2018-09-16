@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="rescuearea.core">
 
   <subscriber
@@ -70,5 +71,16 @@
     template="templates/ppi_ppie.pt"
     permission="zope2.View"
     />
+
+  <!-- widget specific -->
+  <include package="plone.app.z3cform" />
+
+  <z3c:widgetTemplate
+      mode="input"
+      field="zope.schema.interfaces.IBool"
+      widget="plone.app.z3cform.interfaces.ISingleCheckBoxBoolWidget"
+      layer="rescuearea.core.interfaces.IRescueAreaFormLayer"
+      template="templates/ppi_singlecheckboxbool_input.pt"
+      />
 
 </configure>
