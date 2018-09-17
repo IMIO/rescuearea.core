@@ -21,43 +21,21 @@ from rescuearea.core.utils import default_translator
 
 occupation_table_value = (
     u'<table border="1"><tbody><tr>'
+    u'<td><h6>Lieu</h6></td>'
     u'<td><h6>00h00</h6></td>'
-    u'<td><h6>01h00</h6></td>'
-    u'<td><h6>02h00</h6></td>'
-    u'<td><h6>03h00</h6></td>'
     u'<td><h6>04h00</h6></td>'
-    u'<td><h6>05h00</h6></td>'
     u'<td><h6>06h00</h6></td>'
-    u'<td><h6>07h00</h6></td>'
     u'<td><h6>08h00</h6></td>'
     u'<td><h6>09h00</h6></td>'
     u'<td><h6>10h00</h6></td>'
-    u'<td><h6>11h00</h6></td>'
     u'<td><h6>12h00</h6></td>'
-    u'<td><h6>13h00</h6></td>'
     u'<td><h6>14h00</h6></td>'
-    u'<td><h6>15h00</h6></td>'
-    u'<td><h6>16h00</h6></td>'
-    u'<td><h6>17h00</h6></td>'
     u'<td><h6>18h00</h6></td>'
-    u'<td><h6>19h00</h6></td>'
-    u'<td><h6>20h00</h6></td>'
+    u'<td><h6>12h00</h6></td>'
     u'<td><h6>21h00</h6></td>'
-    u'<td><h6>22h00</h6></td>'
     u'<td><h6>23h00</h6></td>'
     u'</tr><tr>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
+    u'<td> </td>'
     u'<td>0</td>'
     u'<td>0</td>'
     u'<td>0</td>'
@@ -556,6 +534,13 @@ class AddView(add.DefaultAddView):
 
 class PpiView(view.DefaultView):
 
+    def check_default_value(self, widget):
+        default = widget.value.output.replace('&#13;\n', '')
+        value = widget.field.defaultFactory(self)
+        if default == value:
+            return False
+        return True
+
     def check_value(self, obj):
         fields = []
         for widget in obj.subform.widgets.values():
@@ -564,7 +549,11 @@ class PpiView(view.DefaultView):
                     fields.append(widget)
             else:
                 if widget.value:
-                    fields.append(widget)
+                    if type(widget).klass == 'richTextWidget':
+                        if self.check_default_value(widget):
+                            fields.append(widget)
+                    else:
+                        fields.append(widget)
         if fields:
             return True
         return False
