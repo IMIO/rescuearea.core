@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
+from rescuearea.core.content.ppi import PpiView
 
-from Products.Five import BrowserView
 
-
-class PrintView(BrowserView):
+class PrintView(PpiView):
     """@@print"""

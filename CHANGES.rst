@@ -5,7 +5,8 @@ Changelog
 1.0a9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add content to print ppie view
+  [AuroreMariscal]
 
 
 1.0a8 (2018-09-16)
