@@ -5,6 +5,9 @@ Changelog
 1.0a9 (unreleased)
 ------------------
 
+- Adapt template ppi-ppie
+  [AuroreMariscal]
+
 - Add content to print ppie view
   [AuroreMariscal]
 

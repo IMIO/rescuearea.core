@@ -5,65 +5,76 @@
       lang="en"
       metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
-<body>
+    <body>
 
-<metal:main fill-slot="content-core">
-  <metal:content-core define-macro="content-core">
+        <metal:main fill-slot="content-core">
+        <metal:content-core define-macro="content-core">
+        <div class="display-fieldset">
+            <div class="tabs-fieldset">
+                <div class="tab-fieldset"
+                     tal:repeat="group view/get_groups"
+                     tal:attributes="id python:''.join(('tab_fieldset-', group.prefix, 'groups.', group.__name__)).replace('.', '-').replace(' ', '_');"
+                     tal:content="string:${repeat/group/number}. ${group/label}">
+                </div>
+            </div>
 
-    <fieldset tal:repeat="group view/get_groups"
-              tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
+            <div class="contents-fieldset">
+                <fieldset class="content-fieldset"
+                          tal:repeat="group view/get_groups"
+                          tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-').replace(' ', '_')">
 
-      <legend tal:content="string:${repeat/group/number}. ${group/label}"/>
-      <ul tal:repeat="widget python:view.get_values(group)">
-        <li tal:condition="not:python: type(widget).klass=='object-widget'">
-          <label for="" class="horizontal" tal:attributes="for widget/id">
-            <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
-          </label>
-          <br>
-          <input type="text" tal:replace="structure widget/render" metal:define-slot="widget" />
-        </li>
-        <li tal:condition="python: type(widget).klass=='object-widget'">
-          <label for="" class="horizontal" tal:attributes="for widget/id">
-            <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
-          </label>
-          <br>
-          <ul tal:repeat="widget2 python:widget.subform.widgets.values()">
-            <li tal:condition="not:python: type(widget).klass=='object-widget'"
-                tal:condition="widget2/value">
-              <label for="" class="horizontal" tal:attributes="for widget/id">
-                <span i18n:translate=""
-                      tal:replace=
-                        "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
-              </label>
-              <br>
-              <input type="text" tal:replace="structure widget2/render" metal:define-slot="widget" />
-            </li>
-            <li tal:condition="python: type(widget2).klass=='object-widget'">
-              <label for="" class="horizontal" tal:attributes="for widget2/id">
-                <span i18n:translate=""
-                      tal:replace=
-                        "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
-              </label>
-              <br>
-              <ul tal:repeat="widget3 python:widget2.subform.widgets.values()">
-                <li tal:condition="widget3/value">
-                  <label for="" class="horizontal" tal:attributes="for widget/id">
-                    <span i18n:translate=""
-                          tal:replace=
-                        "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}.${repeat/widget3/number}. ${widget3/label}">label</span>
-                  </label>
-                  <br>
-                  <input type="text" tal:replace="structure widget3/render" metal:define-slot="widget" />
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </fieldset>
+                    <legend tal:content="string:${repeat/group/number}. ${group/label}"/>
+                        <ul tal:repeat="widget python:view.get_values(group)">
+                            <li tal:condition="not:python: type(widget).klass=='object-widget'">
+                                <label for="" class="horizontal" tal:attributes="for widget/id">
+                                    <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
+                                </label>
+                                <br>
+                                <input type="text" tal:replace="structure widget/render" metal:define-slot="widget" />
+                            </li>
+                            <li tal:condition="python: type(widget).klass=='object-widget'">
+                                <label for="" class="horizontal" tal:attributes="for widget/id">
+                                    <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
+                                </label>
+                                <br>
+                                <ul tal:repeat="widget2 python:widget.subform.widgets.values()">
+                                    <li tal:condition="not:python: type(widget).klass=='object-widget'"
+                                        tal:condition="widget2/value">
+                                        <label for="" class="horizontal" tal:attributes="for widget/id">
+                                            <span i18n:translate=""
+                                                  tal:replace=
+                                                  "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
+                                        </label>
+                                        <br>
+                                        <input type="text" tal:replace="structure widget2/render" metal:define-slot="widget" />
+                                    </li>
+                                    <li tal:condition="python: type(widget2).klass=='object-widget'">
+                                        <label for="" class="horizontal" tal:attributes="for widget2/id">
+                                            <span i18n:translate=""
+                                                  tal:replace=
+                                                  "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
+                                        </label>
+                                        <br>
+                                        <ul tal:repeat="widget3 python:widget2.subform.widgets.values()">
+                                            <li tal:condition="widget3/value">
+                                                <label for="" class="horizontal" tal:attributes="for widget/id">
+                                                    <span i18n:translate=""
+                                                          tal:replace=
+                                                          "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}.${repeat/widget3/number}. ${widget3/label}">label</span>
+                                                </label>
+                                                <br>
+                                                <input type="text" tal:replace="structure widget3/render" metal:define-slot="widget" />
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                </fieldset>
+            </div>
+        </div>
+        </metal:content-core>
+        </metal:main>
 
-  </metal:content-core>
-</metal:main>
-
-</body>
+    </body>
 </html>
