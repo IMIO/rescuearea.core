@@ -5,6 +5,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.metaconfigure import ViewMixinForTemplates
 from Products.statusmessages.interfaces import IStatusMessage
 
+from plone.app.layout.viewlets import ViewletBase
 from plone.app.textfield import RichText
 from plone.dexterity.browser import add, edit, view
 from plone.dexterity.content import Container
@@ -14,6 +15,9 @@ from plone.supermodel.directives import fieldset
 from z3c.form import button
 from zope import schema
 from zope.interface import implements
+from zope.component import queryUtility
+from plone.registry.interfaces import IRegistry
+
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
@@ -585,7 +589,7 @@ class AddView(add.DefaultAddView):
 class PpiView(view.DefaultView):
 
     def check_default_value(self, widget):
-        default = widget.value.output.replace('&#13;\n', '')
+        default = widget.value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>')
         value = widget.field.defaultFactory(self)
         if default == value:
             return False
@@ -617,7 +621,10 @@ class PpiView(view.DefaultView):
                 if self.check_value(widget):
                     fields.append(widget)
             else:
-                if widget.value:
+                if type(widget).klass == 'richTextWidget':
+                    if self.check_default_value(widget):
+                        fields.append(widget)
+                else:
                     fields.append(widget)
         if fields:
             return True
@@ -633,7 +640,11 @@ class PpiView(view.DefaultView):
                     fields.append(widget)
             else:
                 if widget.value:
-                    fields.append(widget)
+                    if type(widget).klass == 'richTextWidget':
+                        if self.check_default_value(widget):
+                            fields.append(widget)
+                    else:
+                        fields.append(widget)
 
         return fields
 
@@ -649,11 +660,26 @@ class PpiView(view.DefaultView):
                         fields.append(widget)
                 else:
                     if widget.value:
-                        fields.append(widget)
+                        if type(widget).klass == 'richTextWidget':
+                            if self.check_default_value(widget):
+                                fields.append(widget)
+                        else:
+                            fields.append(widget)
             if fields:
                 groups.append(group)
 
         return groups
+
+
+class IconsView(BrowserView):
+    def __call__(self):
+        registry = queryUtility(IRegistry, default={})
+        return registry.get('rescuearea.core.keyIcon', '')
+
+
+class IconsViewlet(ViewletBase):
+    def render(self):
+        return self.context.restrictedTraverse('@@icons')()
 
 
 register_object_factories(IPpi)

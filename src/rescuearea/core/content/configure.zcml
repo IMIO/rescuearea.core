@@ -72,6 +72,13 @@
     permission="zope2.View"
     />
 
+    <browser:page
+    for=".ppi.IPpi"
+    name="icons"
+    class=".ppi.IconsView"
+    permission="zope2.View"
+    />
+
   <!-- widget specific -->
   <include package="plone.app.z3cform" />
 
@@ -81,6 +88,15 @@
       widget="plone.app.z3cform.interfaces.ISingleCheckBoxBoolWidget"
       layer="rescuearea.core.interfaces.IRescueAreaFormLayer"
       template="templates/ppi_singlecheckboxbool_input.pt"
+      />
+
+  <browser:viewlet
+      for=".ppi.IPpi"
+      name="viewlet.icons"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      class=".ppi.IconsViewlet"
+      permission="zope2.View"
+      layer="..interfaces.IRescueareaCoreLayer"
       />
 
 </configure>
