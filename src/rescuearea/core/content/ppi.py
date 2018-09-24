@@ -3,6 +3,7 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from Products.Five.browser.metaconfigure import ViewMixinForTemplates
+from Products.statusmessages.interfaces import IStatusMessage
 
 from plone.app.textfield import RichText
 from plone.dexterity.browser import add, edit, view
@@ -10,6 +11,7 @@ from plone.dexterity.content import Container
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
+from z3c.form import button
 from zope import schema
 from zope.interface import implements
 
@@ -526,6 +528,54 @@ class RenderWidget(ViewMixinForTemplates, BrowserView):
 class AddForm(add.DefaultAddForm, BrowserView):
     portal_type = 'ppi'
     template = ViewPageTemplateFile('templates/ppi_form_add.pt')
+
+    def updateFields(self):
+        super(add.DefaultAddForm, self).updateFields()
+        self.group_errors = []
+        self.update_fieldset_classes()
+
+    @button.buttonAndHandler(_('Save'), name='save')
+    def handleAdd(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            self.handle_errors(errors)
+            return
+        # self.update_fieldset_classes()
+        obj = self.createAndAdd(data)
+        if obj is not None:
+            # mark only as finished if we get the new object
+            self._finishedAdd = True
+            IStatusMessage(self.request).addStatusMessage(
+                self.success_message, "info"
+            )
+
+    def handle_errors(self, errors):
+
+        group_ids = []
+        self.group_labels = {}
+        for error in errors:
+            name = error.form.__name__
+            if name not in group_ids:
+                group_ids.append(name)
+                self.group_labels[name] = error.form.label
+
+        self.group_errors = group_ids
+
+        self.update_fieldset_classes()
+
+    def get_fieldset_legend_class(self, group):
+        if group.__name__ in self.group_errors:
+            return "error"
+        return ""
+
+    def update_fieldset_classes(self):
+        self.fieldset_class = {}
+        for group in self.groups:
+            self.fieldset_class[group.__name__] = self.get_fieldset_legend_class(group)
+
+    def get_group_label(self, group):
+        return self.group_labels[group]
 
 
 class AddView(add.DefaultAddView):
