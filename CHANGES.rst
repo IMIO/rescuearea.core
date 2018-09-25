@@ -5,6 +5,9 @@ Changelog
 1.0a9 (unreleased)
 ------------------
 
+- Remove (?) of input info type
+  [AuroreMariscal]
+
 - Adapt template ppi-ppie
   [AuroreMariscal]
 

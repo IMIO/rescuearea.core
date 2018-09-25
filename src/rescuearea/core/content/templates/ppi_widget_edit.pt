@@ -27,7 +27,7 @@
             tal:define="description python: getattr(widget, 'description', widget.field.description)"
             i18n:translate=""
             tal:condition="python:description and not hidden"
-            ><span class="info">(?)</span>
+            ><span class="info"></span>
         </span>
     </label>
 

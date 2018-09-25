@@ -81,7 +81,7 @@
        tal:attributes="title item/description"
         i18n:translate=""
         tal:condition="item/description"
-        ><span class="info">(?)</span>
+        ><span class="info"></span>
     </span>
   </label>
  </span>
