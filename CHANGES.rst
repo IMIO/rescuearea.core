@@ -5,6 +5,9 @@ Changelog
 1.0a9 (unreleased)
 ------------------
 
+- Change tag for prin ppi-e with firefox
+  [AuroreMariscal]
+
 - Remove (?) of input info type
   [AuroreMariscal]
 

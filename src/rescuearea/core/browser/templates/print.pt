@@ -10,7 +10,7 @@
 <metal:main fill-slot="content-core">
   <metal:content-core define-macro="content-core">
 
-    <fieldset tal:repeat="group view/get_groups"
+    <div tal:repeat="group view/get_groups"
               tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
 
       <legend tal:content="string:${repeat/group/number}. ${group/label}"/>
@@ -57,7 +57,7 @@
           </ul>
         </li>
       </ul>
-    </fieldset>
+    </div>
 
   </metal:content-core>
 </metal:main>
