@@ -589,10 +589,11 @@ class AddView(add.DefaultAddView):
 class PpiView(view.DefaultView):
 
     def check_default_value(self, widget):
-        default = widget.value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>')
-        value = widget.field.defaultFactory(self)
-        if default == value:
-            return False
+        if widget.field.defaultFactory:
+            default = widget.value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>')
+            value = widget.field.defaultFactory(self)
+            if default == value:
+                return False
         return True
 
     def check_value(self, obj):
@@ -669,6 +670,12 @@ class PpiView(view.DefaultView):
                 groups.append(group)
 
         return groups
+
+    def show_label(self, widget, widget2):
+        if type(widget).klass == 'object-widget':
+            if widget2.value:
+                return True
+        return False
 
 
 class IconsView(BrowserView):
