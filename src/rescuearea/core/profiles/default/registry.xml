@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <registry>
   <records interface="rescuearea.core.browser.controlpanel.IAnomaliesReportingSettingsSchema" />
-  <record name="rescuearea.core.keyIcon">
+  <record name="ppi_keys_code_access_badge">
     <field type="plone.registry.field.TextLine">
       <title>Icon key</title>
     </field>
-    <value>icon.png</value>
+    <value>key.png</value>
   </record>
 </registry>

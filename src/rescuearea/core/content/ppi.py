@@ -5,6 +5,7 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.metaconfigure import ViewMixinForTemplates
 from Products.statusmessages.interfaces import IStatusMessage
 
+from plone import api
 from plone.app.layout.viewlets import ViewletBase
 from plone.app.textfield import RichText
 from plone.dexterity.browser import add, edit, view
@@ -680,8 +681,15 @@ class PpiView(view.DefaultView):
 
 class IconsView(BrowserView):
     def __call__(self):
+        field_with_icon = ['keys_code_access_badge']
         registry = queryUtility(IRegistry, default={})
-        return registry.get('rescuearea.core.keyIcon', '')
+        html = ''
+        for field in field_with_icon:
+            if self.context.keys_code_access_badge:
+                icon = registry.get('ppi_{0}'.format(field), '')
+                if icon:
+                    html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
+        return html
 
 
 class IconsViewlet(ViewletBase):
