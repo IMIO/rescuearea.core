@@ -60,28 +60,6 @@ occupation_table_value = (
 )
 
 
-class IContactRowSchema(model.Schema):
-    priority = schema.TextLine(
-        title=_(u'Priority'),
-        required=False,
-    )
-
-    function = schema.TextLine(
-        title=_(u'Function'),
-        required=False,
-    )
-
-    phone = schema.TextLine(
-        title=_(u'Phone'),
-        required=False,
-    )
-
-    remark = schema.TextLine(
-        title=_(u'Remark'),
-        required=False,
-    )
-
-
 class IAddressRowSchema(model.Schema):
     number = schema.TextLine(
         title=_(u'N°'),
@@ -242,13 +220,28 @@ class IPpi(model.Schema):
         required=False,
     )
 
-    contacts = schema.List(
+    contacts = RichText(
         title=_(u'Contacts'),
         required=False,
-        value_type=ObjectField(
-            title=_(u'Contacts'),
-            schema=IContactRowSchema
-        ),
+        defaultFactory=default_translator(_(
+            u'<table border = "1">'
+            u'<tbody>'
+            u'<tr>'
+            u'<td><strong>Priority</strong></td>'
+            u'<td><strong>Function</strong></td>'
+            u'<td><strong>Phone</strong></td>'
+            u'<td><strong>Remark</strong></td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>/</td>'
+            u'<td>/</td>'
+            u'<td>/</td>'
+            u'<td>/</td>'
+            u'</tr>'
+            u'</tbody>'
+            u'</table>'
+        )),
+        default_mime_type='text/html',
     )
 
     premises = RichText(
