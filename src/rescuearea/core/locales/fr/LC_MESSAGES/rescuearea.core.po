@@ -312,6 +312,10 @@ msgstr "Discipline 2"
 msgid "During the ride"
 msgstr "Pendant le trajet"
 
+#: ../content/templates/ppi_form_add.pt:20
+msgid "Error in tabs :"
+msgstr "Erreur dans les onglets :"
+
 #: ../content/ppi.py:253
 msgid "Existence of a PPUI?"
 msgstr "Existence d'un PPUI?"
@@ -344,6 +348,10 @@ msgstr "Postes impactés"
 #: ../content/ppie.py:79
 msgid "In the field (field PC)"
 msgstr "Sur le terrain (PC terrain)"
+
+#: ../content/templates/ppi_form_add.pt:31
+msgid "Info"
+msgstr "Info"
 
 #: ../content/ppi.py:121
 msgid "Information"
@@ -490,6 +498,10 @@ msgstr "Préventionniste"
 #: ../content/ppie.py:226
 msgid "Preventive devices"
 msgstr "Dispositifs préventifs"
+
+#: ../content/templates/ppi_ppie.pt:69
+msgid "Print"
+msgstr "Imprimer"
 
 #: ../content/ppi.py:357
 msgid "Reflex measurements on arrival on site"

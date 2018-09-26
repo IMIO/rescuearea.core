@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-09-26 11:38+0000\n"
+"POT-Creation-Date: 2018-09-26 11:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -319,6 +319,10 @@ msgstr ""
 msgid "During the ride"
 msgstr ""
 
+#: ../content/templates/ppi_form_add.pt:20
+msgid "Error in tabs :"
+msgstr ""
+
 #: ../content/ppi.py:253
 msgid "Existence of a PPUI?"
 msgstr ""
@@ -350,6 +354,10 @@ msgstr ""
 
 #: ../content/ppie.py:79
 msgid "In the field (field PC)"
+msgstr ""
+
+#: ../content/templates/ppi_form_add.pt:31
+msgid "Info"
 msgstr ""
 
 #: ../content/ppi.py:121
@@ -496,6 +504,10 @@ msgstr ""
 
 #: ../content/ppie.py:226
 msgid "Preventive devices"
+msgstr ""
+
+#: ../content/templates/ppi_ppie.pt:69
+msgid "Print"
 msgstr ""
 
 #: ../content/ppi.py:357
