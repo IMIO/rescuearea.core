@@ -29,14 +29,12 @@
                                 <label for="" class="horizontal" tal:attributes="for widget/id">
                                     <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
                                 </label>
-                                <br>
                                 <input type="text" tal:replace="structure widget/render" metal:define-slot="widget" />
                             </li>
                             <li tal:condition="python: type(widget).klass=='object-widget'">
                                 <label for="" class="horizontal" tal:attributes="for widget/id">
                                     <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
                                 </label>
-                                <br>
                                 <ul tal:repeat="widget2 python:widget.subform.widgets.values()">
                                     <li tal:condition="python:view.show_label(widget, widget2)">
                                         <label for="" class="horizontal" tal:attributes="for widget/id">
@@ -44,7 +42,6 @@
                                                   tal:replace=
                                                   "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
                                         </label>
-                                        <br>
                                         <input type="text" tal:replace="structure widget2/render" metal:define-slot="widget" />
                                     </li>
                                     <li tal:condition="python: type(widget2).klass=='object-widget'">
@@ -53,7 +50,6 @@
                                                   tal:replace=
                                                   "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
                                         </label>
-                                        <br>
                                         <ul tal:repeat="widget3 python:widget2.subform.widgets.values()">
                                             <li tal:condition="widget3/value">
                                                 <label for="" class="horizontal" tal:attributes="for widget/id">
@@ -61,7 +57,6 @@
                                                           tal:replace=
                                                           "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}.${repeat/widget3/number}. ${widget3/label}">label</span>
                                                 </label>
-                                                <br>
                                                 <input type="text" tal:replace="structure widget3/render" metal:define-slot="widget" />
                                             </li>
                                         </ul>
