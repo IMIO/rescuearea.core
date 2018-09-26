@@ -66,6 +66,7 @@
                         </ul>
                 </fieldset>
             </div>
+        <a href="" tal:attributes="href string: ${context/absolute_url}/@@print" i18n:translate="">Print</a>
         </div>
         </metal:content-core>
         </metal:main>
