@@ -30,7 +30,7 @@
     for=".ppi.IPpi"
     name="edit"
     class=".ppi.EditForm"
-    permission="cmf.ModifyPortalContent"
+    permission="rescuearea.core.edit_ppi"
     />
 
   <browser:page
@@ -51,7 +51,7 @@
 
   <class class=".ppi.AddView">
       <require
-          permission="cmf.AddPortalContent"
+          permission="rescuearea.core.add_ppi"
           interface="zope.publisher.interfaces.browser.IBrowserPage"
           />
   </class>

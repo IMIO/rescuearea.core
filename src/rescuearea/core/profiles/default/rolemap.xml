@@ -1,7 +1,28 @@
 <?xml version="1.0"?>
 <rolemap>
+  <roles>
+    <role name="PPI Encoder"/>
+    <role name="PPIE Encoder"/>
+  </roles>
   <permissions>
-  <!-- -*- extra stuff goes here -*- -->
+    <permission
+      name="rescuearea.core: Edit PPI" acquire="True">
+      <role name="PPI Encoder"/>
+    </permission>
 
+    <permission
+      name="rescuearea.core: Add PPI" acquire="True">
+      <role name="PPI Encoder"/>
+    </permission>
+
+    <permission
+      name="rescuearea.core: Edit PPIE" acquire="True">
+      <role name="PPIE Encoder"/>
+    </permission>
+
+    <permission
+      name="rescuearea.core: Add PPIE" acquire="True">
+      <role name="PPIE Encoder"/>
+    </permission>
   </permissions>
 </rolemap>

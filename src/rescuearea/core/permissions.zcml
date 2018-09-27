@@ -9,4 +9,24 @@
 
   </configure>
 
+  <permission
+      id="rescuearea.core.edit_ppi"
+      title="rescuearea.core: Edit PPI"
+  />
+
+  <permission
+      id="rescuearea.core.add_ppi"
+      title="rescuearea.core: Add PPI"
+  />
+
+  <permission
+      id="rescuearea.core.edit_ppie"
+      title="rescuearea.core: Edit PPIE"
+  />
+
+  <permission
+      id="rescuearea.core.add_ppie"
+      title="rescuearea.core: Add PPIE"
+  />
+
 </configure>
