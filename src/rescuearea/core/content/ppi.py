@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+from Products.CMFPlone.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.Five.browser import BrowserView
 from Products.Five.browser.metaconfigure import ViewMixinForTemplates
@@ -8,8 +10,10 @@ from Products.statusmessages.interfaces import IStatusMessage
 from plone import api
 from plone.app.layout.viewlets import ViewletBase
 from plone.app.textfield import RichText
+from plone.app.textfield.value import IRichTextValue
 from plone.dexterity.browser import add, edit, view
 from plone.dexterity.content import Container
+from plone.indexer.decorator import indexer
 from plone.namedfile.field import NamedBlobFile
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
@@ -688,6 +692,29 @@ class IconsView(BrowserView):
 class IconsViewlet(ViewletBase):
     def render(self):
         return self.context.restrictedTraverse('@@icons')()
+
+
+@indexer(IPpi)
+def searchabletext_adress(object, **kw):
+    result = []
+    address = getattr(object, 'address', None)
+    if address:
+        fields = ['number', 'street', 'zip_code', 'commune', 'longitude', 'latitude']
+        for field_name in fields:
+            value = getattr(address, field_name, None)
+            if type(value) is unicode:
+                text = safe_unicode(value).encode('utf-8')
+                result.append(text)
+            elif IRichTextValue.providedBy(value):
+                transforms = getToolByName(object, 'portal_transforms')
+                text = transforms.convertTo(
+                    'text/plain',
+                    safe_unicode(value.raw).encode('utf-8'),
+                    mimetype=value.mimeType,
+                ).getData().strip()
+                result.append(text)
+
+    return ' '.join(result)
 
 
 register_object_factories(IPpi)

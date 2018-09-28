@@ -99,4 +99,9 @@
       layer="..interfaces.IRescueareaCoreLayer"
       />
 
+  <adapter
+    name="SearchableText"
+    factory=".ppi.searchabletext_adress"
+    />
+
 </configure>
