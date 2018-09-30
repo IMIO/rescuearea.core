@@ -5,6 +5,27 @@ Changelog
 1.0a9 (unreleased)
 ------------------
 
+- Update translations
+  [vpiret]
+
+- Add address in fulltext search
+  [vpiret]
+
+- Add permissions, roles and groups form ppt and pie editing
+  [vpiret]
+
+- Add print link on ppi ppie template
+  [vpiret]
+
+- Upgrade popup style
+  [vpiret]
+
+- Add viewlet for pictograme and fix default value
+  [vpiret]
+
+- Upgrade default value and omit field if default value
+  [vpiret]
+
 - Change tag for prin ppi-e with firefox
   [AuroreMariscal]
 
