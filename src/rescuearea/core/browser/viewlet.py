@@ -22,17 +22,17 @@ class PopUpViewlet(ViewletBase):
             return False
 
         for popup in list_popup:
-            today = datetime.date.today()
-            start = popup.start
-            end = popup.end
-            if start <= today <= end:
-                text = _(u'<p>From {0} to {1}').format(
-                    start.strftime("%d-%m-%Y"),
-                    end.strftime("%d-%m-%Y")
-                )
-                return '{0} {1}'.format(
-                    text,
-                    popup.getObject().richtext_desc.output
-                )
+            if popup.EffectiveDate != 'None':
+                today = datetime.date.today()
+                start = popup.effective.date()
+                end = popup.expires.date()
+                if start <= today <= end:
+                    text = _(u"popup_message",
+                             default=u'<p>From ${start} to ${end}</p> <p>${message}</p>',
+                             mapping={u"start": start.strftime("%d-%m-%Y"),
+                                      u"end": end.strftime("%d-%m-%Y"),
+                                      u"message": popup.getObject().richtext_desc.output}
+                             )
+                    return text
 
         return False

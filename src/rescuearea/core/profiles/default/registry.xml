@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <registry>
   <records interface="rescuearea.core.browser.controlpanel.IAnomaliesReportingSettingsSchema" />
-  <record name="ppi_keys_code_access_badge">
+  <record name="ppi_existence_keys_code_access_badge">
     <field type="plone.registry.field.TextLine">
       <title>Icon key</title>
     </field>

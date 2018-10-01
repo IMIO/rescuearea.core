@@ -46,19 +46,19 @@ occupation_table_value = (
     u'<td><h6>21h00</h6></td>'
     u'<td><h6>23h00</h6></td>'
     u'</tr><tr>'
-    u'<td> </td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
-    u'<td>0</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
+    u'<td>&nbsp;</td>'
     u'</tr></tbody></table>'
     u'<div class="page" title="Page 1"><p></p></div>'
 )
@@ -96,33 +96,14 @@ class IAddressRowSchema(model.Schema):
     )
 
 
-class IOccupancyScheduleRowSchema(model.Schema):
-    schedule = schema.TextLine(
-        title=_(u'Schedule'),
-        required=False,
-    )
-
-    description = RichText(
-        title=_(u'Description'),
-        default_mime_type='text/html',
-        defaultFactory=default_translator(
-            _(
-                u'{table}<div><div class="column">'
-                u'<p><span>0 No activity</span></p>'
-                u'<p><span>1 Workers present</span></p>'
-                u'<p><span>2 Open to public</span></p>'
-                u'</div></div>'
-            ),
-            table=occupation_table_value,
-        ),
-        required=False,
-    )
-
-
 class IKeysCodeAccessBadgeFieldsRowSchema(model.Schema):
 
-    keys_code_access_badge = RichText(
-        title=_(u'Information'),
+    existence_keys_code_access_badge = schema.Bool(
+        title=_(u'Existence of keys, code, access badge?'),
+        required=False,
+    )
+
+    information = RichText(
         required=False,
         default_mime_type='text/html',
         defaultFactory=default_translator(_(
@@ -132,7 +113,7 @@ class IKeysCodeAccessBadgeFieldsRowSchema(model.Schema):
         )),
     )
 
-    last_key_check_date = schema.Datetime(
+    last_key_check_date = schema.Date(
         title=_(u'Last Key Check Date'),
         required=False,
     )
@@ -185,7 +166,6 @@ class IPpi(model.Schema):
                 'data_limited_to_description',
                 'site_classified_seveso',
                 'keys_code_access_badge',
-                'keys_code_access_badge_fields',
                 'date_of_update_of_the_description_sheet',
                 ]
     )
@@ -206,10 +186,20 @@ class IPpi(model.Schema):
         required=True,
     )
 
-    occupancy_schedule = ObjectField(
+    occupancy_schedule = RichText(
         title=_(u'Occupancy schedule'),
         description=_(u'<p>Specify night occupancy or not. Specify public occupation</p>'),
-        schema=IOccupancyScheduleRowSchema,
+        default_mime_type='text/html',
+        defaultFactory=default_translator(
+            _(
+                u'{table}<div><div class="column">'
+                u'<p><span>0 No activity</span></p>'
+                u'<p><span>1 Workers present</span></p>'
+                u'<p><span>2 Open to public</span></p>'
+                u'</div></div>'
+            ),
+            table=occupation_table_value,
+        ),
         required=False,
     )
 
@@ -237,10 +227,10 @@ class IPpi(model.Schema):
             u'<td><strong>Remark</strong></td>'
             u'</tr>'
             u'<tr>'
-            u'<td>/</td>'
-            u'<td>/</td>'
-            u'<td>/</td>'
-            u'<td>/</td>'
+            u'<td>&nbsp;</td>'
+            u'<td>&nbsp;</td>'
+            u'<td>&nbsp;</td>'
+            u'<td>&nbsp;</td>'
             u'</tr>'
             u'</tbody>'
             u'</table>'
@@ -270,18 +260,14 @@ class IPpi(model.Schema):
         required=False,
     )
 
-    keys_code_access_badge = schema.Bool(
+    keys_code_access_badge = ObjectField(
         title=_(u'Keys, code, access badge?'),
         description=_(u'If yes, describe utility'),
-        required=False,
-    )
-
-    keys_code_access_badge_fields = ObjectField(
         schema=IKeysCodeAccessBadgeFieldsRowSchema,
         required=False,
     )
 
-    date_of_update_of_the_description_sheet = schema.Datetime(
+    date_of_update_of_the_description_sheet = schema.Date(
         title=_(u'Date of update of the description sheet'),
         required=False,
     )
@@ -417,7 +403,7 @@ class IPpi(model.Schema):
         description=_(
             u'<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>'),
         schema=ILinkFileRowSchema,
-        required=False,
+        required=True,
     )
 
     appendix_implementation_plan = NamedBlobFile(
@@ -432,7 +418,7 @@ class IPpi(model.Schema):
         description=_(
             u'<p>mandatory to be printed from the PPI carto application</p>'),
         schema=ILinkFileRowSchema,
-        required=True,
+        required=False,
     )
 
     appendix_axonometric_view = NamedBlobFile(
@@ -444,7 +430,7 @@ class IPpi(model.Schema):
         title=_(u'Appendix : Carroyer plan'),
         description=_(
             u"<p>Mandatory if the size of the site does not fit within a 250m x 250m square. To do by the Carto team to put online on the PPI carto app.</p><p>If there is no 'not shown', indicate 'not shown'.</p>"),
-        required=True,
+        required=False,
     )
 
     appendix_description = NamedBlobFile(
@@ -473,7 +459,7 @@ class IPpi(model.Schema):
         required=True,
     )
 
-    date_of_last_modification = schema.Datetime(
+    date_of_last_modification = schema.Date(
         title=_(u'Date of last modification'),
         required=False,
     )
@@ -678,14 +664,20 @@ class PpiView(view.DefaultView):
 
 class IconsView(BrowserView):
     def __call__(self):
-        field_with_icon = ['keys_code_access_badge']
+        field_with_icon = [['keys_code_access_badge', 'existence_keys_code_access_badge']]
         registry = queryUtility(IRegistry, default={})
         html = ''
         for field in field_with_icon:
-            if self.context.keys_code_access_badge:
-                icon = registry.get('ppi_{0}'.format(field), '')
-                if icon:
-                    html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
+            if type(field) == list:
+                if getattr(getattr(self.context, field[0]), field[1]):
+                    icon = registry.get('ppi_{0}'.format(field), '')
+                    if icon:
+                        html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
+            else:
+                if getattr(self.context, field):
+                    icon = registry.get('ppi_{0}'.format(field), '')
+                    if icon:
+                        html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
         return html
 
 

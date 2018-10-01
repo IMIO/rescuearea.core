@@ -24,20 +24,20 @@ class IPopUp(model.Schema):
         required=True,
     )
 
-    start = schema.Date(
+    effective = schema.Datetime(
         title=_(u'Date start'),
         required=True,
     )
 
-    end = schema.Date(
+    expires = schema.Datetime(
         title=_(u'Date end'),
         required=True,
     )
 
     @invariant
     def validate_start_end(data):
-        if data.start is not None and data.end is not None:
-            if data.start > data.end:
+        if data.effective is not None and data.expires is not None:
+            if data.effective > data.expires:
                 raise Invalid(_(u"The start date must be before the end date."))
 
 
