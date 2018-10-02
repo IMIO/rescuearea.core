@@ -51,7 +51,7 @@
                                                   "string:${repeat/group/number}.${repeat/widget/number}.${repeat/widget2/number}. ${widget2/label}">label</span>
                                         </label>
                                         <ul tal:repeat="widget3 python:widget2.subform.widgets.values()">
-                                            <li tal:condition="widget3/value">
+                                            <li tal:condition="python:view.show_label(widget2, widget3)">
                                                 <label for="" class="horizontal" tal:attributes="for widget/id">
                                                     <span i18n:translate=""
                                                           tal:replace=

@@ -60,7 +60,7 @@ occupation_table_value = (
     u'<td>&nbsp;</td>'
     u'<td>&nbsp;</td>'
     u'</tr></tbody></table>'
-    u'<div class="page" title="Page 1"><p></p></div>'
+    u'<div class="page" title="Page 1"><p/></div>'
 )
 
 
@@ -218,7 +218,7 @@ class IPpi(model.Schema):
         title=_(u'Contacts'),
         required=False,
         defaultFactory=default_translator(_(
-            u'<table border = "1">'
+            u'<table border="1">'
             u'<tbody>'
             u'<tr>'
             u'<td><strong>Priority</strong></td>'
@@ -574,7 +574,7 @@ class PpiView(view.DefaultView):
 
     def check_default_value(self, widget):
         if widget.field.defaultFactory:
-            default = widget.value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>')
+            default = widget.value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>').replace(u'\xa0', '&nbsp;')
             value = widget.field.defaultFactory(self)
             if default == value:
                 return False
@@ -658,6 +658,8 @@ class PpiView(view.DefaultView):
     def show_label(self, widget, widget2):
         if type(widget).klass == 'object-widget':
             if widget2.value:
+                if type(widget2).klass == 'richTextWidget':
+                    return self.check_default_value(widget2)
                 return True
         return False
 
