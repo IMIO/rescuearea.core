@@ -687,8 +687,9 @@ class IconsViewlet(ViewletBase):
 
 
 @indexer(IPpi)
-def searchabletext_adress(object, **kw):
-    result = []
+def searchable_text_address(object, **kw):
+    result = [safe_unicode(object.Title()).encode('utf-8'),
+              safe_unicode(object.Description()).encode('utf-8')]
     address = getattr(object, 'address', None)
     if address:
         fields = ['number', 'street', 'zip_code', 'commune', 'longitude', 'latitude']

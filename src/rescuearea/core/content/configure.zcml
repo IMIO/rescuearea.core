@@ -101,7 +101,7 @@
 
   <adapter
     name="SearchableText"
-    factory=".ppi.searchabletext_adress"
+    factory=".ppi.searchable_text_address"
     />
 
 </configure>
