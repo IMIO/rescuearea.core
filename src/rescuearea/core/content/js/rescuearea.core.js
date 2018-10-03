@@ -22,6 +22,9 @@ function toggle_buttons() {
 $(document).ready(function() {
     waitForEl('.autotoc-level-1', function() {
         toggle_buttons();
+        $('.autotoc-level-1').click(function(e) {
+            toggle_buttons();
+        })
         $('#previous').click(function(e) {
             e.preventDefault();
             active_tab = $('.autotoc-level-1.active');
