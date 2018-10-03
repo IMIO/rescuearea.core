@@ -104,4 +104,8 @@
     factory=".ppi.searchable_text_address"
     />
 
+  <browser:resource
+    name="rescuearea.core.js"
+    file="js/rescuearea.core.js"
+   />
 </configure>

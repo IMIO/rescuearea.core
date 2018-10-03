@@ -10,6 +10,10 @@
         <h1 class="documentFirstHeading" tal:content="view/label | nothing" />
 
         <div id="content-core">
+            <script type="text/javascript"
+              charset="utf-8"
+              src=""
+              tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++rescuearea.core.js"></script>
             <metal:block use-macro="context/@@ppi-macros/titlelessform" />
         </div>
 

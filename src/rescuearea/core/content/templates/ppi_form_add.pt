@@ -7,7 +7,10 @@
     <body tal:define="normalizeString nocall:context/@@plone/normalizeString;">
 
         <div class="form" metal:define-macro="form">
-
+            <script type="text/javascript"
+              charset="utf-8"
+              src=""
+              tal:attributes="src string:${context/@@plone_portal_state/portal_url}/++resource++rescuearea.core.js"></script>
             <metal:title-slot define-slot="title">
               <h3 tal:condition="view/label | nothing" tal:content="view/label" />
             </metal:title-slot>
@@ -133,6 +136,18 @@
                           </tal:block>
 
                       </metal:define>
+                      <p align="center">
+                      <a href="" tal:attributes="href string: " class="navigatte">
+                        <button type="button" id="previous" title="previous" class="">
+                          <span i18n:translate=""><< Previous</span>
+                        </button>
+                      </a>
+                      <a href="" tal:attributes="href string: " class="navigatte">
+                        <button type="button" id="next" title="next" class="">
+                          <span i18n:translate="">Next >></span>
+                        </button>
+                      </a>
+                      </p>
                     </metal:fields-slot>
 
                     <metal:block define-slot="belowfields" />
@@ -150,6 +165,7 @@
                     <tal:block tal:condition="view/enableCSRFProtection|nothing"
                       tal:replace="structure context/@@authenticator/authenticator" />
                     <metal:block define-slot="formbottom" />
+
 
                 </form>
             </metal:define>

@@ -2,7 +2,7 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="plone">
+      i18n:domain="rescuearea.core">
 
     <body>
 
@@ -143,6 +143,18 @@
                           </tal:block>
 
                       </metal:define>
+                      <p align="center">
+                      <a href="" tal:attributes="href string: " class="navigatte">
+                        <button type="button" id="previous" title="previous" class="">
+                          <span i18n:translate=""><< Previous</span>
+                        </button>
+                      </a>
+                      <a href="" tal:attributes="href string: " class="navigatte">
+                        <button type="button" id="next" title="next" class="">
+                          <span i18n:translate="">Next >></span>
+                        </button>
+                      </a>
+                      </p>
                     </metal:fields-slot>
 
                     <metal:block define-slot="belowfields" />
