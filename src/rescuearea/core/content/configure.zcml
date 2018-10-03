@@ -34,6 +34,13 @@
     />
 
   <browser:page
+    for=".ppie.IPpie"
+    name="edit"
+    class=".ppi.EditForm"
+    permission="rescuearea.core.edit_ppi"
+    />
+
+  <browser:page
       name="ppi-widget"
       for="z3c.form.interfaces.IWidget"
       class=".ppi.RenderWidget"
@@ -55,6 +62,24 @@
           interface="zope.publisher.interfaces.browser.IBrowserPage"
           />
   </class>
+
+
+  <adapter
+    for="Products.CMFCore.interfaces.IFolderish
+         zope.publisher.interfaces.browser.IDefaultBrowserLayer
+         plone.dexterity.interfaces.IDexterityFTI"
+    provides="zope.publisher.interfaces.browser.IBrowserPage"
+    factory=".ppie.AddView"
+    name="ppi_e"
+    />
+
+  <class class=".ppie.AddView">
+      <require
+          permission="rescuearea.core.add_ppie"
+          interface="zope.publisher.interfaces.browser.IBrowserPage"
+          />
+  </class>
+
 
   <browser:page
     for=".ppi.IPpi"

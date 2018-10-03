@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone.app.textfield import RichText
+from plone.dexterity.browser import add
 from plone.dexterity.content import Container
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
@@ -348,6 +351,15 @@ class IPpie(model.Schema):
 
 class Ppie(Container):
     implements(IPpie)
+
+
+class AddForm(add.DefaultAddForm, BrowserView):
+    portal_type = 'ppi_e'
+    template = ViewPageTemplateFile('templates/ppie_form_add.pt')
+
+
+class AddView(add.DefaultAddView):
+    form = AddForm
 
 
 register_object_factories(IPpie)
