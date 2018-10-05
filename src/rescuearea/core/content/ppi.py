@@ -663,6 +663,18 @@ class PpiView(view.DefaultView):
                 return True
         return False
 
+    def getNumStreet(self):
+        if getattr(self.context.address, 'number', None):
+            return "{0} {1}".format(self.context.address.number, self.context.address.street)
+        return self.context.address.street
+
+    def getZipTown(self):
+        return "{0} {1}".format(self.context.address.zip_code, self.context.address.commune)
+
+    def getCoord(self):
+        if getattr(self.context.address, 'longitude', None) or getattr(self.context.address, 'latitude', None):
+            return "{0}/{1}".format((self.context.address, 'longitude', ''), getattr(self.context.address, 'latitude', ''))
+
 
 class IconsView(BrowserView):
     def __call__(self):

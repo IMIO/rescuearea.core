@@ -32,6 +32,19 @@
                                 <input type="text" tal:replace="structure widget/render" metal:define-slot="widget" />
                             </li>
                             <li tal:condition="python: type(widget).klass=='object-widget'">
+                              <div tal:condition="python: widget.name=='form.widgets.address'">
+                                <label for="" class="horizontal" tal:attributes="for widget/id">
+                                    <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
+                                  <ul tal:define="num_street view/getNumStreet;
+                                                  zip_town view/getZipTown;
+                                                  coord view/getCoord">
+                                    <li tal:condition="num_street" tal:content="num_street"></li>
+                                    <li tal:condition="zip_town" tal:content="zip_town"></li>
+                                    <li tal:condition="coord" tal:content="coord"></li>
+                                  </ul>
+                                </label>
+                              </div>
+                              <div tal:condition="not: python: widget.name=='form.widgets.address'">
                                 <label for="" class="horizontal" tal:attributes="for widget/id">
                                     <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
                                 </label>
@@ -62,6 +75,7 @@
                                         </ul>
                                     </li>
                                 </ul>
+                              </div>
                             </li>
                         </ul>
                 </fieldset>
