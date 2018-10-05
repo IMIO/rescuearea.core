@@ -152,6 +152,10 @@ msgstr "Administration du PPI"
 msgid "Alert chain and communications"
 msgstr "Chaîne d'alerte et communications"
 
+#: ../content/templates/ppi_ppie.pt:76
+msgid "Anomalies reporting"
+msgstr "Signaler une erreur"
+
 #: ../profiles/default/controlpanel.xml
 msgid "Anomalies reporting Settings"
 msgstr ""

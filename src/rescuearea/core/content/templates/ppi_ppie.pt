@@ -71,6 +71,11 @@
                     <span i18n:translate="">Print</span><span class="glyphicon glyphicon-print"></span>
                 </button>
             </a>
+            <a href="" tal:attributes="href string: ${context/absolute_url}/@@anomalies_reporting" class="print-ppie">
+                <button type="button" title="anomalies_reporting" class="btn btn-primary">
+                    <span i18n:translate="">Anomalies reporting</span>
+                </button>
+            </a>
         </div>
         </metal:content-core>
         </metal:main>

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2018-10-03 09:37+0000\n"
+"POT-Creation-Date: 2018-10-05 13:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -157,6 +157,10 @@ msgstr ""
 
 #: ../content/ppie.py:256
 msgid "Alert chain and communications"
+msgstr ""
+
+#: ../content/templates/ppi_ppie.pt:76
+msgid "Anomalies reporting"
 msgstr ""
 
 #: ../profiles/default/controlpanel.xml
