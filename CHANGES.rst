@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a10 (unreleased)
+1.0a10 (2018-10-19)
 -------------------
 
 - Add test robot for ppi and ppie
