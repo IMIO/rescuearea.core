@@ -5,7 +5,8 @@ Changelog
 1.0a10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add test robot for ppi and ppie
+  [vpiret]
 
 
 1.0a9 (2018-09-30)
