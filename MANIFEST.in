@@ -1,5 +1,6 @@
 graft src/rescuearea
 graft docs
+recursive-include src/rescuearea *.mo
 include *.rst
 global-exclude *.pyc
 include *.py
