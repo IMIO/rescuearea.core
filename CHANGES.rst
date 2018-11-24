@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a11 (unreleased)
+1.0a11 (2018-11-24)
 -------------------
 
 - Include compiled translation files in releases
