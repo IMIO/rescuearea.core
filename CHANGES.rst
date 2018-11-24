@@ -5,7 +5,8 @@ Changelog
 1.0a11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Include compiled translation files in releases
+  [mpeeters]
 
 
 1.0a10 (2018-10-19)
