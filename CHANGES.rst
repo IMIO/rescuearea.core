@@ -5,7 +5,8 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Update ppi template for display 'Appendix : Itinerary' on 'before departure' tab
+  [vpiret]
 
 
 1.0a11 (2018-11-24)
