@@ -675,6 +675,10 @@ class PpiView(view.DefaultView):
         if getattr(self.context.address, 'longitude', None) or getattr(self.context.address, 'latitude', None):
             return "{0}/{1}".format((self.context.address, 'longitude', ''), getattr(self.context.address, 'latitude', ''))
 
+    def itinerary(self):
+        if getattr(self.context, 'route_to_follow', None) and getattr(self.context, 'appendix_itinerary', None):
+            return True
+
 
 class IconsView(BrowserView):
     def __call__(self):

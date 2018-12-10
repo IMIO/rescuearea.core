@@ -30,6 +30,12 @@
                                     <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
                                 </label>
                                 <input type="text" tal:replace="structure widget/render" metal:define-slot="widget" />
+                                <div tal:condition="python:widget.name=='form.widgets.route_to_follow'">
+                                  <label i18n:translate="">Appendix : Itinerary</label>
+                                  <a tal:condition="view/itinerary"
+                                     tal:content="string:${context/appendix_itinerary/filename}"
+                                     tal:attributes="href string:${context/absolute_url}/@@download/appendix_itinerary/${context/appendix_itinerary/filename}" />
+                                </div>
                             </li>
                             <li tal:condition="python: type(widget).klass=='object-widget'">
                               <div tal:condition="python: widget.name=='form.widgets.address'">
