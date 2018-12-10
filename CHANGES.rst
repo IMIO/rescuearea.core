@@ -5,6 +5,9 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Exclude  administration field of ppi on the print template
+  [vpiret]
+
 - Adding an invariant for the field 'limited_to_description'
   [vpiret]
 

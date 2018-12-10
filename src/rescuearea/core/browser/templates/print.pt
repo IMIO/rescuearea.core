@@ -13,8 +13,10 @@
     <div tal:repeat="group view/get_groups"
               tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
 
-      <legend tal:content="string:${repeat/group/number}. ${group/label}"/>
-      <ul tal:repeat="widget python:view.get_values(group)">
+      <legend tal:content="string:${repeat/group/number}. ${group/label}"
+              tal:condition="not: python: group.__name__=='Administration of PPI'"/>
+      <ul tal:repeat="widget python:view.get_values(group)"
+          tal:condition="not: python: group.__name__=='Administration of PPI'">
         <li tal:condition="not:python: type(widget).klass=='object-widget'">
           <label for="" class="horizontal" tal:attributes="for widget/id">
             <span i18n:translate="" tal:replace="string:${repeat/group/number}.${repeat/widget/number}. ${widget/label}">label</span>
