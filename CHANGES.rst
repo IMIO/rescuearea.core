@@ -5,6 +5,9 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Adding an invariant for the field 'limited_to_description'
+  [vpiret]
+
 - Update ppi template for display 'Appendix : Itinerary' on 'before departure' tab
   [vpiret]
 

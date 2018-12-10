@@ -15,13 +15,15 @@ from plone.dexterity.browser import add, edit, view
 from plone.dexterity.content import Container
 from plone.indexer.decorator import indexer
 from plone.namedfile.field import NamedBlobFile
+from plone.registry.interfaces import IRegistry
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from z3c.form import button
 from zope import schema
 from zope.interface import implements
+from zope.interface import Invalid
+from zope.interface import invariant
 from zope.component import queryUtility
-from plone.registry.interfaces import IRegistry
 
 
 from rescuearea.core import _
@@ -410,7 +412,7 @@ class IPpi(model.Schema):
         title=_(u'Appendix : Implementation Plan'),
         description=_(
             u'<p>mandatory : do in A3 on the basis of the zonal canvas</p><ul><li>Wind dose</li><li>Access</li><li>(Sub-funds)</li><li>Scale</li><li>Legend of layout </li><li>Pictogram<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection station (or firefighter control station)</li><li>Sprinkler installation</li></ul></li><li>Localization of the crisis room of the ets</li></ul>'),
-        required=True,
+        required=False,
     )
 
     appendix_water_resources = ObjectField(
@@ -499,6 +501,12 @@ class IPpi(model.Schema):
         vocabulary=u'rescuearea.core.vocabularies.classification',
         required=False,
     )
+
+    @invariant
+    def data_limited_to_description_invariant(data):
+        if not data.data_limited_to_description:
+            if not getattr(data._Data_data___, 'route_to_follow', None):
+                raise Invalid(_(u'The implementation plan is mandatory if the ppi data is not limited to the description'))
 
 
 class Ppi(Container):
