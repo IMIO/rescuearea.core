@@ -5,6 +5,9 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Upgrade the requirements for the ppie fields
+  [vpiret]
+
 - Add translate for ppi
   [AuroreMariscal]
 

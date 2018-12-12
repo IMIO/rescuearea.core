@@ -172,22 +172,22 @@ class IPpie(model.Schema):
 
     start = schema.Datetime(
         title=_(u'Dates and times start'),
-        required=False,
+        required=True,
     )
 
     end = schema.Datetime(
         title=_(u'Dates and times stop'),
-        required=False,
+        required=True,
     )
 
     location = RichText(
         title=_(u'Location'),
-        required=False,
+        required=True,
     )
 
     nature_and_risk_involved = RichText(
         title=_(u'Nature and risk involved'),
-        required=False,
+        required=True,
         defaultFactory=default_translator(_(
             u'<p><span>Nature</span> :</p><p></p>'
             u'<p><span>Risks</span> :</p>'
@@ -197,7 +197,7 @@ class IPpie(model.Schema):
 
     impacted_items = RichText(
         title=_(u'Impacted items'),
-        required=False,
+        required=True,
     )
 
     fieldset(
@@ -267,7 +267,7 @@ class IPpie(model.Schema):
 
     communication_radio = RichText(
         title=_(u'Communication radio'),
-        required=False,
+        required=True,
     )
 
     directory_and_telephone_directory = RichText(
@@ -308,7 +308,7 @@ class IPpie(model.Schema):
 
     location_municipal_crisis_centre = RichText(
         title=_(u'Location municipal crisis centre'),
-        required=False,
+        required=True,
     )
 
     fieldset(
@@ -356,6 +356,13 @@ class Ppie(Container):
 class AddForm(add.DefaultAddForm, BrowserView):
     portal_type = 'ppi_e'
     template = ViewPageTemplateFile('templates/ppie_form_add.pt')
+
+    def update(self):
+        super(add.DefaultAddForm, self).update()
+        for group in self.groups:
+            if group.__name__ == "dates":
+                group.fields["IDublinCore.effective"].field.required = True
+                group.fields["IDublinCore.expires"].field.required = True
 
 
 class AddView(add.DefaultAddView):
