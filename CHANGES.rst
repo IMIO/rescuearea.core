@@ -5,6 +5,9 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Add translate for ppi
+  [AuroreMariscal]
+
 - Exclude  administration field of ppi on the print template
   [vpiret]
 

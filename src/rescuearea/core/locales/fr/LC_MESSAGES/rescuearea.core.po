@@ -333,7 +333,7 @@ msgstr "Existence d'un PPUI?"
 
 #: ../content/ppi.py:104
 msgid "Existence of keys, code, access badge?"
-msgstr ""
+msgstr "Existence de clés, code, badge d’accès?"
 
 #: ../content/ppi.py:126
 msgid "File"
