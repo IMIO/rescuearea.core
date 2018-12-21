@@ -5,6 +5,9 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Upgrade translation
+  [vpiret]
+
 - Add validator for default value mandatory
   [vpiret]
 
