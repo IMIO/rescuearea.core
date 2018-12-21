@@ -5,6 +5,18 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Add validator for default value mandatory
+  [vpiret]
+
+- Change default value on ppie field
+  [vpiret]
+
+- Change ppie "Preventive devices" tab
+  [vpiret]
+
+- Upgrade the visibility of errors
+  [vpiret]
+
 - Upgrade the requirements for the ppie fields
   [vpiret]
 
