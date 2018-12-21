@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       i18n:domain="rescuearea.core">
 
-    <body>
+    <body tal:define="normalizeString nocall:context/@@plone/normalizeString;">
 
         <div class="form" metal:define-macro="form">
             <script type="text/javascript"
@@ -21,9 +21,14 @@
                                     has_error python:view.widgets.errors or status == getattr(view, 'formErrorsMessage', None)" condition="status">
                     <dl class="portalMessage error" tal:condition="has_error">
                         <dt i18n:translate="">
-                            Error
+                            Error in tabs :
                         </dt>
-                        <dd tal:content="status" />
+                        <dd>
+                         <div tal:repeat="error python:view.group_errors">
+                           <p tal:attributes="data-fieldset-name python:normalizeString(error)"
+                              tal:content="python:view.get_group_label(error)" i18n:translate=""/>
+                        </div>
+                      </dd>
                     </dl>
                     <dl class="portalMessage info" tal:condition="not:has_error">
                         <dt i18n:translate="">
@@ -110,16 +115,15 @@
                           <!-- Secondary fieldsets -->
                           <tal:block tal:repeat="group groups" condition="has_groups">
                               <fieldset
-                                  tal:define="normalizeString nocall:context/@@plone/normalizeString;
-                                              fieldset_label group/label;
+                                  tal:define="fieldset_label group/label;
                                               fieldset_name python:getattr(group, '__name__', False) or getattr(group.label, 'default', False) or fieldset_label;
-                                              fieldset_name python:normalizeString(fieldset_name);"
-                                  tal:attributes="id string:fieldset-${fieldset_name};
-                                                  class string:kssattr-fieldset-${fieldset_name};
-                                                  data-fieldset fieldset_name">
+                                              nfieldset_name python:normalizeString(fieldset_name);"
+                                  tal:attributes="id string:fieldset-${nfieldset_name};
+                                                  class python:view.fieldset_class[fieldset_name];
+                                                  data-fieldset nfieldset_name">
 
                                       <legend tal:condition="fieldset_label"
-                                              tal:attributes="id string:fieldsetlegend-${fieldset_name}"
+                                              tal:attributes="id string:fieldsetlegend-${nfieldset_name}"
                                               tal:content="fieldset_label">Form name</legend>
 
                                       <p i18n:translate=""

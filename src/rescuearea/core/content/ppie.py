@@ -1,13 +1,17 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.statusmessages.interfaces import IStatusMessage
 
 from plone.app.textfield import RichText
 from plone.dexterity.browser import add
 from plone.dexterity.content import Container
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
+from z3c.form import validator
+from z3c.form import button
 from zope import schema
+from zope.component import provideAdapter
 from zope.interface import implements
 from zope.interface import Invalid
 from zope.interface import invariant
@@ -221,6 +225,8 @@ class IPpie(model.Schema):
 
     access_for_ambulances = RichText(
         title=_(u'Access for ambulances'),
+        defaultFactory=default_translator(_(u'<p>PMA IN, PMA out</p>')),
+        default_mime_type='text/html',
         required=False,
     )
 
@@ -233,21 +239,75 @@ class IPpie(model.Schema):
                 ]
     )
 
-    multidiciplinary = ObjectField(
+    multidiciplinary = RichText(
         title=_(u'Multidiciplinary'),
-        schema=IMultidiciplinaryRowSchema,
+        defaultFactory=default_translator(_(
+            u'<table border="1">'
+            u'<tbody>'
+            u'<tr>'
+            u'<td>CCE</td>'
+            u'<td>Préciser les personnes (disciplines) présentes, le lieu, la plage horaire, et le rôle.  Si pas, indiquer « néant ».</td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>C100</td>'
+            u'<td>&nbsp;</td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>&nbsp;</td>'
+            u'<td>&nbsp;</td>'
+            u'</tr>'
+            u'</tbody>'
+            u'</table>'
+        )),
+        default_mime_type='text/html',
         required=False,
     )
 
-    discipline1 = ObjectField(
+    discipline1 = RichText(
         title=_(u'Discipline 1'),
-        schema=IDiscipline1RowSchema,
+        defaultFactory=default_translator(_(
+            u'<table border="1">'
+            u'<tbody>'
+            u'<tr>'
+            u'<td width="30%">Moyens ZHC sur place</td>'
+            u'<td>- Moyens Humains :<br />- Matériel :<br />- Horaire :<br />- Localisation :<br />- Mission des intervenants :</td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>Moyens organisateur sur place (pour info)</td>'
+            u'<td></td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>Moyens ZHC extra au poste de secours</td>'
+            u'<td> préciser l\'horaire s\'il y en a!</td>'
+            u'</tr>'
+            u'</tbody>'
+            u'</table>'
+        )),
+        default_mime_type='text/html',
         required=False,
     )
 
-    discipline2 = ObjectField(
-        title=_(u'Discipline é'),
-        schema=IDiscipline2RowSchema,
+    discipline2 = RichText(
+        title=_(u'Discipline 2'),
+        defaultFactory=default_translator(_(
+            u'<table border="1">'
+            u'<tbody>'
+            u'<tr>'
+            u'<td width="30%">Localisation PS, PMA ...</td>'
+            u'<td>&nbsp;</td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>Moyens organisateur sur place (pour info)</td>'
+            u'<td>&nbsp;</td>'
+            u'</tr>'
+            u'<tr>'
+            u'<td>Moyens ZHC extra au poste de secours</td>'
+            u'<td>&nbsp;</td>'
+            u'</tr>'
+            u'</tbody>'
+            u'</table>'
+        )),
+        default_mime_type='text/html',
         required=False,
     )
 
@@ -267,6 +327,13 @@ class IPpie(model.Schema):
 
     communication_radio = RichText(
         title=_(u'Communication radio'),
+        defaultFactory=default_translator(_(
+            u'<p>Communication multidisciplinaire M HAI P0?</p>'
+            u'<ul>'
+            u'<li>groupe écouté par</li>'
+            u'<li>préciser l\'horaire</li>'
+            u'</ul>')),
+        default_mime_type='text/html',
         required=True,
     )
 
@@ -349,6 +416,41 @@ class IPpie(model.Schema):
                 raise Invalid(_(u"The start date must be before the end date."))
 
 
+class DefaultValueValidator(validator.SimpleFieldValidator):
+
+    def validate(self, value):
+        super(DefaultValueValidator, self).validate(value)
+        if self.field.defaultFactory(self) == value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>'):
+            raise Invalid(
+                _(u'It is necessary to change the default value')
+            )
+
+
+class DefaultValueValidator2(validator.SimpleFieldValidator):
+
+    def validate(self, value):
+        super(DefaultValueValidator2, self).validate(value)
+        if self.field.defaultFactory(self) == value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>'):
+            raise Invalid(
+                _(u'It is necessary to change the default value')
+            )
+
+
+validator.WidgetValidatorDiscriminators(
+    DefaultValueValidator,
+    field=IPpie['communication_radio'],
+)
+
+validator.WidgetValidatorDiscriminators(
+    DefaultValueValidator2,
+    field=IPpie['nature_and_risk_involved']
+)
+
+
+provideAdapter(DefaultValueValidator)
+provideAdapter(DefaultValueValidator2)
+
+
 class Ppie(Container):
     implements(IPpie)
 
@@ -363,6 +465,64 @@ class AddForm(add.DefaultAddForm, BrowserView):
             if group.__name__ == "dates":
                 group.fields["IDublinCore.effective"].field.required = True
                 group.fields["IDublinCore.expires"].field.required = True
+
+    def required_default(self, group, field_name, data):
+        field_object = group.fields[field_name].field
+        if field_object.required:
+            default_value = group.fields[field_name].field.defaultFactory
+            value = getattr(data, field_name, None)
+
+            if default_value == value:
+                return True
+        return False
+
+    def updateFields(self):
+        super(add.DefaultAddForm, self).updateFields()
+        self.group_errors = []
+        self.update_fieldset_classes()
+
+    @button.buttonAndHandler(_('Save'), name='save')
+    def handleAdd(self, action):
+        data, errors = self.extractData()
+        if errors:
+            self.status = self.formErrorsMessage
+            self.handle_errors(errors)
+            return
+        # self.update_fieldset_classes()
+        obj = self.createAndAdd(data)
+        if obj is not None:
+            # mark only as finished if we get the new object
+            self._finishedAdd = True
+            IStatusMessage(self.request).addStatusMessage(
+                self.success_message, "info"
+            )
+
+    def handle_errors(self, errors):
+
+        group_ids = []
+        self.group_labels = {}
+        for error in errors:
+            name = error.form.__name__
+            if name not in group_ids:
+                group_ids.append(name)
+                self.group_labels[name] = error.form.label
+
+        self.group_errors = group_ids
+
+        self.update_fieldset_classes()
+
+    def get_fieldset_legend_class(self, group):
+        if group.__name__ in self.group_errors:
+            return "error"
+        return ""
+
+    def update_fieldset_classes(self):
+        self.fieldset_class = {}
+        for group in self.groups:
+            self.fieldset_class[group.__name__] = self.get_fieldset_legend_class(group)
+
+    def get_group_label(self, group):
+        return self.group_labels[group]
 
 
 class AddView(add.DefaultAddView):
