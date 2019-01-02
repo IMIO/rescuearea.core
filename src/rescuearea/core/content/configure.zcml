@@ -133,4 +133,9 @@
     name="rescuearea.core.js"
     file="js/rescuearea.core.js"
    />
+
+  <adapter
+    factory=".ppi.ImplementationPlanValidator"
+    />
+
 </configure>

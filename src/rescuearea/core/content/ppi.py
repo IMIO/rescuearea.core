@@ -19,12 +19,11 @@ from plone.registry.interfaces import IRegistry
 from plone.supermodel import model
 from plone.supermodel.directives import fieldset
 from z3c.form import button
+from z3c.form import validator
 from zope import schema
-from zope.interface import implements
-from zope.interface import Invalid
-from zope.interface import invariant
 from zope.component import queryUtility
-
+from zope.interface import Invalid
+from zope.interface import implements
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
@@ -502,12 +501,6 @@ class IPpi(model.Schema):
         required=False,
     )
 
-    @invariant
-    def data_limited_to_description_invariant(data):
-        if not data.data_limited_to_description:
-            if not getattr(data._Data_data___, 'route_to_follow', None):
-                raise Invalid(_(u'The implementation plan is mandatory if the ppi data is not limited to the description'))
-
 
 class Ppi(Container):
     implements(IPpi)
@@ -721,7 +714,7 @@ def searchable_text_address(object, **kw):
         fields = ['number', 'street', 'zip_code', 'commune', 'longitude', 'latitude']
         for field_name in fields:
             value = getattr(address, field_name, None)
-            if type(value) is unicode:
+            if type(value) is unicode:  # noqa
                 text = safe_unicode(value).encode('utf-8')
                 result.append(text)
             elif IRichTextValue.providedBy(value):
@@ -735,5 +728,22 @@ def searchable_text_address(object, **kw):
 
     return ' '.join(result)
 
+
+class ImplementationPlanValidator(validator.SimpleFieldValidator):
+
+    def validate(self, value):
+        super(ImplementationPlanValidator, self).validate(value)
+        dependency_key = 'form.widgets.data_limited_to_description'
+        if not self.request.form.get(dependency_key) and not value:
+            raise Invalid(
+                _(u'The implementation plan is mandatory if the ppi data is '
+                  u'not limited to the description')
+            )
+
+
+validator.WidgetValidatorDiscriminators(
+    ImplementationPlanValidator,
+    field=IPpi['appendix_implementation_plan'],
+)
 
 register_object_factories(IPpi)
