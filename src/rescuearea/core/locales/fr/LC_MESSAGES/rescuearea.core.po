@@ -36,43 +36,43 @@ msgstr "<p><span>Présence</span> :</p><p></p><p><span>Lieu</span> :</p>"
 msgid "<p>Communication multidisciplinaire M HAI P0?</p><ul><li>groupe Ã©coutÃ© par</li><li>prÃ©ciser l'horaire</li></ul>"
 msgstr ""
 
-#: ../content/ppi.py:308
+#: ../content/ppi.py:307
 msgid "<p>Describe in a few words why this site is special and has been the subject of a PPI.</p><p>Example: Access not very obvious, complex architecture, exceptional risk(s) present, means of control available on site for firefighters, place for which an intervention will be arduous because of the absence of compartmentalization...</p>"
 msgstr "<p>Décrire en quelques mots pourquoi ce site est particulier et a fait l'objet d'un PPI.</p><p>Exemple : Accès peu évident, architecture complexe, risque(s) exceptionnel(s) présent(s), moyens de lutte disponibles sur le site à destination des pompiers, endroit pour lequel une intervention sera ardue du fait de l'absence de compartimentage...</p>"
 
-#: ../content/ppi.py:111
+#: ../content/ppi.py:110
 msgid "<p>Description and usefulness of the keys :</p><p>Where the key is stored :</p><p>Number of copies :</p>"
 msgstr "<p>Description et utilité des clés :</p><p>Endroit où la clé est rangée :</p><p>Nombre d’exemplaire :</p>"
 
-#: ../content/ppi.py:210
+#: ../content/ppi.py:209
 msgid "<p>Factory, warehouse, store, MRPA... Public access, number of people, valid? autonomous? sleeping? Describe in a few lines what it is about.</p>"
 msgstr "<p>Usine, entrepôt, magasin, MRPA... Accès public, nombre de personnes, valide? autonome? dormant? Décrire en quelques lignes de quoi il s’agit.</p>"
 
-#: ../content/ppi.py:296
+#: ../content/ppi.py:295
 msgid "<p>For example UHF relay for buildings with insufficient UHF range</p>"
 msgstr "<p>Par exemple relais UHF pour bâtiments à portée UHF insuffisante</p>"
 
-#: ../content/ppi.py:440
+#: ../content/ppi.py:439
 msgid "<p>Free annex examples</p><ul><li>Facade photos</li><li>Level plan<ul><li>Scale</li><li>Wind dose</li><li>Compartments</li><li>Access</li><li>Pictogra<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection center</li><li>Sprinkler installation</li><li>Localization of the crisis room of the ets</li></ul></li><li>Construction<ul><li>Wall structure</li><li>Roof structure</li></ul></li></ul></li><li>Fire panel operation mode</li></ul>"
 msgstr "<p>Exemples d'annexe libres</p><ul><li>Photos façade</li><li>Plan des niveaux<ul><li>Echelle</li><li>Rose des vents</li><li>Compartiments</li><li>Accès</li><li>Pictogramme<ul><li>Boite à clé</li><li>Concierge</li><li>Installation exutoire</li><li>Centrale détection incendie</li><li>Installation sprinklage</li><li>Localisation du local de crise de l'ets</li></ul></li><li>Construction<ul><li>Structure des murs</li><li>Structure toiture</li></ul></li></ul></li><li>Mode de fonctionnement du tableau pompier</li></ul>"
 
-#: ../content/ppi.py:290
+#: ../content/ppi.py:289
 msgid "<p>How should the dispatch of help be adapted for this site in relation to the usual procedures?</p>"
 msgstr "<p>En quoi l'envoi des secours doit-il être adapté pour ce site vis-à-vis des procédures habituelles?<p>"
 
-#: ../content/ppi.py:361
+#: ../content/ppi.py:360
 msgid "<p>Identify the main risks of the site. limit yourself to about 5 maximum.</p><p>Completeness = drown the fish!</p>"
 msgstr "<p>Cerner les principaux risques du site. se limiter à environ 5 maximum.</p><p>Exhaustivité = noyer le poisson!</p>"
 
-#: ../content/ppi.py:250
+#: ../content/ppi.py:249
 msgid "<p>If yes, briefly describe the multidisciplinary principles...</p>"
 msgstr "<p>Si oui, décrire brièvement les principes multidisciplinaires...</p>"
 
-#: ../content/ppi.py:302
+#: ../content/ppi.py:301
 msgid "<p>Is it always the same, or according to the intervention, you must take into account the direction of the wind, or arrive by a particular access to the site according to the place where the event occurred</p>"
 msgstr "<p>Est-ce toujours le même, ou selon l'intervention, il faut tenir compte du sens du vent, ou arriver par un accès particulier au site selon l'endroit où l’évènement s'est produit.</p>"
 
-#: ../content/ppi.py:433
+#: ../content/ppi.py:432
 msgid "<p>Mandatory if the size of the site does not fit within a 250m x 250m square. To do by the Carto team to put online on the PPI carto app.</p><p>If there is no 'not shown', indicate 'not shown'.</p>"
 msgstr "<p>Obligatoire si l'étendue du site ne s'inscrit pas dans un carré de 250m sur 250m. A faire par l'équipe Carto pour mettre en ligne sur l'appli carto PPI.</p><p>S'il n'y en a pas indiquer 'non illustré'</p>"
 
@@ -80,47 +80,47 @@ msgstr "<p>Obligatoire si l'étendue du site ne s'inscrit pas dans un carré de 
 msgid "<p>PMA IN, PMA out</p>"
 msgstr ""
 
-#: ../content/ppi.py:328
+#: ../content/ppi.py:327
 msgid "<p>Specify here if a meeting point is planned with site managers for reasons of access complexity, or if depending on a chemical scenario you should not get too close...</p>"
 msgstr "<p>Préciser ici si un point de rencontre est prévu avec les responsables du site pour des raisons de complexité d'accès, ou si en fonction d'un scénario chimique il ne faut pas s'approcher trop près...</p>"
 
-#: ../content/ppi.py:314
+#: ../content/ppi.py:313
 msgid "<p>Specify here if specific actions are to be taken by the operator.</p><p>For example, if the call comes from a private individual, it is imperative to contact the lodge on duty to inform those in charge of the site of our arrival, and thus be welcomed.</p>"
 msgstr "<p>Préciser ici si des actions particulières doivent être faites par le téléphoniste.</p><p>Exemple, si l'appel provient d'un particulier, il faut impérativement contacter la loge de garde pour avertir les responsables du site de notre arrivée, et ainsi être accueilli.</p>"
 
-#: ../content/ppi.py:355
+#: ../content/ppi.py:354
 msgid "<p>Specify here the means that must be taken in addition to firefighting, or the personal protective equipment imposed on an industrial site for example</p>"
 msgstr "<p>Préciser ici les moyens qui doivent être pris en plus de la tenue de feu, ou les équipements de protection individuelle imposés sur un site industriel par exemple</p>"
 
-#: ../content/ppi.py:334
+#: ../content/ppi.py:333
 msgid "<p>Specify if a particular place has been designed to gather emergency services in the event of an increase in power. Important mainly if reflex reinforcements are sent, or in case of chemical intervention, for example.</p>"
 msgstr "<p>Préciser si un endroit particulier a été imaginé pour rassembler les secours en cas de montée en puissance. Important principalement si des renforts réflex sont envoyés, ou en cas d’intervention chimique, par exemple.</p>"
 
-#: ../content/ppi.py:193
+#: ../content/ppi.py:192
 msgid "<p>Specify night occupancy or not. Specify public occupation</p>"
 msgstr "<p>Préciser l’occupation de nuit ou pas. Préciser l’occupation par le public</p>"
 
-#: ../content/ppi.py:495
+#: ../content/ppi.py:494
 msgid "<p>Specify the places where it is necessary to have paper copies available </p><ul><li>DZHC</li><li>Fastest first aid station (several if the means must come from several stations)</li></ul>"
 msgstr "<p>Préciser les endroits où il est nécessaire d’avoir des exemplaires papiers à disposition :</p><ul><li>DZHC</li><li>Poste de secours le plus rapide (plusieurs si les moyens doivent provenir de plusieurs poste)</li></ul>"
 
-#: ../content/ppi.py:405
+#: ../content/ppi.py:404
 msgid "<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>"
 msgstr "<p>A faire via l'appli carto PPI pour mise en ligne sur la carte.</p><ul><li>Repérer les accès</li><li>Zone rouge/noire si connue</li><li>Type google map avec boite noir sur l'objet</li></ul>"
 
-#: ../content/ppi.py:413
+#: ../content/ppi.py:412
 msgid "<p>mandatory : do in A3 on the basis of the zonal canvas</p><ul><li>Wind dose</li><li>Access</li><li>(Sub-funds)</li><li>Scale</li><li>Legend of layout </li><li>Pictogram<ul><li>Keybox</li><li>Concierge</li><li>Exhaust installation</li><li>Fire detection station (or firefighter control station)</li><li>Sprinkler installation</li></ul></li><li>Localization of the crisis room of the ets</li></ul>"
 msgstr "<p>obligatoire : faire en A3 sur base du canevas zonal</p><ul><li>Rose des vents</li><li>Accès</li><li>(Compartiments)</li><li>Echelle</li><li>Légende du plan d implantation</li><li>Pictogramme<ul><li>Boite à clé</li><li>Concierge</li><li>Installation exutoire</li><li>Centrale détection incendie (ou poste de commande pompier)</li><li>Installation sprinklage</li></ul></li><li>Localisation du local de crise de l'ets</li></ul>"
 
-#: ../content/ppi.py:398
+#: ../content/ppi.py:397
 msgid "<p>mandatory if wind has an influence (toxic risk)</p>"
 msgstr "<p>obligatoire si le vent a une influence (risque toxique)</p>"
 
-#: ../content/ppi.py:420
+#: ../content/ppi.py:419
 msgid "<p>mandatory to be printed from the PPI carto application</p>"
 msgstr "<p>obligatoire à tirer depuis l'application carto PPI</p>"
 
-#: ../content/ppi.py:367
+#: ../content/ppi.py:366
 msgid "<p>we need to know what's available to assist us in intervention. It is not necessary to mention the presence of fire extinguishers or even reels intended for the PPE of the site. On the other hand, hydrants, dry or wet columns... must be mentioned.</p>"
 msgstr "<p>il faut préciser ce qui est disponible pour nous aider en intervention. Il n'est pas utile de mentionner la présence d'extincteur ou même de dévidoirs destinés aux EPI du site. Par contre, les hydrants, colonnes sèches ou humide... doivent être mentionnés.</p>"
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "<table border=\"1\"><tbody><tr><td width=\"30%\">Moyens ZHC sur place</td><td>- Moyens Humains :<br />- MatÃ©riel :<br />- Horaire :<br />- Localisation :<br />- Mission des intervenants :</td></tr><tr><td>Moyens organisateur sur place (pour info)</td><td></td></tr><tr><td>Moyens ZHC extra au poste de secours</td><td> prÃ©ciser l'horaire s'il y en a!</td></tr></tbody></table>"
 msgstr ""
 
-#: ../content/ppi.py:222
+#: ../content/ppi.py:221
 msgid "<table border=\"1\"><tbody><tr><td><strong>Priority</strong></td><td><strong>Function</strong></td><td><strong>Phone</strong></td><td><strong>Remark</strong></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>"
 msgstr "<table border=\"1\"><tbody><tr><td><strong>Priorité</strong></td><td><strong>Fonction</strong></td><td><strong>Téléphones</strong></td><td><strong>Remarque</strong></td></tr><tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>"
 
@@ -152,19 +152,19 @@ msgstr "Acces au site"
 msgid "Access to the site for firefighters"
 msgstr "Accès au site pour les pompiers"
 
-#: ../content/ppi.py:289
+#: ../content/ppi.py:288
 msgid "Adaptation of the emergency services in relation to the response plan"
 msgstr "Adaptation des secours par rapport au plan de réaction "
 
-#: ../content/ppi.py:385
+#: ../content/ppi.py:384
 msgid "Additional information"
 msgstr "Informations complémentaires"
 
-#: ../content/ppi.py:186
+#: ../content/ppi.py:185
 msgid "Address"
 msgstr "Adresse"
 
-#: ../content/ppi.py:447
+#: ../content/ppi.py:446
 msgid "Administration of PPI"
 msgstr "Administration du PPI"
 
@@ -192,32 +192,32 @@ msgstr "Annexes"
 msgid "Appendix"
 msgstr "Annexe"
 
-#: ../content/ppi.py:427
+#: ../content/ppi.py:426
 msgid "Appendix : Axonometric view"
 msgstr "Annexe : Vue axonométrique"
 
-#: ../content/ppi.py:432
+#: ../content/ppi.py:431
 msgid "Appendix : Carroyer plan"
 msgstr "Annexe : Plan carroyer"
 
-#: ../content/ppi.py:439
+#: ../content/ppi.py:438
 msgid "Appendix : Description"
 msgstr "Annexe : Description"
 
-#: ../content/ppi.py:412
+#: ../content/ppi.py:411
 msgid "Appendix : Implementation Plan"
 msgstr "Annexe : Plan d'implantation"
 
-#: ../content/ppi.py:397
+#: ../content/ppi.py:396
 #: ../content/templates/ppi_ppie.pt:34
 msgid "Appendix : Itinerary"
 msgstr "Annexe : Itinéraire"
 
-#: ../content/ppi.py:404
+#: ../content/ppi.py:403
 msgid "Appendix : Map of the location"
 msgstr "Annexe : Plan de situation"
 
-#: ../content/ppi.py:419
+#: ../content/ppi.py:418
 msgid "Appendix : Water resources"
 msgstr "Annexe : Ressources en eau"
 
@@ -225,11 +225,11 @@ msgstr "Annexe : Ressources en eau"
 msgid "At the events coordination centre (representative D1)"
 msgstr "Au centre coordination des évènements (représentant D1)"
 
-#: ../content/ppi.py:379
+#: ../content/ppi.py:378
 msgid "Attention points for the return to normal"
 msgstr "Points d'attention pour le retour à la normale"
 
-#: ../content/ppi.py:494
+#: ../content/ppi.py:493
 msgid "Availability of Paper Copies"
 msgstr "Disponibilité des exemplaires papiers"
 
@@ -238,7 +238,7 @@ msgstr "Disponibilité des exemplaires papiers"
 msgid "BIG"
 msgstr "classé grand SEVESO"
 
-#: ../content/ppi.py:279
+#: ../content/ppi.py:278
 msgid "Before departure"
 msgstr "Avant le départ"
 
@@ -250,11 +250,11 @@ msgstr "CCE Cellule Coord Evénement"
 msgid "Centre 100"
 msgstr "Centre 100"
 
-#: ../content/ppi.py:500
+#: ../content/ppi.py:499
 msgid "Classification for risk analysis"
 msgstr "Classement pour l’analyse des risques"
 
-#: ../content/ppi.py:86
+#: ../content/ppi.py:85
 msgid "Commune"
 msgstr "Commune"
 
@@ -262,7 +262,7 @@ msgstr "Commune"
 msgid "Communication radio"
 msgstr "Communication radio"
 
-#: ../content/ppi.py:215
+#: ../content/ppi.py:214
 msgid "Concierge Service?"
 msgstr "Conciergerie?"
 
@@ -270,15 +270,15 @@ msgstr "Conciergerie?"
 msgid "Contact person for information on this document"
 msgstr "Personne de contact pour obtenir des informations sur ce document"
 
-#: ../content/ppi.py:220
+#: ../content/ppi.py:219
 msgid "Contacts"
 msgstr "Contacts"
 
-#: ../content/ppi.py:255
+#: ../content/ppi.py:254
 msgid "Data limited to description?"
 msgstr "Données limitées à la description? "
 
-#: ../content/ppi.py:143
+#: ../content/ppi.py:142
 msgid "Date"
 msgstr "Date"
 
@@ -286,11 +286,11 @@ msgstr "Date"
 msgid "Date end"
 msgstr ""
 
-#: ../content/ppi.py:465
+#: ../content/ppi.py:464
 msgid "Date of last modification"
 msgstr "Date de dernière modifications"
 
-#: ../content/ppi.py:273
+#: ../content/ppi.py:272
 msgid "Date of update of the description sheet"
 msgstr "Date de mise à jour de la fiche descriptive"
 
@@ -306,7 +306,7 @@ msgstr "Date et heure de début"
 msgid "Dates and times stop"
 msgstr "Date et heure de fin"
 
-#: ../content/ppi.py:470
+#: ../content/ppi.py:469
 msgid "Deadline for searching for additional information"
 msgstr "Date de fin de délai pour recherche d'infos complémentaires"
 
@@ -318,7 +318,7 @@ msgstr "Description"
 msgid "Description of the event"
 msgstr "Descriptif de l'évènement"
 
-#: ../content/ppi.py:158
+#: ../content/ppi.py:157
 msgid "Description sheet"
 msgstr "Fiche descriptive"
 
@@ -334,7 +334,7 @@ msgstr "Discipline 1"
 msgid "Discipline 2"
 msgstr ""
 
-#: ../content/ppi.py:320
+#: ../content/ppi.py:319
 msgid "During the ride"
 msgstr "Pendant le trajet"
 
@@ -347,15 +347,15 @@ msgstr "Erreur"
 msgid "Error in tabs :"
 msgstr "Erreur dans les onglets :"
 
-#: ../content/ppi.py:249
+#: ../content/ppi.py:248
 msgid "Existence of a PPUI?"
 msgstr "Existence d'un PPUI?"
 
-#: ../content/ppi.py:104
+#: ../content/ppi.py:103
 msgid "Existence of keys, code, access badge?"
 msgstr "Existence de clés, code, badge d’accès?"
 
-#: ../content/ppi.py:126
+#: ../content/ppi.py:125
 msgid "File"
 msgstr "Fichier"
 
@@ -364,11 +364,11 @@ msgstr "Fichier"
 msgid "HIG"
 msgstr "Risque élevé"
 
-#: ../content/ppi.py:478
+#: ../content/ppi.py:477
 msgid "History"
 msgstr "Historique"
 
-#: ../content/ppi.py:267
+#: ../content/ppi.py:266
 msgid "If yes, describe utility"
 msgstr "Si oui, décrire l'utilité "
 
@@ -394,7 +394,7 @@ msgstr "Info"
 msgid "Installs the rescuearea.core add-on."
 msgstr ""
 
-#: ../content/ppi.py:313
+#: ../content/ppi.py:312
 msgid "Instructions for the operator"
 msgstr "Consignes pour le téléphoniste"
 
@@ -402,7 +402,7 @@ msgstr "Consignes pour le téléphoniste"
 msgid "It is necessary to change the default value"
 msgstr "Il faut changer la valeur par defaut"
 
-#: ../content/ppi.py:266
+#: ../content/ppi.py:265
 msgid "Keys, code, access badge?"
 msgstr "Clés, code, badge d’accès?"
 
@@ -411,15 +411,15 @@ msgstr "Clés, code, badge d’accès?"
 msgid "LOW"
 msgstr "Risque faible"
 
-#: ../content/ppi.py:119
+#: ../content/ppi.py:118
 msgid "Last Key Check Date"
 msgstr "Date dernière vérification des clés"
 
-#: ../content/ppi.py:96
+#: ../content/ppi.py:95
 msgid "Latitude"
 msgstr "Latitude"
 
-#: ../content/ppi.py:131
+#: ../content/ppi.py:130
 msgid "Link"
 msgstr "Lien"
 
@@ -443,7 +443,7 @@ msgstr "Localisation P.S.,P.M.A."
 msgid "Location municipal crisis centre"
 msgstr "Emplacement centre de Crise communal"
 
-#: ../content/ppi.py:91
+#: ../content/ppi.py:90
 msgid "Longitude"
 msgstr "Longitude"
 
@@ -452,7 +452,7 @@ msgstr "Longitude"
 msgid "MED"
 msgstr "Risque moyen"
 
-#: ../content/ppi.py:360
+#: ../content/ppi.py:359
 msgid "Materials/Equipment available"
 msgstr "Matériel/équipement à disposition"
 
@@ -464,11 +464,11 @@ msgstr "Moyens"
 msgid "Miscellaneous remarks"
 msgstr "Remarques diverses"
 
-#: ../content/ppi.py:475
+#: ../content/ppi.py:474
 msgid "Modification history"
 msgstr "Historique des modifications"
 
-#: ../content/ppi.py:138
+#: ../content/ppi.py:137
 msgid "Modified field"
 msgstr "Rubrique modifiée"
 
@@ -490,15 +490,15 @@ msgstr "Nature et risque en présence"
 msgid "Next >>"
 msgstr "Suivant >>"
 
-#: ../content/ppi.py:71
+#: ../content/ppi.py:70
 msgid "NÂ°"
 msgstr "N°"
 
-#: ../content/ppi.py:192
+#: ../content/ppi.py:191
 msgid "Occupancy schedule"
 msgstr "Horaire d'occupation"
 
-#: ../content/ppi.py:340
+#: ../content/ppi.py:339
 msgid "On site"
 msgstr "Sur place"
 
@@ -510,15 +510,15 @@ msgstr "Gestion des demandes d'interventions sur site"
 msgid "Organizing means on site (for info)"
 msgstr "Moyens organisateur sur place (pour info)"
 
-#: ../content/ppi.py:181
+#: ../content/ppi.py:180
 msgid "Other names"
 msgstr "Autres appellations"
 
-#: ../content/ppi.py:460
+#: ../content/ppi.py:459
 msgid "PPI reference"
 msgstr "Référence du PPI"
 
-#: ../content/ppi.py:333
+#: ../content/ppi.py:332
 msgid "Point of First Destination (PFD)"
 msgstr "Point de Première Destination (PPD)"
 
@@ -526,7 +526,7 @@ msgstr "Point de Première Destination (PPD)"
 msgid "Preliminary actions to be undertaken"
 msgstr "Actions préalables à entreprendre"
 
-#: ../content/ppi.py:244
+#: ../content/ppi.py:243
 msgid "Premises"
 msgstr "Locaux"
 
@@ -534,7 +534,7 @@ msgstr "Locaux"
 msgid "Present and location"
 msgstr "Présence et lieu"
 
-#: ../content/ppi.py:489
+#: ../content/ppi.py:488
 msgid "Preventionist"
 msgstr "Préventionniste"
 
@@ -546,11 +546,11 @@ msgstr "Dispositifs préventifs"
 msgid "Print"
 msgstr "Imprimer"
 
-#: ../content/ppi.py:349
+#: ../content/ppi.py:348
 msgid "Reflex measurements on arrival on site"
 msgstr "Mesures réflexes à l’arrivée sur site"
 
-#: ../content/ppi.py:373
+#: ../content/ppi.py:372
 msgid "Return to normal"
 msgstr "Retour à la normale"
 
@@ -558,11 +558,11 @@ msgstr "Retour à la normale"
 msgid "Rising power"
 msgstr "Montée en puissance"
 
-#: ../content/ppi.py:366
+#: ../content/ppi.py:365
 msgid "Risks Present"
 msgstr "Risques en présence"
 
-#: ../content/ppi.py:301
+#: ../content/ppi.py:300
 msgid "Route to follow"
 msgstr "Itinéraire à respecter"
 
@@ -571,7 +571,7 @@ msgstr "Itinéraire à respecter"
 msgid "SMA"
 msgstr "classé petit SEVESO"
 
-#: ../content/ppi.py:533
+#: ../content/ppi.py:526
 #: ../content/ppie.py:484
 msgid "Save"
 msgstr "Sauver"
@@ -584,31 +584,31 @@ msgstr "Horaire fin"
 msgid "Schedule start"
 msgstr "Horaire début"
 
-#: ../content/ppi.py:307
+#: ../content/ppi.py:306
 msgid "Site Particularities"
 msgstr "Particularités du site"
 
-#: ../content/ppi.py:260
+#: ../content/ppi.py:259
 msgid "Site classified SEVESO?"
 msgstr "Site classé SEVESO?"
 
-#: ../content/ppi.py:176
+#: ../content/ppi.py:175
 msgid "Site name"
 msgstr "Nom du site"
 
-#: ../content/ppi.py:354
+#: ../content/ppi.py:353
 msgid "Special means of protection to wear"
 msgstr "Moyens de protection particuliers à porter"
 
-#: ../content/ppi.py:295
+#: ../content/ppi.py:294
 msgid "Specific equipment to take with you"
 msgstr "Matériel spécifique à emporter"
 
-#: ../content/ppi.py:76
+#: ../content/ppi.py:75
 msgid "Street"
 msgstr "Rue"
 
-#: ../content/ppi.py:509
+#: ../content/ppi.py:739
 msgid "The implementation plan is mandatory if the ppi data is not limited to the description"
 msgstr "Le plan d'implémentation est obligatoire si les données du ppi ne sont pas limitées à la description"
 
@@ -621,7 +621,7 @@ msgstr "La date de début doit être antérieure à la date de fin."
 msgid "Titre"
 msgstr "Titre"
 
-#: ../content/ppi.py:209
+#: ../content/ppi.py:208
 msgid "Type of activity"
 msgstr "Type d'activité"
 
@@ -634,11 +634,11 @@ msgstr "Non classifié"
 msgid "Uninstalls the rescuearea.core add-on."
 msgstr ""
 
-#: ../content/ppi.py:148
+#: ../content/ppi.py:147
 msgid "User"
 msgstr "Identifiant"
 
-#: ../content/ppi.py:327
+#: ../content/ppi.py:326
 msgid "Vehicle stop/emergency reception point"
 msgstr "Point d'arrêt des véhicules/point d'accueil des secours"
 
@@ -650,11 +650,11 @@ msgstr "Moyens Z.H.C. extra au poste de secours"
 msgid "Z.H.C. means on site"
 msgstr "Moyens Z.H.C. sur place"
 
-#: ../content/ppi.py:81
+#: ../content/ppi.py:80
 msgid "Zip code"
 msgstr "Code postal"
 
-#: ../content/ppi.py:484
+#: ../content/ppi.py:483
 msgid "case_officer"
 msgstr "Officier chargé du dossier"
 
@@ -671,6 +671,6 @@ msgstr ""
 msgid "rescuearea.core (uninstall)"
 msgstr ""
 
-#: ../content/ppi.py:196
+#: ../content/ppi.py:195
 msgid "{table}<div><div class=\"column\"><p><span>0 No activity</span></p><p><span>1 Workers present</span></p><p><span>2 Open to public</span></p></div></div>"
 msgstr "{table}<div><div class=\"column\"><p><span>0 Pas d'occupation</span></p><p><span>1 Travailleurs présents</span></p><p><span>2 Ouverture au public</span></p></div></div>"
