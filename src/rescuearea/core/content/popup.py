@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from datetime import datetime
 from plone.app.textfield import RichText
 from plone.dexterity.content import Container
+from plone.indexer.decorator import indexer
 from plone.supermodel import model
 from zope import schema
-from zope.interface import implements
 from zope.interface import Invalid
+from zope.interface import implements
 from zope.interface import invariant
 
 from rescuearea.core import _
@@ -24,12 +26,12 @@ class IPopUp(model.Schema):
         required=True,
     )
 
-    effective = schema.Datetime(
+    effective = schema.Date(
         title=_(u'Date start'),
         required=True,
     )
 
-    expires = schema.Datetime(
+    expires = schema.Date(
         title=_(u'Date end'),
         required=True,
     )
@@ -43,3 +45,13 @@ class IPopUp(model.Schema):
 
 class PopUp(Container):
     implements(IPopUp)
+
+
+@indexer(IPopUp)
+def effective_indexer(object, **kwargs):
+    return datetime.combine(object.effective, datetime.min.time())
+
+
+@indexer(IPopUp)
+def expires_indexer(object, **kwargs):
+    return datetime.combine(object.expires, datetime.min.time())

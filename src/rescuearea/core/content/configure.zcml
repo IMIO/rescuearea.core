@@ -124,11 +124,6 @@
       layer="..interfaces.IRescueareaCoreLayer"
       />
 
-  <adapter
-    name="SearchableText"
-    factory=".ppi.searchable_text_address"
-    />
-
   <browser:resource
     name="rescuearea.core.js"
     file="js/rescuearea.core.js"
@@ -136,6 +131,22 @@
 
   <adapter
     factory=".ppi.ImplementationPlanValidator"
+    />
+
+  <!-- indexes -->
+  <adapter
+    name="SearchableText"
+    factory=".ppi.searchable_text_address"
+    />
+
+  <adapter
+    name="effective"
+    factory=".popup.effective_indexer"
+    />
+
+  <adapter
+    name="expires"
+    factory=".popup.expires_indexer"
     />
 
 </configure>
