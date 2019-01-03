@@ -5,11 +5,14 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- ZHC-9: Do not return on the first tab when a appendix is added
+  [mpeeters]
+
 - Upgrade translation
   [vpiret]
 
 - Add validator for default value mandatory
-  [vpiret]
+  [vpiret, mpeeters]
 
 - Change default value on ppie field
   [vpiret]
