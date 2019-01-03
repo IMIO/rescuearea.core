@@ -33,7 +33,7 @@ msgid "<p><span>Presence</span> :</p><p></p><p><span>Location</span> :</p>"
 msgstr "<p><span>Présence</span> :</p><p></p><p><span>Lieu</span> :</p>"
 
 #: ../content/ppie.py:330
-msgid "<p>Communication multidisciplinaire M HAI P0?</p><ul><li>groupe Ã©coutÃ© par</li><li>prÃ©ciser l'horaire</li></ul>"
+msgid "<p>Communication multidisciplinaire M HAI P0?</p><ul><li>groupe écouté par</li><li>préciser l'horaire</li></ul>"
 msgstr ""
 
 #: ../content/ppi.py:307
@@ -284,7 +284,7 @@ msgstr "Date"
 
 #: ../content/popup.py:33
 msgid "Date end"
-msgstr ""
+msgstr "Date de fin"
 
 #: ../content/ppi.py:464
 msgid "Date of last modification"
@@ -296,7 +296,7 @@ msgstr "Date de mise à jour de la fiche descriptive"
 
 #: ../content/popup.py:28
 msgid "Date start"
-msgstr ""
+msgstr "Date de début"
 
 #: ../content/ppie.py:178
 msgid "Dates and times start"
@@ -392,7 +392,7 @@ msgstr "Info"
 
 #: ../configure.zcml:27
 msgid "Installs the rescuearea.core add-on."
-msgstr ""
+msgstr "Installer l'addon rescuearea.core"
 
 #: ../content/ppi.py:312
 msgid "Instructions for the operator"
@@ -632,7 +632,7 @@ msgstr "Non classifié"
 
 #: ../configure.zcml:36
 msgid "Uninstalls the rescuearea.core add-on."
-msgstr ""
+msgstr "Désinstaller l'addon rescuearea.core"
 
 #: ../content/ppi.py:147
 msgid "User"
