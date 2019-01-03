@@ -5,11 +5,17 @@ Changelog
 1.0a12 (unreleased)
 -------------------
 
+- Remove IPublication behavior for PopUp content type
+  [mpeeters]
+
+- ZHC-15 : Use date instead of datetime for begin and end dates
+  [mpeeters]
+
 - ZHC-9: Do not return on the first tab when a appendix is added
   [mpeeters]
 
-- Upgrade translation
-  [vpiret]
+- Update translations
+  [vpiret, mpeeters]
 
 - Add validator for default value mandatory
   [vpiret, mpeeters]
