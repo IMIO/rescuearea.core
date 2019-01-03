@@ -15,8 +15,10 @@ class PopUpViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/popup.pt')
 
     def exist_popup(self):
-        list_popup = api.content.find(context=self.context,
-                                      portal_type='pop_up')
+        list_popup = api.content.find(
+            context=self.context,
+            portal_type='pop_up',
+        )
 
         if not list_popup:
             return False
