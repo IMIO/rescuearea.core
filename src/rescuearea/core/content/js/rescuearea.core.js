@@ -19,11 +19,25 @@ function toggle_buttons() {
     else  $('#next').show();
 }
 
+function update_form_action() {
+  var link = $('a.autotoc-level-1.active');
+  var regexp = new RegExp(".*autotoc-item-autotoc-[0-9]+$")
+  var form = $('form.pat-autotoc');
+  var current_action = form.attr('action');
+  if ( regexp.test(current_action) == false ) {
+    current_action = current_action + '#autotoc-item-autotoc-0';
+  }
+  var new_action_id = link.attr('href').substr(link.attr('href').length - 1);
+  form.attr('action', current_action.substr(0, current_action.length - 1) + new_action_id);
+}
+
 $(document).ready(function() {
     waitForEl('.autotoc-level-1', function() {
         toggle_buttons();
+        update_form_action();
         $('.autotoc-level-1').click(function(e) {
             toggle_buttons();
+            update_form_action();
         })
         $('#previous').click(function(e) {
             e.preventDefault();
