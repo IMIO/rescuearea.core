@@ -11,7 +11,7 @@ Changelog
 - ZHC-15 : Use date instead of datetime for begin and end dates
   [mpeeters]
 
-- ZHC-9: Do not return on the first tab when a appendix is added
+- ZHC-13: Do not return on the first tab when a appendix is added
   [mpeeters]
 
 - Update translations
