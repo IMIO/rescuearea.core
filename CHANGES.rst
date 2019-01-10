@@ -4,6 +4,8 @@ Changelog
 
 1.0a12 (unreleased)
 -------------------
+- Upgrade allowed_content_types for ppi, ppie and popup
+  [vpiret]
 
 - Remove IPublication behavior for PopUp content type
   [mpeeters]
