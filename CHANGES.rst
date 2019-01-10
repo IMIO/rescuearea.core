@@ -4,6 +4,9 @@ Changelog
 
 1.0a12 (unreleased)
 -------------------
+- Change on select2 impacted_items field on ppie
+  [vpiret]
+
 - Upgrade allowed_content_types for ppi, ppie and popup
   [vpiret]
 

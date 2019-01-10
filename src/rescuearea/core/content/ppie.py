@@ -3,7 +3,9 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 
+from collective.z3cform.select2.widget.widget import MultiSelect2FieldWidget
 from plone.app.textfield import RichText
+from plone.autoform import directives as form
 from plone.dexterity.browser import add
 from plone.dexterity.content import Container
 from plone.supermodel import model
@@ -199,8 +201,13 @@ class IPpie(model.Schema):
         default_mime_type='text/html',
     )
 
-    impacted_items = RichText(
+    form.widget(impacted_items=MultiSelect2FieldWidget)
+    impacted_items = schema.List(
         title=_(u'Impacted items'),
+        value_type=schema.Choice(
+            title=_(u'Impacted items'),
+            source='rescuearea.core.vocabularies.impacted_items',
+        ),
         required=True,
     )
 

@@ -45,6 +45,7 @@ setup(
         'setuptools',
         'z3c.jbot',
         'imio.history',
+        'collective.z3cform.select2',
     ],
     extras_require={
         'test': [

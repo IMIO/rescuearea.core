@@ -41,3 +41,22 @@ class ClassificationVocabularyFactory(object):
 
 
 ClassificationVocabulary = ClassificationVocabularyFactory()
+
+
+class ImpactedItemsVocabularyFactory(object):
+
+    def __call__(self, context):
+        values = [{'Enghien': u'Enghien'},
+                  {'Soignies': u'Soignies'},
+                  {'Braine-le-comte': u'Braine-le-comte'},
+                  {'La Louvière': u'La Louvière'},
+                  {'Binche': u'Binche'},
+                  {'Mons': u'Mons'},
+                  {'Chièvres': u'Chièvres'},
+                  {'Dour': u'Dour'},
+                  {'Saint-Ghislain': u'Saint-Ghislain'},
+                  {'Quiévrain': u'Quiévrain'}]
+        return dict_list_2_vocabulary(values)
+
+
+ImpactedItemsVocabulary = ImpactedItemsVocabularyFactory()

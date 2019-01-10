@@ -9,6 +9,7 @@
   <i18n:registerTranslations directory="locales" />
 
   <include package="Products.CMFCore" file="permissions.zcml" />
+  <include package="collective.z3cform.select2"/>
   <include file="permissions.zcml" />
 
   <include package=".browser" />
@@ -49,6 +50,12 @@
   <utility
       component=".vocabularies.ClassificationVocabulary"
       name="rescuearea.core.vocabularies.classification"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+      />
+
+  <utility
+      component=".vocabularies.ImpactedItemsVocabulary"
+      name="rescuearea.core.vocabularies.impacted_items"
       provides="zope.schema.interfaces.IVocabularyFactory"
       />
 
