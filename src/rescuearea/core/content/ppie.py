@@ -168,21 +168,15 @@ class IPpie(model.Schema):
     fieldset(
         'Description of the event',
         label=_(u'Description of the event'),
-        fields=['start',
-                'end',
+        fields=['date_time',
                 'location',
                 'nature_and_risk_involved',
                 'impacted_items',
                 ]
     )
 
-    start = schema.Datetime(
-        title=_(u'Dates and times start'),
-        required=True,
-    )
-
-    end = schema.Datetime(
-        title=_(u'Dates and times stop'),
+    date_time = schema.TextLine(
+        title=_(u'Dates and times'),
         required=True,
     )
 
