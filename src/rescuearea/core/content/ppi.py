@@ -666,11 +666,11 @@ class PpiView(view.DefaultView):
 
     def getNumStreet(self):
         if getattr(self.context.address, 'number', None):
-            return "{0} {1}".format(self.context.address.number, self.context.address.street)
+            return "{0} {1}".format(self.context.address.number.encode('utf8'), self.context.address.street.encode('utf8'))
         return self.context.address.street
 
     def getZipTown(self):
-        return "{0} {1}".format(self.context.address.zip_code, self.context.address.commune)
+        return "{0} {1}".format(self.context.address.zip_code, self.context.address.commune.encode('utf8'))
 
     def getCoord(self):
         if getattr(self.context.address, 'longitude', None) or getattr(self.context.address, 'latitude', None):
