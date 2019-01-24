@@ -5,8 +5,11 @@ Changelog
 1.0b2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Upgrade "Dates and times" field on ppie
+  [vpiret]
 
+- Fix encoding utf8 for ppi
+  [vpiret]
 
 1.0b1 (2019-01-21)
 ------------------
