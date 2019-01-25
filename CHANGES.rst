@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b3 (unreleased)
+1.0b3 (2019-01-25)
 ------------------
 
 - Add title on popup message
