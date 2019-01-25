@@ -5,7 +5,8 @@ Changelog
 1.0b3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add title on popup message
+  [vpiret]
 
 
 1.0b2 (2019-01-24)
