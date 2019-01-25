@@ -654,10 +654,10 @@ msgstr "Code postal"
 msgid "case_officer"
 msgstr "Officier chargé du dossier"
 
-#. Default: "<p>From ${start} to ${end}</p> <p>${message}</p>"
-#: ../browser/viewlet.py:32
+#. Default: "<p>${titre}</p> <p>From ${start} to ${end}</p> <p>${message}</p>"
+#: ../browser/viewlet.py:33
 msgid "popup_message"
-msgstr "<p>Du ${start} au ${end}</p> <p>${message}</p>"
+msgstr "<p>${titre}</p> <p>Du ${start} au ${end}</p> <p>${message}</p>"
 
 #: ../configure.zcml:28
 msgid "rescuearea.core"

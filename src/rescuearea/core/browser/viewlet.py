@@ -29,11 +29,13 @@ class PopUpViewlet(ViewletBase):
                 start = popup.effective.date()
                 end = popup.expires.date()
                 if start <= today <= end:
+                    popup_obj = popup.getObject()
                     text = _(u"popup_message",
-                             default=u'<p>From ${start} to ${end}</p> <p>${message}</p>',
-                             mapping={u"start": start.strftime("%d-%m-%Y"),
+                             default=u'<h4>${titre}</h4> <p>From ${start} to ${end}</p> <p>${message}</p>',
+                             mapping={u"titre": popup_obj.titre,
+                                      u"start": start.strftime("%d-%m-%Y"),
                                       u"end": end.strftime("%d-%m-%Y"),
-                                      u"message": popup.getObject().richtext_desc.output}
+                                      u"message": popup_obj.richtext_desc.output}
                              )
                     return text
 
