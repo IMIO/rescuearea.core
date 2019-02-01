@@ -5,6 +5,9 @@ Changelog
 1.0b5 (unreleased)
 ------------------
 
+- Remove useless imio.history
+  [laulaz]
+
 - Remove wrong invariant
   [laulaz]
 

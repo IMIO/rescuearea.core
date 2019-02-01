@@ -44,7 +44,6 @@ setup(
         'Products.GenericSetup>=1.8.2',
         'setuptools',
         'z3c.jbot',
-        'imio.history',
         'collective.z3cform.select2',
     ],
     extras_require={
