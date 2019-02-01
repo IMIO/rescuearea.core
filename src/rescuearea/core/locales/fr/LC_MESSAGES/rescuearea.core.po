@@ -42,11 +42,11 @@ msgstr "<p>Décrire en quelques mots pourquoi ce site est particulier et a fait 
 
 #: ../content/ppi.py:110
 msgid "<p>Description and usefulness of the keys :</p><p>Where the key is stored :</p><p>Number of copies :</p>"
-msgstr "<p>Description et utilité des clés :</p><p>Endroit où la clé est rangée :</p><p>Nombre d’exemplaire :</p>"
+msgstr "<p>Description et utilité des clés :</p><p>Endroit où la clé est rangée :</p><p>Nombre d'exemplaire :</p>"
 
 #: ../content/ppi.py:209
 msgid "<p>Factory, warehouse, store, MRPA... Public access, number of people, valid? autonomous? sleeping? Describe in a few lines what it is about.</p>"
-msgstr "<p>Usine, entrepôt, magasin, MRPA... Accès public, nombre de personnes, valide? autonome? dormant? Décrire en quelques lignes de quoi il s’agit.</p>"
+msgstr "<p>Usine, entrepôt, magasin, MRPA... Accès public, nombre de personnes, valide? autonome? dormant? Décrire en quelques lignes de quoi il s'agit.</p>"
 
 #: ../content/ppi.py:295
 msgid "<p>For example UHF relay for buildings with insufficient UHF range</p>"
@@ -70,7 +70,7 @@ msgstr "<p>Si oui, décrire brièvement les principes multidisciplinaires...</p>
 
 #: ../content/ppi.py:301
 msgid "<p>Is it always the same, or according to the intervention, you must take into account the direction of the wind, or arrive by a particular access to the site according to the place where the event occurred</p>"
-msgstr "<p>Est-ce toujours le même, ou selon l'intervention, il faut tenir compte du sens du vent, ou arriver par un accès particulier au site selon l'endroit où l’évènement s'est produit.</p>"
+msgstr "<p>Est-ce toujours le même, ou selon l'intervention, il faut tenir compte du sens du vent, ou arriver par un accès particulier au site selon l'endroit où l'évènement s'est produit.</p>"
 
 #: ../content/ppi.py:432
 msgid "<p>Mandatory if the size of the site does not fit within a 250m x 250m square. To do by the Carto team to put online on the PPI carto app.</p><p>If there is no 'not shown', indicate 'not shown'.</p>"
@@ -94,15 +94,15 @@ msgstr "<p>Préciser ici les moyens qui doivent être pris en plus de la tenue d
 
 #: ../content/ppi.py:333
 msgid "<p>Specify if a particular place has been designed to gather emergency services in the event of an increase in power. Important mainly if reflex reinforcements are sent, or in case of chemical intervention, for example.</p>"
-msgstr "<p>Préciser si un endroit particulier a été imaginé pour rassembler les secours en cas de montée en puissance. Important principalement si des renforts réflex sont envoyés, ou en cas d’intervention chimique, par exemple.</p>"
+msgstr "<p>Préciser si un endroit particulier a été imaginé pour rassembler les secours en cas de montée en puissance. Important principalement si des renforts réflex sont envoyés, ou en cas d'intervention chimique, par exemple.</p>"
 
 #: ../content/ppi.py:192
 msgid "<p>Specify night occupancy or not. Specify public occupation</p>"
-msgstr "<p>Préciser l’occupation de nuit ou pas. Préciser l’occupation par le public</p>"
+msgstr "<p>Préciser l'occupation de nuit ou pas. Préciser l'occupation par le public</p>"
 
 #: ../content/ppi.py:494
 msgid "<p>Specify the places where it is necessary to have paper copies available </p><ul><li>DZHC</li><li>Fastest first aid station (several if the means must come from several stations)</li></ul>"
-msgstr "<p>Préciser les endroits où il est nécessaire d’avoir des exemplaires papiers à disposition :</p><ul><li>DZHC</li><li>Poste de secours le plus rapide (plusieurs si les moyens doivent provenir de plusieurs poste)</li></ul>"
+msgstr "<p>Préciser les endroits où il est nécessaire d'avoir des exemplaires papiers à disposition :</p><ul><li>DZHC</li><li>Poste de secours le plus rapide (plusieurs si les moyens doivent provenir de plusieurs poste)</li></ul>"
 
 #: ../content/ppi.py:404
 msgid "<p>To do via the PPI carto app to put on line on the map.</p><ul><li>Locate accesses</li><li>Red/black area if known</li><li>Type google map with black box on the object </li></ul>"
@@ -146,7 +146,7 @@ msgstr "Accès pour les ambulances"
 
 #: ../content/ppie.py:358
 msgid "Access to the site"
-msgstr "Acces au site"
+msgstr "Accès au site"
 
 #: ../content/ppie.py:223
 msgid "Access to the site for firefighters"
@@ -154,7 +154,7 @@ msgstr "Accès au site pour les pompiers"
 
 #: ../content/ppi.py:288
 msgid "Adaptation of the emergency services in relation to the response plan"
-msgstr "Adaptation des secours par rapport au plan de réaction "
+msgstr "Adaptation des secours par rapport au plan de réaction"
 
 #: ../content/ppi.py:384
 msgid "Additional information"
@@ -178,11 +178,11 @@ msgstr "Signaler une erreur"
 
 #: ../profiles/default/controlpanel.xml
 msgid "Anomalies reporting Settings"
-msgstr ""
+msgstr "Paramètres de signalement d'erreur"
 
 #: ../browser/controlpanel.py:13
 msgid "Anomalies reporting settings"
-msgstr ""
+msgstr "Paramètres de signalement d'erreur"
 
 #: ../content/ppie.py:402
 msgid "Appendices"
@@ -223,7 +223,7 @@ msgstr "Annexe : Ressources en eau"
 
 #: ../content/ppie.py:83
 msgid "At the events coordination centre (representative D1)"
-msgstr "Au centre coordination des évènements (représentant D1)"
+msgstr "Au centre de coordination des évènements (représentant D1)"
 
 #: ../content/ppi.py:378
 msgid "Attention points for the return to normal"
@@ -236,7 +236,7 @@ msgstr "Disponibilité des exemplaires papiers"
 #. Default: "classified big SEVESO"
 #: ../vocabularies.py:27
 msgid "BIG"
-msgstr "classé grand SEVESO"
+msgstr "Classé grand SEVESO"
 
 #: ../content/ppi.py:278
 msgid "Before departure"
@@ -252,7 +252,7 @@ msgstr "Centre 100"
 
 #: ../content/ppi.py:499
 msgid "Classification for risk analysis"
-msgstr "Classement pour l’analyse des risques"
+msgstr "Classement pour l'analyse des risques"
 
 #: ../content/ppi.py:85
 msgid "Commune"
@@ -276,7 +276,7 @@ msgstr "Contacts"
 
 #: ../content/ppi.py:254
 msgid "Data limited to description?"
-msgstr "Données limitées à la description? "
+msgstr "Données limitées à la description?"
 
 #: ../content/ppi.py:142
 msgid "Date"
@@ -288,7 +288,7 @@ msgstr "Date de fin"
 
 #: ../content/ppi.py:464
 msgid "Date of last modification"
-msgstr "Date de dernière modifications"
+msgstr "Date de dernière modification"
 
 #: ../content/ppi.py:272
 msgid "Date of update of the description sheet"
@@ -349,7 +349,7 @@ msgstr "Existence d'un PPUI?"
 
 #: ../content/ppi.py:103
 msgid "Existence of keys, code, access badge?"
-msgstr "Existence de clés, code, badge d’accès?"
+msgstr "Existence de clés, code, badge d'accès?"
 
 #: ../content/ppi.py:125
 msgid "File"
@@ -366,7 +366,7 @@ msgstr "Historique"
 
 #: ../content/ppi.py:266
 msgid "If yes, describe utility"
-msgstr "Si oui, décrire l'utilité "
+msgstr "Si oui, décrire l'utilité"
 
 #: ../content/ppie.py:210
 msgid "Impact on emergency stations"
@@ -396,11 +396,11 @@ msgstr "Consignes pour le téléphoniste"
 
 #: ../content/ppie.py:426
 msgid "It is necessary to change the default value"
-msgstr "Il faut changer la valeur par defaut"
+msgstr "Il faut changer la valeur par défaut"
 
 #: ../content/ppi.py:265
 msgid "Keys, code, access badge?"
-msgstr "Clés, code, badge d’accès?"
+msgstr "Clés, code, badge d'accès?"
 
 #. Default: "Low risk"
 #: ../vocabularies.py:37
@@ -409,7 +409,7 @@ msgstr "Risque faible"
 
 #: ../content/ppi.py:118
 msgid "Last Key Check Date"
-msgstr "Date dernière vérification des clés"
+msgstr "Date de dernière vérification des clés"
 
 #: ../content/ppi.py:95
 msgid "Latitude"
@@ -544,7 +544,7 @@ msgstr "Imprimer"
 
 #: ../content/ppi.py:348
 msgid "Reflex measurements on arrival on site"
-msgstr "Mesures réflexes à l’arrivée sur site"
+msgstr "Mesures réflexes à l'arrivée sur site"
 
 #: ../content/ppi.py:372
 msgid "Return to normal"
@@ -565,7 +565,7 @@ msgstr "Itinéraire à respecter"
 #. Default: "classified small SEVESO"
 #: ../vocabularies.py:26
 msgid "SMA"
-msgstr "classé petit SEVESO"
+msgstr "Classé petit SEVESO"
 
 #: ../content/ppi.py:526
 #: ../content/ppie.py:485
@@ -574,11 +574,11 @@ msgstr "Sauver"
 
 #: ../content/ppie.py:45
 msgid "Schedule end"
-msgstr "Horaire fin"
+msgstr "Horaire de fin"
 
 #: ../content/ppie.py:40
 msgid "Schedule start"
-msgstr "Horaire début"
+msgstr "Horaire de début"
 
 #: ../content/ppi.py:306
 msgid "Site Particularities"
