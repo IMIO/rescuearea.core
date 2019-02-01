@@ -5,6 +5,9 @@ Changelog
 1.0b5 (unreleased)
 ------------------
 
+- Remove wrong invariant
+  [laulaz]
+
 - Fix icon for nested fields
   [laulaz]
 

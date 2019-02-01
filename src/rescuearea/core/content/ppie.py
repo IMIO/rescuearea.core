@@ -410,12 +410,6 @@ class IPpie(model.Schema):
         value_type=RichText(title=_(u'Appendix')),
     )
 
-    @invariant
-    def validate_start_end(data):
-        if data.start is not None and data.end is not None:
-            if data.start > data.end:
-                raise Invalid(_(u"The start date must be before the end date."))
-
 
 class DefaultValueValidator(validator.SimpleFieldValidator):
 
