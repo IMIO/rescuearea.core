@@ -5,7 +5,8 @@ Changelog
 1.0b5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix icon for nested fields
+  [laulaz]
 
 
 1.0b4 (2019-01-25)

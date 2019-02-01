@@ -689,7 +689,7 @@ class IconsView(BrowserView):
         for field in field_with_icon:
             if type(field) == list:
                 if getattr(getattr(self.context, field[0]), field[1]):
-                    icon = registry.get('ppi_{0}'.format(field), '')
+                    icon = registry.get('ppi_{0}'.format(field[1]), '')
                     if icon:
                         html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
             else:
