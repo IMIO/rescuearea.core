@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b5 (unreleased)
+1.0b5 (2019-02-01)
 ------------------
 
 - Remove useless imio.history
