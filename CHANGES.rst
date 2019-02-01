@@ -8,6 +8,9 @@ Changelog
 - Fix icon for nested fields
   [laulaz]
 
+- Fix translations
+  [laulaz]
+
 
 1.0b4 (2019-01-25)
 ------------------
