@@ -5,18 +5,6 @@
     xmlns:z3c="http://namespaces.zope.org/z3c"
     i18n_domain="rescuearea.core">
 
-  <subscriber
-    for=".ppi.IPpi
-         zope.lifecycleevent.IObjectAddedEvent"
-    handler=".event.create_history"
-    />
-
-  <subscriber
-    for=".ppie.IPpie
-         zope.lifecycleevent.IObjectAddedEvent"
-    handler=".event.create_history"
-    />
-
   <browser:page
       name="ppi-macros"
       for="*"

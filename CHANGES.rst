@@ -5,7 +5,8 @@ Changelog
 1.0b6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Correctly remove imio.history
+  [mpeeters]
 
 
 1.0b5 (2019-02-01)
