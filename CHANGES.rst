@@ -5,7 +5,8 @@ Changelog
 1.0b7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Remove useless tab
+  [vpiret]
 
 
 1.0b6 (2019-02-03)
