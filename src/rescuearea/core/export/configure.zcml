@@ -1,0 +1,13 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope">
+
+  <adapter factory=".export.ObjectFieldRenderer"
+           provides="collective.excelexport.interfaces.IExportable" />
+
+  <adapter factory=".export.FullTextFieldRenderer"
+           provides="collective.excelexport.interfaces.IExportable" />
+
+  <adapter factory=".export.FullRichTextFieldRenderer"
+           provides="collective.excelexport.interfaces.IExportable" />
+
+</configure>

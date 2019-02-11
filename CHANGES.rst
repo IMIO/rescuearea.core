@@ -5,6 +5,9 @@ Changelog
 1.0b7 (unreleased)
 ------------------
 
+- Fix excelexport for ppi
+  [vpiret]
+
 - Remove useless tab
   [vpiret]
 
