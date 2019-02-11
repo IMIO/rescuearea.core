@@ -1,4 +1,4 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 from collective.excelexport.exportables.dexterityfields import BaseFieldRenderer
 from Products.CMFPlone.utils import safe_unicode
 from plone import api
