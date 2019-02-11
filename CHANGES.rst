@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b7 (unreleased)
+1.0b7 (2019-02-11)
 ------------------
 
 - Fix excelexport for ppi
