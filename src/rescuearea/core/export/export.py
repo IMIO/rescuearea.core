@@ -35,8 +35,6 @@ class ObjectFieldRenderer(BaseFieldRenderer):
         if ILinkFileRowSchema.providedBy(values):
             return self.get_link_file(values)
 
-
-
         return self.get_value(obj)
 
     def get_num_street(self, obj):
