@@ -24,13 +24,11 @@ from zope import schema
 from zope.component import queryUtility
 from zope.interface import Invalid
 from zope.interface import implements
-from plone.autoform import directives as form
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
 from rescuearea.core.content.object_factory import register_object_factories
 from rescuearea.core.utils import default_translator
-from rescuearea.core.widgets.file_object import FileObjectFieldWidget
 from rescuearea.core.fields.file_object import FileObject
 
 
