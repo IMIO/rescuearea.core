@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='rescuearea.core',
-    version='1.0b8',
+    version='1.0b9.dev0',
     description="An add-on for Plone",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
