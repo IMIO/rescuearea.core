@@ -24,11 +24,14 @@ from zope import schema
 from zope.component import queryUtility
 from zope.interface import Invalid
 from zope.interface import implements
+from plone.autoform import directives as form
 
 from rescuearea.core import _
 from rescuearea.core.content.object_factory import ObjectField
 from rescuearea.core.content.object_factory import register_object_factories
 from rescuearea.core.utils import default_translator
+from rescuearea.core.widgets.file_object import FileObjectFieldWidget
+from rescuearea.core.fields.file_object import FileObject
 
 
 occupation_table_value = (
@@ -121,7 +124,9 @@ class IKeysCodeAccessBadgeFieldsRowSchema(model.Schema):
 
 
 class ILinkFileRowSchema(model.Schema):
-    file = NamedBlobFile(
+
+    # form.widget(file=FileObjectFieldWidget)
+    file = FileObject(
         title=_(u'File'),
         required=False,
     )
@@ -575,7 +580,19 @@ class PpiView(view.DefaultView):
 
     def check_default_value(self, widget):
         if widget.field.defaultFactory:
-            default = widget.value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>').replace(u'\xa0', '&nbsp;')
+            default = widget.value.output.replace(
+                '&#13;\n',
+                ''
+            ).replace(
+                '</p><p/><p>',
+                '</p><p></p><p>'
+            ).replace(
+                u'\xa0',
+                '&nbsp;'
+            ).replace(
+                '\r\n',
+                ''
+            )
             value = widget.field.defaultFactory(self)
             if default == value:
                 return False
@@ -709,12 +726,15 @@ class IconsViewlet(ViewletBase):
 def searchable_text_address(object, **kw):
     result = [safe_unicode(object.Title()).encode('utf-8'),
               safe_unicode(object.Description()).encode('utf-8')]
+    other_names = getattr(object, 'other_names', None)
+    if other_names:
+        result.append(safe_unicode(other_names).encode('utf-8'))
     address = getattr(object, 'address', None)
     if address:
         fields = ['number', 'street', 'zip_code', 'commune', 'longitude', 'latitude']
         for field_name in fields:
             value = getattr(address, field_name, None)
-            if type(value) is unicode:  # noqa
+            if type(value) is unicode:   # noqa
                 text = safe_unicode(value).encode('utf-8')
                 result.append(text)
             elif IRichTextValue.providedBy(value):

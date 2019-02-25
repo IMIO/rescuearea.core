@@ -5,7 +5,14 @@ Changelog
 1.0b8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add other_names on fulltext search
+  [vpiret]
+
+- Add custom field for displaying file links
+  [vpiret]
+
+- Fix display ppi
+  [vpiret]
 
 
 1.0b7 (2019-02-11)
