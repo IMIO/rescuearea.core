@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b8 (unreleased)
+1.0b8 (2019-02-25)
 ------------------
 
 - Add other_names on fulltext search
