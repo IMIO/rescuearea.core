@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b9 (unreleased)
+1.0b9 (2019-02-28)
 ------------------
 
 - Adapt the icon to have a fix height but a variable width
