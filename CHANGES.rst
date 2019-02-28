@@ -5,7 +5,8 @@ Changelog
 1.0b9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Adapt the icon to have a fix height but a variable width
+  [mpeeters]
 
 
 1.0b8 (2019-02-25)

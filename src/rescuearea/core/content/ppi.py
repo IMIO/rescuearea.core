@@ -701,17 +701,30 @@ class IconsView(BrowserView):
         field_with_icon = [['keys_code_access_badge', 'existence_keys_code_access_badge']]
         registry = queryUtility(IRegistry, default={})
         html = ''
+        img = '{0}<img src="{1}" height="42" width="">'
         for field in field_with_icon:
             if type(field) == list:
                 if getattr(getattr(self.context, field[0]), field[1]):
                     icon = registry.get('ppi_{0}'.format(field[1]), '')
                     if icon:
-                        html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
+                        html = img.format(
+                            html,
+                            '{0}/{1}'.format(
+                                api.portal.get().absolute_url(),
+                                icon,
+                            ),
+                        )
             else:
                 if getattr(self.context, field):
                     icon = registry.get('ppi_{0}'.format(field), '')
                     if icon:
-                        html = '{0}<img src="{1}" height="42" width="42">'.format(html, '{0}/{1}'.format(api.portal.get().absolute_url(), icon))
+                        html = img.format(
+                            html,
+                            '{0}/{1}'.format(
+                                api.portal.get().absolute_url(),
+                                icon,
+                            ),
+                        )
         return html
 
 
