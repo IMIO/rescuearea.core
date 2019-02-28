@@ -685,11 +685,18 @@ class PpiView(view.DefaultView):
         return self.context.address.street
 
     def getZipTown(self):
-        return "{0} {1}".format(self.context.address.zip_code, self.context.address.commune.encode('utf8'))
+        return "{0} {1}".format(
+            self.context.address.zip_code,
+            self.context.address.commune.encode('utf8'),
+        )
 
     def getCoord(self):
-        if getattr(self.context.address, 'longitude', None) or getattr(self.context.address, 'latitude', None):
-            return "{0}/{1}".format(getattr(self.context.address, 'longitude', ''), getattr(self.context.address, 'latitude', ''))
+        if getattr(self.context.address, 'longitude', None) or \
+           getattr(self.context.address, 'latitude', None):
+            return "{0}/{1}".format(
+                getattr(self.context.address, 'longitude', ''),
+                getattr(self.context.address, 'latitude', ''),
+            )
 
     def itinerary(self):
         if getattr(self.context, 'route_to_follow', None) and getattr(self.context, 'appendix_itinerary', None):
@@ -698,7 +705,10 @@ class PpiView(view.DefaultView):
 
 class IconsView(BrowserView):
     def __call__(self):
-        field_with_icon = [['keys_code_access_badge', 'existence_keys_code_access_badge']]
+        field_with_icon = [[
+            'keys_code_access_badge',
+            'existence_keys_code_access_badge',
+        ]]
         registry = queryUtility(IRegistry, default={})
         html = ''
         img = '{0}<img src="{1}" height="42" width="">'
