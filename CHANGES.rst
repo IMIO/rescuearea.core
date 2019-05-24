@@ -5,7 +5,11 @@ Changelog
 1.0b10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix mandatory date fields
+  [vpiret]
+
+- Fix title on popup
+  [vpiret]
 
 
 1.0b9 (2019-02-28)

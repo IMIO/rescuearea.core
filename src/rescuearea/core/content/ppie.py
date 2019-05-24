@@ -456,10 +456,9 @@ class AddForm(add.DefaultAddForm, BrowserView):
 
     def update(self):
         super(add.DefaultAddForm, self).update()
-        for group in self.groups:
-            if group.__name__ == "dates":
-                group.fields["IPublication.effective"].field.required = True
-                group.fields["IPublication.expires"].field.required = True
+        for group in [g for g in self.groups if g.__name__ == "dates"]:
+            group.widgets["IPublication.effective"].required = True
+            group.widgets["IPublication.expires"].required = True
 
     def required_default(self, group, field_name, data):
         field_object = group.fields[field_name].field
