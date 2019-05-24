@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b10 (unreleased)
+1.0b10 (2019-05-24)
 -------------------
 
 - Fix mandatory date fields
