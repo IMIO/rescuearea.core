@@ -46,6 +46,15 @@ class IPopUp(model.Schema):
 class PopUp(Container):
     implements(IPopUp)
 
+    @property
+    def title(self):
+        if hasattr(self, 'titre'):
+            return self.titre
+
+    @title.setter
+    def title(self, value):
+        self._title = value
+
 
 @indexer(IPopUp)
 def effective_indexer(object, **kwargs):
