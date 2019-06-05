@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b11 (unreleased)
+1.0b11 (2019-06-05)
 -------------------
 
 - Fix excel export
