@@ -5,7 +5,8 @@ Changelog
 1.0b11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix excel export
+  [mpeeters]
 
 
 1.0b10 (2019-05-24)

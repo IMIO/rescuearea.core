@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- coding: utf-8 -*-
 
 from zope.schema.vocabulary import SimpleVocabulary
 
@@ -49,13 +49,13 @@ class ImpactedItemsVocabularyFactory(object):
         values = [{'Enghien': u'Enghien'},
                   {'Soignies': u'Soignies'},
                   {'Braine-le-comte': u'Braine-le-comte'},
-                  {'La Louvière': u'La Louvière'},
+                  {'La Louviere': u'La Louvière'},
                   {'Binche': u'Binche'},
                   {'Mons': u'Mons'},
-                  {'Chièvres': u'Chièvres'},
+                  {'Chievres': u'Chièvres'},
                   {'Dour': u'Dour'},
                   {'Saint-Ghislain': u'Saint-Ghislain'},
-                  {'Quiévrain': u'Quiévrain'}]
+                  {'Quievrain': u'Quiévrain'}]
         return dict_list_2_vocabulary(values)
 
 

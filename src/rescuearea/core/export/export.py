@@ -22,10 +22,10 @@ class ObjectFieldRenderer(BaseFieldRenderer):
     def render_value(self, obj):
         values = self.get_value(obj)
         if IAddressRowSchema.providedBy(values):
-            adresse = "{0} {1}".format(self.get_num_street(values),
+            adresse = u"{0} {1}".format(self.get_num_street(values),
                                        self.get_zip_town(values))
             if self.get_coord(values):
-                adresse = "{0} ({1})".format(adresse,
+                adresse = u"{0} ({1})".format(adresse,
                                              self.get_coord(values))
             return adresse
 
@@ -39,17 +39,19 @@ class ObjectFieldRenderer(BaseFieldRenderer):
 
     def get_num_street(self, obj):
         if getattr(obj, 'number', None):
-            return "{0} {1}".format(obj.number.encode('utf8'),
-                                    obj.street.encode('utf8'))
-        return obj.street.encode('utf8')
+            try:
+                return u"{0} {1}".format(obj.number, obj.street)
+            except:
+                __import__('pdb').set_trace()
+        return obj.street
 
     def get_zip_town(self, obj):
-        return "{0} {1}".format(obj.zip_code, obj.commune.encode('utf8'))
+        return u"{0} {1}".format(obj.zip_code, obj.commune)
 
     def get_coord(self, obj):
         if getattr(obj, 'longitude', None) or getattr(obj, 'latitude', None):
-            return "{0}/{1}".format(getattr(obj, 'longitude', ''),
-                                    getattr(obj, 'latitude', ''))
+            return u"{0}/{1}".format(getattr(obj, 'longitude', ''),
+                                     getattr(obj, 'latitude', ''))
 
     def get_keys_code_access_badge(self, obj):
         information = getattr(obj, 'information', None)
