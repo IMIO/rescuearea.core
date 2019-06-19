@@ -5,6 +5,9 @@ Changelog
 1.0b12 (unreleased)
 -------------------
 
+- Add index for Seveso and ZipCode+Town
+  [vpiret]
+
 - Add facted for ppi and ppie@
   [amariscal]
 
