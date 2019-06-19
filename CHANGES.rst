@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b12 (unreleased)
+1.0b12 (2019-06-19)
 -------------------
 
 - Add index for Seveso and ZipCode+Town
