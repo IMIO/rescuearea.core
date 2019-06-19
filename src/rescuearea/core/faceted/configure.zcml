@@ -1,0 +1,21 @@
+<configure
+  xmlns:faceted="http://namespaces.zope.org/faceted"
+  xmlns="http://namespaces.zope.org/zope">
+
+  <include package="eea.facetednavigation" />
+
+  <faceted:view
+    name="faceted-ppi-ppie-listing"
+    template="ppi_ppie_listing.pt"
+    title="PPI / PPIE"
+    permission="zope2.View"
+    />
+
+  <faceted:view
+    name="faceted-ppi-ppie"
+    template="ppi_ppie.pt"
+    title="PPI / PPIE"
+    permission="zope2.View"
+    />
+
+</configure>

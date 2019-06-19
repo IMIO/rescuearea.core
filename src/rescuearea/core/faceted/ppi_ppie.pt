@@ -1,0 +1,33 @@
+<div class="photoAlbumEntry"
+  tal:define="portal_type context/portal_type|string:;
+              useViewTypes context/portal_properties/site_properties/typesUseViewActionInListings|python:[];
+              useView python:portal_type in useViewTypes;">
+  <a tal:define="
+      description context/Description|string:;
+      title context/pretty_title_or_id|string:;
+      desc_or_title python:description or title;
+      url context/absolute_url|string:#;
+      view_url python:(url and useView and url + '/view') or url;"
+     tal:attributes="href view_url;
+                     title description">
+
+    <div class="header">
+      <span class="description" tal:content="context/description">Description</span>
+      <span tal:condition="python:context.description and context.title">
+      -
+      </span>
+      <span class="title" tal:content="context/title">Title</span>
+    </div>
+    <div class="address" tal:condition="python:hasattr(context, 'address')">
+      <div>
+        <span tal:content="context/address/street">Street</span>
+        <span tal:content="context/address/number">Number</span>
+      </div>
+      <div>
+        <span tal:content="context/address/zip_code">Code</span>
+        <span tal:content="context/address/commune">Commune</span>
+      </div>
+    </div>
+
+  </a>
+</div>

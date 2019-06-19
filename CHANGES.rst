@@ -5,7 +5,8 @@ Changelog
 1.0b12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add facted for ppi and ppie@
+  [amariscal]
 
 
 1.0b11 (2019-06-05)
