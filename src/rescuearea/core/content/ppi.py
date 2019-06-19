@@ -770,6 +770,14 @@ def searchable_text_address(object, **kw):
     return ' '.join(result)
 
 
+@indexer(IPpi)
+def zip_code_town(object):
+    address = getattr(object, 'address', None)
+    if address:
+        return u"{0} {1}".format(getattr(address, 'zip_code', None),
+                                 getattr(address, 'commune', None))
+
+
 class ImplementationPlanValidator(validator.SimpleFieldValidator):
 
     def validate(self, value):

@@ -137,4 +137,6 @@
     factory=".popup.expires_indexer"
     />
 
+  <adapter name="zip_code_town" factory=".ppi.zip_code_town" />
+
 </configure>

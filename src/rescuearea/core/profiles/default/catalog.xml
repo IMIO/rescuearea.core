@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
 <object name="portal_catalog">
-  <!--<column value="my_meta_column"/>-->
+  <index name="site_classified_seveso" meta_type="FieldIndex">
+    <indexed_attr value="site_classified_seveso"/>
+  </index>
+
+  <index name="zip_code_town" meta_type="FieldIndex">
+    <indexed_attr value="zip_code_town"/>
+  </index>
+
 </object>
