@@ -5,7 +5,8 @@ Changelog
 1.0b13 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix default value on ppie
+  [vpiret]
 
 
 1.0b12 (2019-06-19)

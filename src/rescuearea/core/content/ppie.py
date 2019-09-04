@@ -189,8 +189,8 @@ class IPpie(model.Schema):
         title=_(u'Nature and risk involved'),
         required=True,
         defaultFactory=default_translator(_(
-            u'<p><span>Nature</span> :</p><p></p>'
-            u'<p><span>Risks</span> :</p>'
+            u'<p>Nature :</p><p>&nbsp;</p>'
+            u'<p>Risks :</p>'
         )),
         default_mime_type='text/html',
     )
@@ -247,7 +247,7 @@ class IPpie(model.Schema):
             u'<tbody>'
             u'<tr>'
             u'<td>CCE</td>'
-            u'<td>Préciser les personnes (disciplines) présentes, le lieu, la plage horaire, et le rôle.  Si pas, indiquer « néant ».</td>'
+            u'<td>Préciser les personnes (disciplines) présentes, le lieu, la plage horaire, et le rôle. Si pas, indiquer « néant ».</td>'
             u'</tr>'
             u'<tr>'
             u'<td>C100</td>'
@@ -275,11 +275,11 @@ class IPpie(model.Schema):
             u'</tr>'
             u'<tr>'
             u'<td>Moyens organisateur sur place (pour info)</td>'
-            u'<td></td>'
+            u'<td>&nbsp;</td>'
             u'</tr>'
             u'<tr>'
             u'<td>Moyens ZHC extra au poste de secours</td>'
-            u'<td> préciser l\'horaire s\'il y en a!</td>'
+            u'<td>préciser l\'horaire s\'il y en a!</td>'
             u'</tr>'
             u'</tbody>'
             u'</table>'
@@ -415,7 +415,7 @@ class DefaultValueValidator(validator.SimpleFieldValidator):
 
     def validate(self, value):
         super(DefaultValueValidator, self).validate(value)
-        if self.field.defaultFactory(self) == value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>'):
+        if self.field.defaultFactory(self) == value.output.replace('\r\n', ''):
             raise Invalid(
                 _(u'It is necessary to change the default value')
             )
@@ -425,7 +425,7 @@ class DefaultValueValidator2(validator.SimpleFieldValidator):
 
     def validate(self, value):
         super(DefaultValueValidator2, self).validate(value)
-        if self.field.defaultFactory(self) == value.output.replace('&#13;\n', '').replace('</p><p/><p>', '</p><p></p><p>'):
+        if self.field.defaultFactory(self) == value.output.replace(u"\r\n<p>\xa0</p>\r\n", u"<p>&nbsp;</p>"):
             raise Invalid(
                 _(u'It is necessary to change the default value')
             )
@@ -524,3 +524,7 @@ class AddView(add.DefaultAddView):
 
 
 register_object_factories(IPpie)
+
+
+u"<p>Communication multidisciplinaire M HAI P0?</p><ul><li>groupe \xe9cout\xe9 par</li><li>pr\xe9ciser l'horaire</li></ul>"
+u"<p>Communication multidisciplinaire M HAI P0?</p><ul><li>groupe \xe9cout\xe9 par</li><li>pr\xe9ciser l'horaire</li></ul>"
