@@ -5,16 +5,18 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-long_description = '\n\n'.join([
-    open('README.rst').read(),
-    open('CONTRIBUTORS.rst').read(),
-    open('CHANGES.rst').read(),
-])
+long_description = "\n\n".join(
+    [
+        open("README.rst").read(),
+        open("CONTRIBUTORS.rst").read(),
+        open("CHANGES.rst").read(),
+    ]
+)
 
 
 setup(
-    name='rescuearea.core',
-    version='1.0b13.dev0',
+    name="rescuearea.core",
+    version="1.0b13.dev0",
     description="An add-on for Plone",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -28,34 +30,34 @@ setup(
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
-    keywords='Python Plone',
-    author='Sebastien Sirtoli',
-    author_email='sirtoli.dev@gmail.com',
-    url='https://pypi.python.org/pypi/rescuearea.core',
-    license='GPL version 2',
-    packages=find_packages('src', exclude=['ez_setup']),
-    namespace_packages=['rescuearea'],
-    package_dir={'': 'src'},
+    keywords="Python Plone",
+    author="Sebastien Sirtoli",
+    author_email="sirtoli.dev@gmail.com",
+    url="https://pypi.python.org/pypi/rescuearea.core",
+    license="GPL version 2",
+    packages=find_packages("src", exclude=["ez_setup"]),
+    namespace_packages=["rescuearea"],
+    package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
     install_requires=[
         # -*- Extra requirements: -*-
-        'plone.api>=1.8.4',
-        'Products.GenericSetup>=1.8.2',
-        'setuptools',
-        'z3c.jbot',
-        'collective.z3cform.select2',
+        "plone.api>=1.8.4",
+        "Products.GenericSetup>=1.8.2",
+        "setuptools",
+        "z3c.jbot",
+        "collective.z3cform.select2",
     ],
     extras_require={
-        'test': [
-            'plone.app.testing',
+        "test": [
+            "plone.app.testing",
             # Plone KGS does not use this version, because it would break
             # Remove if your package shall be part of coredev.
             # plone_coredev tests as of 2016-04-01.
-            'plone.testing>=5.0.0',
-            'plone.app.contenttypes',
-            'plone.app.robotframework',
-        ],
+            "plone.testing>=5.0.0",
+            "plone.app.contenttypes",
+            "plone.app.robotframework",
+        ]
     },
     entry_points="",
 )

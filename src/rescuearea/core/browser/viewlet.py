@@ -12,31 +12,31 @@ import datetime
 class PopUpViewlet(ViewletBase):
     """ A viewlet which renders the popup """
 
-    index = ViewPageTemplateFile('templates/popup.pt')
+    index = ViewPageTemplateFile("templates/popup.pt")
 
     def exist_popup(self):
-        list_popup = api.content.find(
-            context=self.context,
-            portal_type='pop_up',
-        )
+        list_popup = api.content.find(context=self.context, portal_type="pop_up")
 
         if not list_popup:
             return False
 
         for popup in list_popup:
-            if popup.EffectiveDate != 'None':
+            if popup.EffectiveDate != "None":
                 today = datetime.date.today()
                 start = popup.effective.date()
                 end = popup.expires.date()
                 if start <= today <= end:
                     popup_obj = popup.getObject()
-                    text = _(u"popup_message",
-                             default=u'<h4>${titre}</h4> <p>From ${start} to ${end}</p> <p>${message}</p>',
-                             mapping={u"titre": popup_obj.titre,
-                                      u"start": start.strftime("%d-%m-%Y"),
-                                      u"end": end.strftime("%d-%m-%Y"),
-                                      u"message": popup_obj.richtext_desc.output}
-                             )
+                    text = _(
+                        u"popup_message",
+                        default=u"<h4>${titre}</h4> <p>From ${start} to ${end}</p> <p>${message}</p>",
+                        mapping={
+                            u"titre": popup_obj.titre,
+                            u"start": start.strftime("%d-%m-%Y"),
+                            u"end": end.strftime("%d-%m-%Y"),
+                            u"message": popup_obj.richtext_desc.output,
+                        },
+                    )
                     return text
 
         return False

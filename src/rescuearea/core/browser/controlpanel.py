@@ -8,17 +8,15 @@ from zope.interface import Interface
 
 class IAnomaliesReportingSettingsSchema(Interface):
 
-    form.widget('anomalies_reporting', klass='pat-tinymce')
-    anomalies_reporting = schema.Text(
-        title=_(u'Anomalies reporting settings')
-    )
+    form.widget("anomalies_reporting", klass="pat-tinymce")
+    anomalies_reporting = schema.Text(title=_(u"Anomalies reporting settings"))
 
 
 class AnomaliesReportingSettingsEditForm(controlpanel.RegistryEditForm):
 
     schema = IAnomaliesReportingSettingsSchema
-    label = _(u'Anomalies reporting settings')
-    description = _(u'')
+    label = _(u"Anomalies reporting settings")
+    description = _(u"")
 
     def updateFields(self):
         super(AnomaliesReportingSettingsEditForm, self).updateFields()
@@ -27,5 +25,7 @@ class AnomaliesReportingSettingsEditForm(controlpanel.RegistryEditForm):
         super(AnomaliesReportingSettingsEditForm, self).updateWidgets()
 
 
-class AnomaliesReportingSettingsControlPanel(controlpanel.ControlPanelFormWrapper):  # noqa: E501
+class AnomaliesReportingSettingsControlPanel(
+    controlpanel.ControlPanelFormWrapper
+):  # noqa: E501
     form = AnomaliesReportingSettingsEditForm

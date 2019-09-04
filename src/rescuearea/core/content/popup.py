@@ -15,26 +15,15 @@ from rescuearea.core import _
 
 class IPopUp(model.Schema):
 
-    titre = schema.TextLine(
-        title=_(u'Titre'),
-        required=True,
-    )
+    titre = schema.TextLine(title=_(u"Titre"), required=True)
 
     richtext_desc = RichText(
-        title=_(u'Description'),
-        default_mime_type='text/html',
-        required=True,
+        title=_(u"Description"), default_mime_type="text/html", required=True
     )
 
-    effective = schema.Date(
-        title=_(u'Date start'),
-        required=True,
-    )
+    effective = schema.Date(title=_(u"Date start"), required=True)
 
-    expires = schema.Date(
-        title=_(u'Date end'),
-        required=True,
-    )
+    expires = schema.Date(title=_(u"Date end"), required=True)
 
     @invariant
     def validate_start_end(data):
@@ -48,7 +37,7 @@ class PopUp(Container):
 
     @property
     def title(self):
-        if hasattr(self, 'titre'):
+        if hasattr(self, "titre"):
             return self.titre
 
     @title.setter

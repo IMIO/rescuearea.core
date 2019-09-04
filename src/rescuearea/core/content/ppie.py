@@ -27,24 +27,20 @@ from rescuearea.core.utils import default_translator
 class ICCEEventCoordinationCellRowSchema(model.Schema):
 
     present_location = RichText(
-        title=_(u'Present and location'),
+        title=_(u"Present and location"),
         required=False,
-        defaultFactory=default_translator(_(
-            u'<p><span>Presence</span> :</p><p></p>'
-            u'<p><span>Location</span> :</p>'
-        )),
-        default_mime_type='text/html',
+        defaultFactory=default_translator(
+            _(
+                u"<p><span>Presence</span> :</p><p></p>"
+                u"<p><span>Location</span> :</p>"
+            )
+        ),
+        default_mime_type="text/html",
     )
 
-    start = schema.Datetime(
-        title=_(u'Schedule start'),
-        required=False,
-    )
+    start = schema.Datetime(title=_(u"Schedule start"), required=False)
 
-    end = schema.Datetime(
-        title=_(u'Schedule end'),
-        required=False,
-    )
+    end = schema.Datetime(title=_(u"Schedule end"), required=False)
 
     @invariant
     def validate_start_end(data):
@@ -56,38 +52,26 @@ class ICCEEventCoordinationCellRowSchema(model.Schema):
 class IMultidiciplinaryRowSchema(model.Schema):
 
     cce_event_coordination_cell = ObjectField(
-        title=_(u'CCE Event Coordination Cell'),
+        title=_(u"CCE Event Coordination Cell"),
         required=False,
-        schema=ICCEEventCoordinationCellRowSchema
+        schema=ICCEEventCoordinationCellRowSchema,
     )
 
-    centre_100 = RichText(
-        title=_(u'Centre 100'),
-        required=False,
-    )
+    centre_100 = RichText(title=_(u"Centre 100"), required=False)
 
 
 class IZHCMeansOnSiteRowSchema(model.Schema):
 
-    start = schema.Datetime(
-        title=_(u'Schedule start'),
-        required=False,
-    )
+    start = schema.Datetime(title=_(u"Schedule start"), required=False)
 
-    end = schema.Datetime(
-        title=_(u'Schedule end'),
-        required=False,
-    )
+    end = schema.Datetime(title=_(u"Schedule end"), required=False)
 
     at_the_events_coordination_centre = RichText(
-        title=_(u'At the events coordination centre (representative D1)'),
+        title=_(u"At the events coordination centre (representative D1)"),
         required=False,
     )
 
-    in_the_field = RichText(
-        title=_(u'In the field (field PC)'),
-        required=False,
-    )
+    in_the_field = RichText(title=_(u"In the field (field PC)"), required=False)
 
     @invariant
     def validate_start_end(data):
@@ -100,22 +84,15 @@ class IZHCExtraMeansAtTheFirstAidPostRowSchema(model.Schema):
 
     richtext_fields = RichText(
         required=False,
-        defaultFactory=default_translator(_(
-            u'<p><span>Human</span> :</p><p></p>'
-            u'<p><span>Equipment</span> :</p>'
-        )),
-        default_mime_type='text/html',
+        defaultFactory=default_translator(
+            _(u"<p><span>Human</span> :</p><p></p>" u"<p><span>Equipment</span> :</p>")
+        ),
+        default_mime_type="text/html",
     )
 
-    start = schema.Datetime(
-        title=_(u'Schedule start'),
-        required=False,
-    )
+    start = schema.Datetime(title=_(u"Schedule start"), required=False)
 
-    end = schema.Datetime(
-        title=_(u'Schedule end'),
-        required=False,
-    )
+    end = schema.Datetime(title=_(u"Schedule end"), required=False)
 
     @invariant
     def validate_start_end(data):
@@ -127,18 +104,17 @@ class IZHCExtraMeansAtTheFirstAidPostRowSchema(model.Schema):
 class IDiscipline1RowSchema(model.Schema):
 
     zhc_means_on_site = ObjectField(
-        title=_(u'Z.H.C. means on site'),
+        title=_(u"Z.H.C. means on site"),
         schema=IZHCMeansOnSiteRowSchema,
         required=False,
     )
 
     organizing_means_on_site = RichText(
-        title=_(u'Organizing means on site (for info)'),
-        required=False,
+        title=_(u"Organizing means on site (for info)"), required=False
     )
 
     zhc_extra_means_at_the_first_aid_post = ObjectField(
-        title=_(u'Z.H.C. extra means at the first aid post'),
+        title=_(u"Z.H.C. extra means at the first aid post"),
         schema=IZHCExtraMeansAtTheFirstAidPostRowSchema,
         required=False,
     )
@@ -146,19 +122,14 @@ class IDiscipline1RowSchema(model.Schema):
 
 class IDiscipline2RowSchema(model.Schema):
 
-    Location_ps_pma = RichText(
-        title=_(u'Location P.S.,P.M.A.'),
-        required=False,
-    )
+    Location_ps_pma = RichText(title=_(u"Location P.S.,P.M.A."), required=False)
 
     organizing_means_on_site = RichText(
-        title=_(u'Organizing means on site (for info)'),
-        required=False,
+        title=_(u"Organizing means on site (for info)"), required=False
     )
 
     zhc_extra_means_at_the_first_aid_post = RichText(
-        title=_(u'Z.H.C. extra means at the first aid post'),
-        required=False,
+        title=_(u"Z.H.C. extra means at the first aid post"), required=False
     )
 
 
@@ -166,279 +137,246 @@ class IPpie(model.Schema):
     """IPpie"""
 
     fieldset(
-        'Description of the event',
-        label=_(u'Description of the event'),
-        fields=['date_time',
-                'location',
-                'nature_and_risk_involved',
-                'impacted_items',
-                ]
+        "Description of the event",
+        label=_(u"Description of the event"),
+        fields=["date_time", "location", "nature_and_risk_involved", "impacted_items"],
     )
 
-    date_time = schema.TextLine(
-        title=_(u'Dates and times'),
-        required=True,
-    )
+    date_time = schema.TextLine(title=_(u"Dates and times"), required=True)
 
-    location = RichText(
-        title=_(u'Location'),
-        required=True,
-    )
+    location = RichText(title=_(u"Location"), required=True)
 
     nature_and_risk_involved = RichText(
-        title=_(u'Nature and risk involved'),
+        title=_(u"Nature and risk involved"),
         required=True,
-        defaultFactory=default_translator(_(
-            u'<p>Nature :</p><p>&nbsp;</p>'
-            u'<p>Risks :</p>'
-        )),
-        default_mime_type='text/html',
+        defaultFactory=default_translator(
+            _(u"<p>Nature :</p><p>&nbsp;</p>" u"<p>Risks :</p>")
+        ),
+        default_mime_type="text/html",
     )
 
     form.widget(impacted_items=MultiSelect2FieldWidget)
     impacted_items = schema.List(
-        title=_(u'Impacted items'),
+        title=_(u"Impacted items"),
         value_type=schema.Choice(
-            title=_(u'Impacted items'),
-            source='rescuearea.core.vocabularies.impacted_items',
+            title=_(u"Impacted items"),
+            source="rescuearea.core.vocabularies.impacted_items",
         ),
         required=True,
     )
 
     fieldset(
-        'Impact on emergency stations',
-        label=_(u'Impact on emergency stations'),
-        fields=['modified_itinerary',
-                'access_to_the_site_for_firefighters',
-                'access_for_ambulances',
-                ]
+        "Impact on emergency stations",
+        label=_(u"Impact on emergency stations"),
+        fields=[
+            "modified_itinerary",
+            "access_to_the_site_for_firefighters",
+            "access_for_ambulances",
+        ],
     )
 
-    modified_itinerary = RichText(
-        title=_(u'Modified itinerary'),
-        required=False,
-    )
+    modified_itinerary = RichText(title=_(u"Modified itinerary"), required=False)
 
     access_to_the_site_for_firefighters = RichText(
-        title=_(u'Access to the site for firefighters'),
-        required=False,
+        title=_(u"Access to the site for firefighters"), required=False
     )
 
     access_for_ambulances = RichText(
-        title=_(u'Access for ambulances'),
-        defaultFactory=default_translator(_(u'<p>PMA IN, PMA out</p>')),
-        default_mime_type='text/html',
+        title=_(u"Access for ambulances"),
+        defaultFactory=default_translator(_(u"<p>PMA IN, PMA out</p>")),
+        default_mime_type="text/html",
         required=False,
     )
 
     fieldset(
-        'Preventive devices',
-        label=_(u'Preventive devices'),
-        fields=['multidiciplinary',
-                'discipline1',
-                'discipline2',
-                ]
+        "Preventive devices",
+        label=_(u"Preventive devices"),
+        fields=["multidiciplinary", "discipline1", "discipline2"],
     )
 
     multidiciplinary = RichText(
-        title=_(u'Multidiciplinary'),
-        defaultFactory=default_translator(_(
-            u'<table border="1">'
-            u'<tbody>'
-            u'<tr>'
-            u'<td>CCE</td>'
-            u'<td>Préciser les personnes (disciplines) présentes, le lieu, la plage horaire, et le rôle. Si pas, indiquer « néant ».</td>'
-            u'</tr>'
-            u'<tr>'
-            u'<td>C100</td>'
-            u'<td>&nbsp;</td>'
-            u'</tr>'
-            u'<tr>'
-            u'<td>&nbsp;</td>'
-            u'<td>&nbsp;</td>'
-            u'</tr>'
-            u'</tbody>'
-            u'</table>'
-        )),
-        default_mime_type='text/html',
+        title=_(u"Multidiciplinary"),
+        defaultFactory=default_translator(
+            _(
+                u'<table border="1">'
+                u"<tbody>"
+                u"<tr>"
+                u"<td>CCE</td>"
+                u"<td>Préciser les personnes (disciplines) présentes, le lieu, la plage horaire, et le rôle. Si pas, indiquer « néant ».</td>"
+                u"</tr>"
+                u"<tr>"
+                u"<td>C100</td>"
+                u"<td>&nbsp;</td>"
+                u"</tr>"
+                u"<tr>"
+                u"<td>&nbsp;</td>"
+                u"<td>&nbsp;</td>"
+                u"</tr>"
+                u"</tbody>"
+                u"</table>"
+            )
+        ),
+        default_mime_type="text/html",
         required=False,
     )
 
     discipline1 = RichText(
-        title=_(u'Discipline 1'),
-        defaultFactory=default_translator(_(
-            u'<table border="1">'
-            u'<tbody>'
-            u'<tr>'
-            u'<td width="30%">Moyens ZHC sur place</td>'
-            u'<td>- Moyens Humains :<br />- Matériel :<br />- Horaire :<br />- Localisation :<br />- Mission des intervenants :</td>'
-            u'</tr>'
-            u'<tr>'
-            u'<td>Moyens organisateur sur place (pour info)</td>'
-            u'<td>&nbsp;</td>'
-            u'</tr>'
-            u'<tr>'
-            u'<td>Moyens ZHC extra au poste de secours</td>'
-            u'<td>préciser l\'horaire s\'il y en a!</td>'
-            u'</tr>'
-            u'</tbody>'
-            u'</table>'
-        )),
-        default_mime_type='text/html',
+        title=_(u"Discipline 1"),
+        defaultFactory=default_translator(
+            _(
+                u'<table border="1">'
+                u"<tbody>"
+                u"<tr>"
+                u'<td width="30%">Moyens ZHC sur place</td>'
+                u"<td>- Moyens Humains :<br />- Matériel :<br />- Horaire :<br />- Localisation :<br />- Mission des intervenants :</td>"
+                u"</tr>"
+                u"<tr>"
+                u"<td>Moyens organisateur sur place (pour info)</td>"
+                u"<td>&nbsp;</td>"
+                u"</tr>"
+                u"<tr>"
+                u"<td>Moyens ZHC extra au poste de secours</td>"
+                u"<td>préciser l'horaire s'il y en a!</td>"
+                u"</tr>"
+                u"</tbody>"
+                u"</table>"
+            )
+        ),
+        default_mime_type="text/html",
         required=False,
     )
 
     discipline2 = RichText(
-        title=_(u'Discipline 2'),
-        defaultFactory=default_translator(_(
-            u'<table border="1">'
-            u'<tbody>'
-            u'<tr>'
-            u'<td width="30%">Localisation PS, PMA ...</td>'
-            u'<td>&nbsp;</td>'
-            u'</tr>'
-            u'<tr>'
-            u'<td>Moyens organisateur sur place (pour info)</td>'
-            u'<td>&nbsp;</td>'
-            u'</tr>'
-            u'<tr>'
-            u'<td>Moyens ZHC extra au poste de secours</td>'
-            u'<td>&nbsp;</td>'
-            u'</tr>'
-            u'</tbody>'
-            u'</table>'
-        )),
-        default_mime_type='text/html',
+        title=_(u"Discipline 2"),
+        defaultFactory=default_translator(
+            _(
+                u'<table border="1">'
+                u"<tbody>"
+                u"<tr>"
+                u'<td width="30%">Localisation PS, PMA ...</td>'
+                u"<td>&nbsp;</td>"
+                u"</tr>"
+                u"<tr>"
+                u"<td>Moyens organisateur sur place (pour info)</td>"
+                u"<td>&nbsp;</td>"
+                u"</tr>"
+                u"<tr>"
+                u"<td>Moyens ZHC extra au poste de secours</td>"
+                u"<td>&nbsp;</td>"
+                u"</tr>"
+                u"</tbody>"
+                u"</table>"
+            )
+        ),
+        default_mime_type="text/html",
         required=False,
     )
 
     fieldset(
-        'Alert chain and communications',
+        "Alert chain and communications",
         label=_(u"Alert chain and communications"),
-        fields=['on_site_intervention_request_management',
-                'communication_radio',
-                'directory_and_telephone_directory',
-                ]
+        fields=[
+            "on_site_intervention_request_management",
+            "communication_radio",
+            "directory_and_telephone_directory",
+        ],
     )
 
     on_site_intervention_request_management = RichText(
-        title=_(u'On-site intervention request management'),
-        required=False,
+        title=_(u"On-site intervention request management"), required=False
     )
 
     communication_radio = RichText(
-        title=_(u'Communication radio'),
-        defaultFactory=default_translator(_(
-            u'<p>Communication multidisciplinaire M HAI P0?</p>'
-            u'<ul>'
-            u'<li>groupe écouté par</li>'
-            u'<li>préciser l\'horaire</li>'
-            u'</ul>')),
-        default_mime_type='text/html',
+        title=_(u"Communication radio"),
+        defaultFactory=default_translator(
+            _(
+                u"<p>Communication multidisciplinaire M HAI P0?</p>"
+                u"<ul>"
+                u"<li>groupe écouté par</li>"
+                u"<li>préciser l'horaire</li>"
+                u"</ul>"
+            )
+        ),
+        default_mime_type="text/html",
         required=True,
     )
 
     directory_and_telephone_directory = RichText(
-        title=_(u'Directory and telephone directory'),
-        required=False,
+        title=_(u"Directory and telephone directory"), required=False
     )
 
     fieldset(
-        'Rising power',
-        label=_(u'Rising power'),
-        fields=['access_to_the_site',
-                'means',
-                'location_ppd',
-                'location_pc_ops',
-                'location_municipal_crisis_centre',
-                ]
+        "Rising power",
+        label=_(u"Rising power"),
+        fields=[
+            "access_to_the_site",
+            "means",
+            "location_ppd",
+            "location_pc_ops",
+            "location_municipal_crisis_centre",
+        ],
     )
 
-    access_to_the_site = RichText(
-        title=_(u'Access to the site'),
-        required=False,
-    )
+    access_to_the_site = RichText(title=_(u"Access to the site"), required=False)
 
-    means = RichText(
-        title=_(u'Means'),
-        required=False,
-    )
+    means = RichText(title=_(u"Means"), required=False)
 
-    location_ppd = RichText(
-        title=_(u'Location P.P.D.'),
-        required=False,
-    )
+    location_ppd = RichText(title=_(u"Location P.P.D."), required=False)
 
-    location_pc_ops = RichText(
-        title=_(u'Location P.C. OPS'),
-        required=False,
-    )
+    location_pc_ops = RichText(title=_(u"Location P.C. OPS"), required=False)
 
     location_municipal_crisis_centre = RichText(
-        title=_(u'Location municipal crisis centre'),
-        required=True,
+        title=_(u"Location municipal crisis centre"), required=True
     )
 
     fieldset(
-        'Miscellaneous remarks',
-        label=_(u'Miscellaneous remarks'),
-        fields=['preliminary_actions_to_be_undertaken',
-                'contact_person_for_information_on_this_document',
-                ]
+        "Miscellaneous remarks",
+        label=_(u"Miscellaneous remarks"),
+        fields=[
+            "preliminary_actions_to_be_undertaken",
+            "contact_person_for_information_on_this_document",
+        ],
     )
 
     preliminary_actions_to_be_undertaken = RichText(
-        title=_(u'Preliminary actions to be undertaken'),
-        required=False,
+        title=_(u"Preliminary actions to be undertaken"), required=False
     )
 
     contact_person_for_information_on_this_document = RichText(
-        title=_(u'Contact person for information on this document'),
-        required=False,
+        title=_(u"Contact person for information on this document"), required=False
     )
 
-    fieldset(
-        'Appendices',
-        label=_(u'Appendices'),
-        fields=['appendices',
-                ]
-    )
+    fieldset("Appendices", label=_(u"Appendices"), fields=["appendices"])
 
     appendices = schema.List(
-        title=_(u'Appendices'),
+        title=_(u"Appendices"),
         required=False,
-        value_type=RichText(title=_(u'Appendix')),
+        value_type=RichText(title=_(u"Appendix")),
     )
 
 
 class DefaultValueValidator(validator.SimpleFieldValidator):
-
     def validate(self, value):
         super(DefaultValueValidator, self).validate(value)
-        if self.field.defaultFactory(self) == value.output.replace('\r\n', ''):
-            raise Invalid(
-                _(u'It is necessary to change the default value')
-            )
+        if self.field.defaultFactory(self) == value.output.replace("\r\n", ""):
+            raise Invalid(_(u"It is necessary to change the default value"))
 
 
 class DefaultValueValidator2(validator.SimpleFieldValidator):
-
     def validate(self, value):
         super(DefaultValueValidator2, self).validate(value)
-        if self.field.defaultFactory(self) == value.output.replace(u"\r\n<p>\xa0</p>\r\n", u"<p>&nbsp;</p>"):
-            raise Invalid(
-                _(u'It is necessary to change the default value')
-            )
+        if self.field.defaultFactory(self) == value.output.replace(
+            u"\r\n<p>\xa0</p>\r\n", u"<p>&nbsp;</p>"
+        ):
+            raise Invalid(_(u"It is necessary to change the default value"))
 
 
 validator.WidgetValidatorDiscriminators(
-    DefaultValueValidator,
-    field=IPpie['communication_radio'],
+    DefaultValueValidator, field=IPpie["communication_radio"]
 )
 
 validator.WidgetValidatorDiscriminators(
-    DefaultValueValidator2,
-    field=IPpie['nature_and_risk_involved']
+    DefaultValueValidator2, field=IPpie["nature_and_risk_involved"]
 )
 
 
@@ -451,8 +389,8 @@ class Ppie(Container):
 
 
 class AddForm(add.DefaultAddForm, BrowserView):
-    portal_type = 'ppi_e'
-    template = ViewPageTemplateFile('templates/ppie_form_add.pt')
+    portal_type = "ppi_e"
+    template = ViewPageTemplateFile("templates/ppie_form_add.pt")
 
     def update(self):
         super(add.DefaultAddForm, self).update()
@@ -475,7 +413,7 @@ class AddForm(add.DefaultAddForm, BrowserView):
         self.group_errors = []
         self.update_fieldset_classes()
 
-    @button.buttonAndHandler(_('Save'), name='save')
+    @button.buttonAndHandler(_("Save"), name="save")
     def handleAdd(self, action):
         data, errors = self.extractData()
         if errors:
@@ -487,9 +425,7 @@ class AddForm(add.DefaultAddForm, BrowserView):
         if obj is not None:
             # mark only as finished if we get the new object
             self._finishedAdd = True
-            IStatusMessage(self.request).addStatusMessage(
-                self.success_message, "info"
-            )
+            IStatusMessage(self.request).addStatusMessage(self.success_message, "info")
 
     def handle_errors(self, errors):
 

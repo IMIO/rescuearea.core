@@ -15,7 +15,7 @@ class IFileObjectWidget(Interface):
 
 class FileObjectWidget(NamedFileWidget):
     implements(IFileObjectWidget, INamedFileWidget)
-    klass = u'named-file-widget'
+    klass = u"named-file-widget"
 
 
 @adapter(INamedFileField, interfaces.IFormLayer)

@@ -18,11 +18,12 @@ class ObjectField(Object):
 
 class GenericObject(object):
     """Baseclass for generic object registration"""
-    __name__ = ''
+
+    __name__ = ""
     __parent__ = None
 
     def getId(self):
-        return self.__name__ or ''
+        return self.__name__ or ""
 
     def __repr__(self):
         return "<GenericObject>"
@@ -33,11 +34,7 @@ class GenericObjectAdapter(FactoryAdapter):
 
 
 def generic_object_adapter(factory):
-    return type(
-        'GenericObjectAdapter',
-        (GenericObjectAdapter, ),
-        {'factory': factory},
-    )
+    return type("GenericObjectAdapter", (GenericObjectAdapter,), {"factory": factory})
 
 
 def register_object_factories(schema):
@@ -46,12 +43,11 @@ def register_object_factories(schema):
     for name, field in get_fields_from_schema(schema):
         if isinstance(field.field, ObjectField):
             f_schema = field.field.schema
-            obj_name = 'GenericObject{0}{1}'.format(name[0].upper(), name[1:])
+            obj_name = "GenericObject{0}{1}".format(name[0].upper(), name[1:])
             f_object = type(
                 obj_name,
-                (GenericObject, ),
-                {n: FieldProperty(f_schema[n])
-                 for n, f in Fields(f_schema).items()},
+                (GenericObject,),
+                {n: FieldProperty(f_schema[n]) for n, f in Fields(f_schema).items()},
             )
             setattr(sys.modules[__name__], obj_name, f_object)
             factory = implementer(f_schema)(f_object)
@@ -67,9 +63,9 @@ def get_fields_from_schema(schema):
     fields = []
     for name, field in Fields(schema).items():
         fields.append((name, field))
-        if hasattr(field.field, 'value_type'):
+        if hasattr(field.field, "value_type"):
             # Ensure that sequence field are correctly processed
             field.field = field.field.value_type
-        if hasattr(field.field, 'schema'):
+        if hasattr(field.field, "schema"):
             fields.extend(get_fields_from_schema(field.field.schema))
     return fields

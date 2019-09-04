@@ -21,29 +21,23 @@ class RescueareaCoreLayer(PloneSandboxLayer):
         self.loadZCML(package=rescuearea.core)
 
     def setUpPloneSite(self, portal):
-        applyProfile(portal, 'rescuearea.core:default')
+        applyProfile(portal, "rescuearea.core:default")
 
 
 RESCUEAREA_CORE_FIXTURE = RescueareaCoreLayer()
 
 
 RESCUEAREA_CORE_INTEGRATION_TESTING = IntegrationTesting(
-    bases=(RESCUEAREA_CORE_FIXTURE,),
-    name='RescueareaCoreLayer:IntegrationTesting',
+    bases=(RESCUEAREA_CORE_FIXTURE,), name="RescueareaCoreLayer:IntegrationTesting"
 )
 
 
 RESCUEAREA_CORE_FUNCTIONAL_TESTING = FunctionalTesting(
-    bases=(RESCUEAREA_CORE_FIXTURE,),
-    name='RescueareaCoreLayer:FunctionalTesting',
+    bases=(RESCUEAREA_CORE_FIXTURE,), name="RescueareaCoreLayer:FunctionalTesting"
 )
 
 
 RESCUEAREA_CORE_ACCEPTANCE_TESTING = FunctionalTesting(
-    bases=(
-        RESCUEAREA_CORE_FIXTURE,
-        REMOTE_LIBRARY_BUNDLE_FIXTURE,
-        z2.ZSERVER_FIXTURE,
-    ),
-    name='RescueareaCoreLayer:AcceptanceTesting',
+    bases=(RESCUEAREA_CORE_FIXTURE, REMOTE_LIBRARY_BUNDLE_FIXTURE, z2.ZSERVER_FIXTURE),
+    name="RescueareaCoreLayer:AcceptanceTesting",
 )
