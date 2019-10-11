@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b13 (unreleased)
+1.0b13 (2019-10-11)
 -------------------
 
 - Fix default value on ppie
