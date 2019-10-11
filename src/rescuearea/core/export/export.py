@@ -46,7 +46,7 @@ class ObjectFieldRenderer(BaseFieldRenderer):
         if getattr(obj, "number", None):
             try:
                 return u"{0} {1}".format(obj.number, obj.street)
-            except:
+            except:  # noqa
                 __import__("pdb").set_trace()
         return obj.street
 
