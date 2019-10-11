@@ -5,7 +5,8 @@ Changelog
 1.0b14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix export for ppi
+  [vpiret]
 
 
 1.0b13 (2019-10-11)

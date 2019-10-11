@@ -10,4 +10,7 @@
   <adapter factory=".export.FullRichTextFieldRenderer"
            provides="collective.excelexport.interfaces.IExportable" />
 
+  <adapter factory=".export.RescueareaCollectionFieldRenderer"
+           provides="collective.excelexport.interfaces.IExportable" />
+
 </configure>

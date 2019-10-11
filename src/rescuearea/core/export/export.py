@@ -1,19 +1,24 @@
 # -*- coding: utf-8 -*-
-from collective.excelexport.exportables.dexterityfields import BaseFieldRenderer
 from Products.CMFPlone.utils import safe_unicode
+from collective.excelexport.exportables.dexterityfields import BaseFieldRenderer
+from collective.excelexport.exportables.dexterityfields import CollectionFieldRenderer
+from collective.excelexport.exportables.dexterityfields import TextFieldRenderer
+from collective.excelexport.interfaces import IExportable
 from plone import api
 from plone.app.textfield.interfaces import IRichText
 from rescuearea.core.content.ppi import IAddressRowSchema
+from rescuearea.core.content.ppi import IHistoryRowSchema
 from rescuearea.core.content.ppi import IKeysCodeAccessBadgeFieldsRowSchema
 from rescuearea.core.content.ppi import ILinkFileRowSchema
 from rescuearea.core.interfaces import IRescueareaCoreLayer
-from zope.interface import Interface
 from z3c.form.interfaces import NO_VALUE
 from zope.component import adapts
+from zope.component import getMultiAdapter
 from zope.i18n import translate
+from zope.interface import Interface
+from zope.schema.interfaces import ICollection
 from zope.schema.interfaces import IObject
 from zope.schema.interfaces import IText
-from collective.excelexport.exportables.dexterityfields import TextFieldRenderer
 
 
 class ObjectFieldRenderer(BaseFieldRenderer):
@@ -111,3 +116,35 @@ class FullRichTextFieldRenderer(FullTextFieldRenderer):
     def _get_text(self, value):
         ptransforms = api.portal.get_tool("portal_transforms")
         return ptransforms.convert("html_to_text", value.output).getData().strip()
+
+
+class RescueareaCollectionFieldRenderer(CollectionFieldRenderer):
+
+    adapts(ICollection, Interface, IRescueareaCoreLayer)
+
+    separator = u"\n"
+
+    def render_value(self, obj):
+        """Gets the value to render in excel file from content value
+        """
+        value = self.get_value(obj)
+        value_type = self.field.value_type
+        if not value_type:
+            value_type = self.field
+
+        sub_renderer = getMultiAdapter(
+            (value_type, self.context, self.request), interface=IExportable
+        )
+        try:
+            for v in value:
+                if IHistoryRowSchema.providedBy(v):
+                    return u""
+        except TypeError:
+            pass
+        return (
+            value
+            and self.separator.join(
+                [sub_renderer.render_collection_entry(obj, v) for v in value]
+            )
+            or u""
+        )
