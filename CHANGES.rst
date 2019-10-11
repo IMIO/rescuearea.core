@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b14 (unreleased)
+1.0b14 (2019-10-11)
 -------------------
 
 - Fix export for ppi
