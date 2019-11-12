@@ -19,6 +19,7 @@ from zope.interface import Interface
 from zope.schema.interfaces import ICollection
 from zope.schema.interfaces import IObject
 from zope.schema.interfaces import IText
+from plone.app.textfield import RichTextValue
 
 
 class ObjectFieldRenderer(BaseFieldRenderer):
@@ -136,9 +137,16 @@ class RescueareaCollectionFieldRenderer(CollectionFieldRenderer):
             (value_type, self.context, self.request), interface=IExportable
         )
         try:
+            val = []
             for v in value:
                 if IHistoryRowSchema.providedBy(v):
                     return u""
+
+                if isinstance(v, RichTextValue):
+                    ptransforms = api.portal.get_tool("portal_transforms")
+                    val.append(ptransforms.convert("html_to_text", v.output).getData().strip())
+            if val:
+                value = val
         except TypeError:
             pass
         return (

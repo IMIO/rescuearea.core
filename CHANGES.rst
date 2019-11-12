@@ -5,7 +5,8 @@ Changelog
 1.0b15 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix export for appendix on ppié
+  [vpiret]
 
 
 1.0b14 (2019-10-11)
