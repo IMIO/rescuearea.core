@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0b15 (unreleased)
+1.0b15 (2019-11-12)
 -------------------
 
 - Fix export for appendix on ppié
