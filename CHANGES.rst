@@ -5,7 +5,8 @@ Changelog
 1.0b16 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Remove default value on export
+  [vpiret]
 
 
 1.0b15 (2019-11-12)

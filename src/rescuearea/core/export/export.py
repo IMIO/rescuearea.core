@@ -45,10 +45,7 @@ class ObjectFieldRenderer(BaseFieldRenderer):
 
     def get_num_street(self, obj):
         if getattr(obj, "number", None):
-            try:
-                return u"{0} {1}".format(obj.number, obj.street)
-            except:  # noqa
-                __import__("pdb").set_trace()
+            return u"{0} {1}".format(obj.number, obj.street)
         return obj.street
 
     def get_zip_town(self, obj):
@@ -115,6 +112,16 @@ class FullRichTextFieldRenderer(FullTextFieldRenderer):
     adapts(IRichText, Interface, IRescueareaCoreLayer)
 
     def _get_text(self, value):
+        if self.field.defaultFactory:
+            default = (
+                value.output.replace("&#13;\n", "")
+                .replace("</p><p/><p>", "</p><p></p><p>")
+                .replace(u"\xa0", "&nbsp;")
+                .replace("\r\n", "")
+            )
+            value_verif = self.field.defaultFactory(self)
+            if default == value_verif:
+                return ""
         ptransforms = api.portal.get_tool("portal_transforms")
         return ptransforms.convert("html_to_text", value.output).getData().strip()
 
